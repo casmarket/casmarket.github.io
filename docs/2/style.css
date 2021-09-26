@@ -2,10 +2,10 @@
 
 body {
 	--color: maroon;
-	--background-image: url("market2/images/background.png");
-	--logo-background: url("market2/images/header.jpg");
-	--heading1: url("market2/images/heading1.png");
-	--heading2: url("market2/images/heading2.png");
+	--background-image: url("2/images/background.png");
+	--logo-background: url("2/images/header.jpg");
+	--heading1: url("2/images/heading1.png");
+	--heading2: url("2/images/heading2.png");
 }
 
 /*====================================

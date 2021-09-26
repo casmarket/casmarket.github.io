@@ -1,9 +1,0 @@
-@namespace url("http://www.w3.org/1999/xhtml");
-
-body {
-	--color: #333333;
-	--background-image: url("programs1/images/wall-12.png");
-	--logo-background: url("programs1/images/red.png");
-	--heading1: url("programs1/images/title1-12.png");
-	--heading2: url("programs1/images/title2-12.png");
-}
