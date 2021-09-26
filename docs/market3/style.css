@@ -1,0 +1,259 @@
+@namespace url("http://www.w3.org/1999/xhtml");
+
+body {
+	--color: black;
+	--background-image: url("market3/images/background.png");
+	--logo-background: url("market3/images/header.png");
+	--heading1: url("market3/images/heading1.png");
+	--heading2: url("market3/images/heading2.png");
+}
+
+/*------------------------------------
+	見出しレベル3
+*/
+.level3,
+main > section > section > section > h1,
+body > footer h1 {
+	color: inherit;
+	font-size: 1.3em;
+	background: url("images/heading3.png") no-repeat center / contain;
+	width: 15em;
+	max-width: 90%;
+	height: 3em;
+	line-height: 3em;
+	margin: auto;
+}
+
+/*====================================
+	ロゴ
+*/
+body > header::before {
+	filter: unset;
+}
+
+/*====================================
+	概要
+*/
+/*------------------------------------
+	楽しみ方
+*/
+#access p {
+	white-space: pre-line;
+}
+
+/*------------------------------------
+	イメージ
+*/
+#summary figcaption {
+	white-space: pre-line;
+}
+
+/*====================================
+	カタログ
+*/
+#catalogue table {
+	margin: 0 auto;
+}
+
+#catalogue thead {
+	display: none;
+}
+
+#catalogue tbody {
+	display: grid;
+	grid-template-columns: auto auto;
+	justify-content: center;
+	--gap: 2em;
+	gap: var(--gap);
+	--grid-width: calc(50vw - var(--gap));
+}
+
+@media (max-width: 40em) {
+	#catalogue tbody {
+		--grid-width: 100vw;
+		grid-template-columns: auto;
+	}
+}
+
+#catalogue tbody tr {
+	display: grid;
+	--gap: 0.2em;
+	--no-width: 3em;
+	--ratio-name-to-icon: 1.5;
+	--icon-size: min(
+		calc((var(--grid-width) - var(--gap) * 2 - var(--no-width)) / (1 + var(--ratio-name-to-icon))),
+		7.5em
+	);
+	--grid-height: max(calc(var(--icon-size) / (1 + var(--work-count))), 1.5em);
+	grid-template:
+		"id              icon             name                                             " var(--grid-height)
+		"id              icon             work1                                            " var(--grid-height)
+		"id              icon             work2                                            " calc(var(--grid-height) * (var(--work-count) - 1))
+		/var(--no-width) var(--icon-size) calc(var(--icon-size) * var(--ratio-name-to-icon));
+	gap: var(--gap);
+	margin-bottom: 1em;
+}
+
+#catalogue tbody tr > * {
+	background: var(--header-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#catalogue tbody tr a {
+	max-width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#catalogue .id {
+	grid-area: id;
+}
+
+#catalogue .icon {
+	grid-area: icon;
+	background: unset;
+}
+
+#catalogue .icon img {
+	width: 100%;
+}
+
+#catalogue .name {
+	grid-area: name;
+}
+
+#catalogue .badge {
+	height: 1.5em;
+	margin-right: 0.2em;
+}
+
+#catalogue .work {
+	grid-area: work;
+}
+
+/*------------------------------------
+	ルーム会場「フロンティア」
+*/
+#frontier {
+	--work-count: 1;
+}
+
+/*------------------------------------
+	公式スタジオ会場「展示室」
+*/
+#studio {
+	--work-count: 2;
+}
+
+/*------------------------------------
+	広告
+*/
+#posters tbody {
+	display: flex;
+	flex-direction: column;
+}
+
+#posters tbody tr {
+	display: flex;
+	--icon-size: min(calc((100vw - var(--gap) * 2 - var(--no-width)) / 2), 21.5em);
+	height: var(--icon-size);
+	gap: var(--gap);
+	margin-bottom: 1em;
+}
+
+#posters .id {
+	width: var(--no-width);
+}
+
+#posters .icon {
+	width: var(--icon-size);
+}
+
+#posters .icon a {
+	height: 100%;
+}
+
+#posters .icon img {
+	width: unset;
+	height: 100%;
+}
+
+#posters .name {
+	width: var(--icon-size);
+	background: var(--header-color);
+}
+
+
+
+
+
+
+/*====================================
+	出展方法
+*/
+#exhibit ol {
+	text-align: left;
+	display: grid;
+	grid-template-columns: min(max-content, 100%);
+	justify-content: center;
+}
+
+/*====================================
+	データ規定
+*/
+#rules > section {
+	display: grid;
+	grid-template-columns: 33% 66%;
+}
+
+#rules > section > h1,
+#rules > section > p,
+#rules > section > table,
+#rules > section > section {
+	grid-column: 1 / span 2;
+}
+
+#rules > section > img {
+	width: min(100%, 15em);
+}
+
+#rules > section > ul {
+	align-self: center;
+	color:darkcyan;
+}
+
+/*------------------------------------
+	VCI
+*/
+#rules table {
+	background: whitesmoke;
+}
+
+#rules th {
+	white-space: nowrap;
+}
+
+#rules table ul {
+	list-style: none;
+	text-align: center;
+	padding: unset;
+	margin: unset;
+}
+
+#rules thead {
+	background: var(--header-color);
+}
+
+#rules tbody tr:nth-of-type(2n) {
+	background: #DDDDDD;
+}
+
+/*------------------------------------
+	広告
+*/
+#rules > section:nth-of-type(2) > img {
+	margin: 1em;
+}

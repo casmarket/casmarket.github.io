@@ -1,0 +1,72 @@
+@namespace url("http://www.w3.org/1999/xhtml");
+
+body {
+	--color: mediumblue;
+	--background-image: url("market1/images/wall.png");
+	--logo-background: url("market1/images/tower.jpg");
+	--heading1: url("market1/images/title1.png");
+	--heading2: url("market1/images/title2.png");
+}
+
+/*====================================
+	カタログ
+*/
+#catalogue table {
+	margin: 0 auto;
+}
+
+#catalogue thead {
+	display: none;
+}
+
+#catalogue tbody tr {
+	display: grid;
+	--gap: 0.2em;
+	--no-width: 3em;
+	--image-size: min(calc((100vw - var(--gap) * 3 - var(--no-width)) / 3), 15em);
+	grid-template:
+		"no              icon              owner-thumbnail   thumbnail" var(--image-size)
+		"no              name              owner-name        class    "
+		/var(--no-width) var(--image-size) var(--image-size) var(--image-size);
+	gap: var(--gap);
+	margin-bottom: 1em;
+}
+
+#catalogue tbody tr img {
+	width: 100%;
+}
+
+#catalogue tbody td:nth-of-type(1) {
+	grid-area: no;
+	background: var(--header-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#catalogue tbody th {
+	grid-area: name;
+	background: var(--header-color);
+}
+
+#catalogue tbody td:nth-of-type(2) {
+	grid-area: icon;
+}
+
+#catalogue tbody td:nth-of-type(3) {
+	grid-area: owner-name;
+	background: var(--header-color);
+}
+
+#catalogue tbody td:nth-of-type(4) {
+	grid-area: owner-thumbnail;
+}
+
+#catalogue tbody td:nth-of-type(5) {
+	grid-area: thumbnail;
+}
+
+#catalogue tbody td:nth-of-type(6) {
+	grid-area: class;
+	background: var(--header-color);
+}

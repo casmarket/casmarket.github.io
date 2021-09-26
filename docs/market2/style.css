@@ -1,0 +1,169 @@
+@namespace url("http://www.w3.org/1999/xhtml");
+
+body {
+	--color: maroon;
+	--background-image: url("market2/images/background.png");
+	--logo-background: url("market2/images/header.jpg");
+	--heading1: url("market2/images/heading1.png");
+	--heading2: url("market2/images/heading2.png");
+}
+
+/*====================================
+	カタログ
+*/
+#catalogue table {
+	margin: 0 auto;
+}
+
+#catalogue thead {
+	display: none;
+}
+
+#catalogue tbody {
+	display: grid;
+	grid-template-columns: auto auto;
+	justify-content: center;
+	--gap: 2em;
+	gap: var(--gap);
+	--grid-width: calc(50vw - var(--gap));
+}
+
+@media (max-width: 40em) {
+	#catalogue tbody {
+		--grid-width: 100vw;
+		grid-template-columns: auto;
+	}
+}
+
+#catalogue tbody tr {
+	display: grid;
+	--gap: 0.2em;
+	--no-width: 3em;
+	--ratio-name-to-icon: 1.5;
+	--icon-size: min(
+		calc((var(--grid-width) - var(--gap) * 2 - var(--no-width)) / (1 + var(--ratio-name-to-icon))),
+		7.5em
+	);
+	--grid-height: max(calc(var(--icon-size) / 2), 1.5em);
+	grid-template:
+		"no              icon             owner                                            " var(--grid-height)
+		"no              icon             work                                             " var(--grid-height)
+		/var(--no-width) var(--icon-size) calc(var(--icon-size) * var(--ratio-name-to-icon));
+	gap: var(--gap);
+	margin-bottom: 1em;
+}
+
+#catalogue tbody tr img {
+	width: 100%;
+}
+
+#catalogue tbody tr > * {
+	background: var(--header-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#catalogue tbody tr a {
+	max-width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#catalogue tbody td:nth-of-type(1) {
+	grid-area: no;
+}
+
+#catalogue tbody td:nth-of-type(2) {
+	grid-area: icon;
+	background: unset;
+}
+
+#catalogue tbody td:nth-of-type(3) {
+	grid-area: owner;
+}
+
+#catalogue tbody th {
+	grid-area: work;
+}
+
+/*------------------------------------
+	広告
+*/
+#catalogue section tbody {
+	display: flex;
+	flex-direction: column;
+}
+
+#catalogue section tbody tr {
+	display: flex;
+	--icon-size: min(calc((100vw - var(--gap) * 2 - var(--no-width)) / 2), 21.5em);
+	height: var(--icon-size);
+	gap: var(--gap);
+	margin-bottom: 1em;
+}
+
+#catalogue section tbody td:nth-of-type(1) {
+	width: var(--no-width);
+}
+
+#catalogue section tbody th {
+	width: var(--icon-size);
+}
+
+#catalogue section tbody th a {
+	height: 100%;
+}
+
+#catalogue section tbody th img {
+	width: unset;
+	height: 100%;
+}
+
+#catalogue section tbody td:nth-of-type(2) {
+	width: var(--icon-size);
+	background: var(--header-color);
+}
+
+/*====================================
+	出展方法
+*/
+#exhibit ol {
+	text-align: left;
+	display: grid;
+	grid-template-columns: min(max-content, 100%);
+	justify-content: center;
+}
+
+/*====================================
+	データ規定
+*/
+#rules > section {
+	display: grid;
+	grid-template-columns: repeat(3, 33%);
+}
+
+#rules > section > h1,
+#rules > section > p,
+#rules > section > section {
+	grid-column: 1 / span 3;
+}
+
+#rules > section > ul {
+	grid-column: 2 / span 2;
+	align-self: center;
+	color:darkcyan;
+}
+
+#rules > section:nth-of-type(1) > ul:nth-of-type(2) {
+	grid-column: 1 / span 2;
+}
+
+#rules > section > img {
+	width: min(100%, 15em);
+}
+
+#rules > section:nth-of-type(2) > img {
+	margin: 1em;
+}
