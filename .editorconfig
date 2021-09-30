@@ -7,7 +7,7 @@ guidelines = 120
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[*.yaml]
+[{*.yaml,*.yml}]
 indent_style = space
 
 [package.json]

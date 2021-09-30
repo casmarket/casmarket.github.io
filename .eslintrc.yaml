@@ -1,1 +1,5 @@
-extends: '@esperecyan/eslint-config'
+extends:
+    - '@esperecyan/eslint-config'
+    - plugin:lit/recommended
+parserOptions:
+    ecmaVersion: 2022
