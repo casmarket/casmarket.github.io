@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@esperecyan/eslint-config": "^1.0.1",
+    "eslint": "^7.32.0"
+  }
+}

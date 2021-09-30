@@ -5,10 +5,12 @@
 		}
 	],
 	"settings": {
+		"eslint.alwaysShowStatus": true
 	},
 	"extensions": {
 		"recommendations": [
-			"editorconfig.editorconfig"
+			"editorconfig.editorconfig",
+			"dbaeumer.vscode-eslint"
 		]
 	}
 }
