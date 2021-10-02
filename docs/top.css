@@ -1,8 +1,8 @@
 @namespace url("http://www.w3.org/1999/xhtml");
 
 body {
-	--background-image: url("background.png?20201021");
-	--logo-background: url("header.png");
+	--background-image: url("../background.png?20201021");
+	--logo-background: url("../header.png");
 	background-size: 100% auto;
 }
 

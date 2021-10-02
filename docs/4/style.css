@@ -2,10 +2,10 @@
 
 body {
 	--color: black;
-	--background-image: url("4/images/background.png");
-	--logo-background: url("4/images/header.png");
-	--heading1: url("4/images/heading1.png");
-	--heading2: url("4/images/heading2.png");
+	--background-image: url("../4/images/background.png");
+	--logo-background: url("../4/images/header.png");
+	--heading1: url("../4/images/heading1.png");
+	--heading2: url("../4/images/heading2.png");
 }
 
 /*------------------------------------

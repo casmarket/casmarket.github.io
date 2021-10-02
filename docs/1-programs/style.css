@@ -2,8 +2,8 @@
 
 body {
 	--color: #333333;
-	--background-image: url("1-programs/images/wall-12.png");
-	--logo-background: url("1-programs/images/red.png");
-	--heading1: url("1-programs/images/title1-12.png");
-	--heading2: url("1-programs/images/title2-12.png");
+	--background-image: url("../1-programs/images/wall-12.png");
+	--logo-background: url("../1-programs/images/red.png");
+	--heading1: url("../1-programs/images/title1-12.png");
+	--heading2: url("../1-programs/images/title2-12.png");
 }
