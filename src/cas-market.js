@@ -33,7 +33,7 @@ customElements.define('cas-market', class extends LitElement {
 			this.params = yaml.load(await (await fetch('params.yaml')).text());
 			this.staff = yaml.load(await (await fetch('staff.yaml')).text());
 			const posterPath = `images/casmarket-${this.time}-poster.png`;
-			if (await (await fetch(posterPath, { method: 'HEAD' })).ok) {
+			if ((await fetch(posterPath, { method: 'HEAD' })).ok) {
 				this.posterPaths = [ posterPath, ...this.posterPaths ];
 			}
 		})();
