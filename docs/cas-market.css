@@ -506,6 +506,13 @@ main > section > section > section > h1,
 	font-weight: unset;
 }
 
+#staff ul {
+	list-style: none;
+	margin: unset;
+	padding: unset;
+	text-align: center;
+}
+
 #staff img {
 	width: 5em;
 }
