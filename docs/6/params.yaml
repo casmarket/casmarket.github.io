@@ -1,0 +1,22 @@
+title: 秋キャスマーケット2021
+period:
+    start: 2021-11-01T19:00:00+09:00
+    end: 2021-11-08T24:00:00+09:00
+hashTag: '#秋キャス'
+applicationURL: https://virtualcast-fes.connpass.com/event/225395/
+cataloguePublicationDate: 2021-10-24T00:00:00+09:00
+concept: 古代オリンピア
+simpleTitle: 神殿
+simpleSummary: オリンピア内にある、神聖な展示場
+themeTitle: オリンピア
+themeSummary: 古代ギリシャの建築が立ち並ぶ、台地状の都市
+applicationDeadline: 2021-10-22T24:00:00+09:00
+simpleVCIUploadDeadline: 2021-10-22T24:00:00+09:00
+themePreparePeriod:
+    start: 2021-10-24T00:00:00+09:00
+    end: 2021-10-30T24:00:00+09:00
+maxSimpleCount: 30
+maxThemaCountPerVenue: 12
+maxPosterCount: 6
+oneSpacePosterPlace: 2500円(税込)
+twoSpacesPosterPlace: 3500円(税込)

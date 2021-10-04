@@ -1,0 +1,511 @@
+/*====================================
+	全体
+*/
+:host {
+	--width: 51em;
+	--heading-color: #FAFAFA;
+	display: block;
+	color: var(--color);
+	background: var(--background);
+	padding-bottom: 1.5em;
+	line-height: 1.6;
+	text-align: center;
+}
+
+a:link {
+	color: var(--color);
+	font-weight: bold;
+}
+
+a:visited {
+	color: var(--visited);
+}
+
+a[href]:hover {
+	color: var(--hover);
+}
+
+img {
+	max-width: 100%;
+}
+
+nav a img {
+	width: 10em;
+	border-style: solid;
+}
+
+/*------------------------------------
+	定義型リスト
+*/
+dl {
+	display: grid;
+	grid-auto-columns: auto auto;
+	margin: 0 auto;
+	justify-content: center;
+}
+
+dt {
+	grid-column: 1;
+	grid-row: span 100;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	background: var(--header-color);
+	margin: 0.1em;
+	padding: 0.2em;
+}
+
+dd {
+	grid-column: 2;
+	margin-left: 0.5em;
+}
+
+/*------------------------------------
+	順不同リスト
+*/
+ul {
+	text-align: initial;
+}
+
+/*------------------------------------
+	画像リンク
+*/
+section a img {
+	border: solid;
+	box-sizing: border-box;
+}
+
+/*------------------------------------
+	イメージ・リスト
+*/
+.image-list-pairs {
+	display: grid;
+	grid-template-columns: 33% 66%;
+}
+
+.image-list-pairs h1,
+.image-list-pairs p,
+.image-list-pairs .wide {
+	grid-column: span 2;
+}
+
+.image-list-pairs img:not(.wide) {
+	width: min(100%, 15em);
+}
+
+.image-list-pairs ul {
+	align-self: center;
+}
+
+/*------------------------------------
+	表
+*/
+@media (min-width: 40em) {
+	.table th {
+		white-space: nowrap;
+	}
+}
+
+.table thead {
+	background: var(--header-color);
+}
+
+.table tbody tr {
+	background: whitesmoke;
+}
+
+.table tbody tr:nth-of-type(2n) {
+	background: #DDDDDD;
+}
+
+/*====================================
+	ロゴ
+*/
+:host > header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	padding-bottom: 2em;
+}
+
+:host > header::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: var(--header) center top / cover;
+	-wbekit-mask-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) 30%, 70%, rgba(0, 0, 0, 0));
+	mask-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) 30%, 70%, rgba(0, 0, 0, 0));
+}
+
+:host > header h1 {
+	filter: drop-shadow(0.1em 0.1em 0.05em black);
+	margin: 0;
+	max-width: 20em;
+	flex-shrink: 2;
+}
+
+/*====================================
+	セクション
+*/
+main > section {
+	width: var(--width);
+	max-width: 100%;
+	margin: 5em auto;
+	padding-bottom: 5em;
+}
+
+main > section:first-of-type {
+	margin-top: 0;
+}
+
+main > section > h1 {
+	font-size: 2.9em;
+	color: var(--heading-color);
+	background: var(--heading1) no-repeat center / contain padding-box;
+	height: 4em;
+	line-height: 4em;
+	margin: 0 auto;
+	margin: auto;
+}
+
+main > section > section {
+	margin: 5em 0;
+}
+
+main > section > section > h1 {
+	font-size: 2em;
+	color: var(--heading-color);
+	background: var(--heading2) no-repeat center / contain;
+	width: 15em;
+	max-width: 90%;
+	height: 3em;
+	line-height: 3em;
+	margin: auto;
+}
+
+main > section > section > section > h1 {
+	font-size: 1.8em;
+}
+
+main > section > p {
+	white-space: pre-line;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+main > section > p,
+main > section > section > section > ul {
+	max-width: 90%;
+}
+
+/*------------------------------------
+	見出しレベル3
+*/
+.level3,
+main > section > section > section > h1,
+:host > footer h1 {
+	color: inherit;
+	font-size: 1.3em;
+	background: url("images/heading3.png") no-repeat center / contain;
+	width: 15em;
+	max-width: 90%;
+	height: 3em;
+	line-height: 3em;
+	margin: auto;
+}
+
+/*====================================
+	キャスマーケットとは?
+*/
+#summary dfn {
+	font-style: unset;
+	font-weight: bold;
+}
+
+#summary dfn::before {
+	content: "『";
+}
+
+#summary dfn::after {
+	content: "』";
+}
+
+/*------------------------------------
+	楽しみ方
+*/
+#access p {
+	white-space: pre-line;
+}
+
+/*====================================
+	出展について
+*/
+#exhibit dl dl dt {
+	background: unset;
+}
+
+#exhibit > section > section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#exhibit > section > section > div {
+	display: flex;
+}
+
+@media (max-width: 40em) {
+	#exhibit > section > section > div {
+		display: block;
+	}
+}
+
+#exhibit > section > section section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#exhibit > section > section:nth-of-type(1) section:not(:first-of-type) {
+	margin-left: 1em;
+}
+
+#exhibit > section > section:nth-of-type(2) section:not(:first-of-type) {
+	margin-left: 2em;
+}
+
+#exhibit > section > section section img {
+	height: 10em;
+}
+
+#venues {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-auto-flow: column;
+}
+
+#venues thead {
+	display: none;
+}
+
+#venues tbody,
+#venues tr {
+	display: contents;
+}
+
+#venues .simple > * {
+	grid-column: 1;
+}
+
+#venues .theme > * {
+	grid-column: 2;
+}
+
+#venues tr > * {
+	border: solid 0.1em grey;
+}
+
+#venues tr > :not(.image) {
+	border-top: unset;
+}
+
+#venues .theme > * {
+	border-left: unset;
+}
+
+#venues tbody th {
+	font-weight: initial;
+}
+
+#venues .genre dt {
+	background: unset;
+}
+
+#venues .genre dt::before {
+	content: "「";
+}
+
+#venues .genre dt::after {
+	content: "」";
+}
+
+#venues .image {
+	grid-row: 1;
+}
+
+#venues .theme .genre {
+	counter-reset: genre;
+}
+
+#venues .theme .genre dt::before {
+	counter-increment: genre;
+	content: counter(genre) ".「";
+}
+
+#accepted-count dl {
+	width: min(21em, 100vw);
+	justify-content: stretch;
+	grid-template-columns: 55% auto;
+}
+
+/*------------------------------------
+	ルームマネージャー
+*/
+#room-managers {
+	--room-managers-background: #FFCBB6;
+	--room-managers-border: #40332E;
+	--border: solid 0.3rem var(--room-managers-border);
+	background: var(--room-managers-background);
+	text-align: left;
+}
+
+#room-managers h1 {
+	font-size: 1.5em;
+	display: inline-flex;
+	width: unset;
+	height: unset;
+	color: black;
+	background: #CCCCCC;
+	border: 0.1em solid;
+	margin: 0.5em;
+	padding: 0.1em;
+	line-height: unset;
+}
+
+#room-managers table {
+	width: 100%;
+}
+
+#room-managers thead {
+	display: none;
+}
+
+#room-managers tbody {
+	display: grid;
+	grid-template-rows: auto auto auto;
+	grid-auto-flow: column dense;
+	justify-content: space-evenly;
+	justify-items: center;
+	position: relative
+}
+
+#room-managers tbody::before {
+	content: "";
+	display: block;
+	position: absolute;
+	border-bottom: var(--border);
+	width: 100%;
+	top: 2.5em;
+}
+
+#room-managers tr {
+	display: contents;
+}
+
+#room-managers .icon {
+	order: -1;
+	grid-row: 1;
+}
+
+#room-managers .icon img {
+	width: 5em;
+	border: var(--border);
+	position: relative;
+	z-index: 1;
+}
+
+#room-managers .name {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+/*====================================
+	出展ルール
+*/
+#rules .size figure {
+	margin: unset;
+}
+
+#rules .size figcaption {
+	color: #F08A04;
+	font-weight: bold;
+}
+
+#rules .size .theme {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-auto-flow: column;
+	align-items: center;
+}
+
+#rules .size .theme .large {
+	grid-row: span 2;
+}
+
+#rules .genre li::before {
+	content: "「";
+}
+
+#rules .genre li::after {
+	content: "」";
+}
+
+#rules .genre .simple ol {
+	padding: unset;
+	list-style: none;
+}
+
+#rules .application {
+	font-size: 2em;
+}
+
+/*====================================
+	ポスター・ロゴ配布
+*/
+#logo ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5em;
+}
+
+#logo li {
+	display: contents;
+}
+
+#logo .logos img {
+	height: 3em;
+	background: gainsboro;
+}
+
+/*====================================
+	スタッフ
+*/
+#staff address {
+	display: flex;
+	justify-content: center;
+	font-style: normal;
+	width: var(--width);
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+#staff thead {
+	display: none;
+}
+
+#staff tbody th {
+	padding-top: 1em;
+	font-weight: unset;
+}
+
+#staff img {
+	width: 5em;
+}

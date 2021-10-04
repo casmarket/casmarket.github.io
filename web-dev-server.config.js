@@ -2,7 +2,7 @@
 export default {
 	open: true,
 	watch: true,
-	appIndex: 'index.html',
+	appIndex: '6/index.html',
 	nodeResolve: true,
 	esbuildTarget: 'auto',
 	port: 55341,
@@ -12,8 +12,8 @@ export default {
 				context.url = '/docs' + context.url;
 				if (context.url.endsWith('/')) {
 					context.url += 'index.html';
-				} else if (context.url === ('/docs/index.js')) {
-					context.url = '/src/index.js';
+				} else if (context.url.endsWith('.js')) {
+					context.url = context.url.replace(/^\/docs\//u, '/src/');
 				}
 			}
 			return next();

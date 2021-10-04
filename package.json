@@ -2,6 +2,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "js-yaml": "^4.1.0",
     "lit": "^2.0.0"
   },
   "devDependencies": {
