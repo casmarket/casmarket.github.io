@@ -501,11 +501,6 @@ main > section > section > section > h1,
 	display: none;
 }
 
-#staff tbody th {
-	padding-top: 1em;
-	font-weight: unset;
-}
-
 #staff ul {
 	list-style: none;
 	margin: unset;
