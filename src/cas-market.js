@@ -218,7 +218,7 @@ customElements.define('cas-market', class extends LitElement {
 
 	<section>
 		<p>出展者Discordにて、問い合わせを行ったり、他出展者との交流ができます。</p>
-		<p><a rel="external" target="_blank" href="https://discord.gg/VdvBuK3Ev3">https://discord.gg/VdvBuK3Ev3</a></p>
+		<p><a rel="external" target="_blank" href="https://discord.gg/xUXadMJG7z">https://discord.gg/xUXadMJG7z</a></p>
 	</section>
 
 	<section>
@@ -305,7 +305,7 @@ customElements.define('cas-market', class extends LitElement {
 			<li>ルームそれぞれのルームマネージャーが管理し、打ち合わせることで自由な出展設営を行うことができます。</li>
 			<li>ルームリンクは設営に使用するアカウントで公開しているルームに限り、3つまで展示可能です。</li>
 			<li>上限を超えた展示数や合同制作などは、ルームマネージャーに相談の上で設置できる場合があります。</li>
-			<li><a rel="external" target="_blank" href="https://discord.gg/VdvBuK3Ev3">出展者Discord</a>
+			<li><a rel="external" target="_blank" href="https://discord.gg/xUXadMJG7z">出展者Discord</a>
 				を通じてルームマネージャーや他出展者との連絡を行います。</li>
 		</ul>
 	</section>
