@@ -242,7 +242,7 @@ customElements.define('cas-market', class extends LitElement {
 			<h1>VCI</h1>
 			<dl>
 				<dt>シンプル会場</dt><dd>先着${this.params.maxSimpleCount}名</dd>
-				<dt>テーマ会場</dt><dd>各テーマ先着${this.params.maxThemeCount}名</dd>
+				<dt>テーマ会場</dt><dd>各テーマ先着${this.params.maxThemeCountPerVenue}名</dd>
 			</dl>
 		</section>
 		<section>

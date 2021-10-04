@@ -16,7 +16,7 @@ themePreparePeriod:
     start: 2021-10-24T00:00:00+09:00
     end: 2021-10-30T24:00:00+09:00
 maxSimpleCount: 30
-maxThemaCountPerVenue: 12
+maxThemeCountPerVenue: 12
 maxPosterCount: 6
 oneSpacePosterPlace: 2500円(税込)
 twoSpacesPosterPlace: 3500円(税込)
