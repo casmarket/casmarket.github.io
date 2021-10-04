@@ -22,6 +22,7 @@ customElements.define('cas-market', class extends LitElement {
 			--header: url("${this.time}/images/header.png");
 			--heading1: url("${this.time}/images/heading1.png");
 			--heading2: url("${this.time}/images/heading2.png");
+			--heading3: url("${this.time}/images/heading3.png");
 		`;
 
 		this.widePosterPath = `images/casmarket-${this.time}-poster-wide.png`;

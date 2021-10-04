@@ -212,7 +212,7 @@ main > section > section > section > h1,
 :host > footer h1 {
 	color: inherit;
 	font-size: 1.3em;
-	background: url("images/heading3.png") no-repeat center / contain;
+	background: var(--heading3) no-repeat center / contain;
 	width: 15em;
 	max-width: 90%;
 	height: 3em;
