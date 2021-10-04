@@ -230,8 +230,8 @@ customElements.define('cas-market', class extends LitElement {
 			<dt>シンプル会場VCIアップロード</dt>
 			<dd><date-time datetime="${this.params.simpleVCIUploadDeadline.toISOString()}" ending=""></date-time></dd>
 			<dt>テーマ会場設営</dt>
-			<dd><date-time datetime="${this.params.simpleVCIUploadDeadline.toISOString()}"></date-time>
-				〜 <date-time datetime="${this.params.simpleVCIUploadDeadline.toISOString()}" ending=""></date-time></dd>
+			<dd><date-time datetime="${this.params.themePreparePeriod.start.toISOString()}"></date-time>
+				〜 <date-time datetime="${this.params.themePreparePeriod.end.toISOString()}" ending=""></date-time></dd>
 		`}</dl>
 		<small>※各日23:59までが有効</small>
 	</section>
