@@ -77,6 +77,7 @@ customElements.define('cas-market', class extends LitElement {
 	{
 		return html`
 <link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="../common.css" />
 <link rel="stylesheet" href="../cas-market.css" />
 <header>
 	<h1><a href=""><img src="images/title.png" alt="${this.eventName}" /></a></h1>

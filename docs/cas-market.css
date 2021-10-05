@@ -7,9 +7,6 @@
 	display: block;
 	color: var(--color);
 	background: var(--background);
-	padding-bottom: 1.5em;
-	line-height: 1.6;
-	text-align: center;
 }
 
 a:link {
@@ -23,15 +20,6 @@ a:visited {
 
 a[href]:hover {
 	color: var(--hover);
-}
-
-img {
-	max-width: 100%;
-}
-
-nav a img {
-	width: 10em;
-	border-style: solid;
 }
 
 /*------------------------------------
@@ -172,37 +160,6 @@ section a img {
 .navigation-header a {
 	color: inherit;
 	font-weight: inherit;
-}
-
-/*====================================
-	ロゴ
-*/
-:host > header {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	position: relative;
-	padding-bottom: 2em;
-}
-
-:host > header::before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background: var(--header) center top / cover;
-	-wbekit-mask-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) 30%, 70%, rgba(0, 0, 0, 0));
-	mask-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) 30%, 70%, rgba(0, 0, 0, 0));
-}
-
-:host > header h1 {
-	filter: drop-shadow(0.1em 0.1em 0.05em black);
-	margin: 0;
-	max-width: 20em;
-	flex-shrink: 2;
 }
 
 /*====================================
