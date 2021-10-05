@@ -6744,6 +6744,7 @@ customElements.define('cas-market', class extends lit__WEBPACK_IMPORTED_MODULE_0
 	{
 		return lit__WEBPACK_IMPORTED_MODULE_0__.html`
 <link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="../common.css" />
 <link rel="stylesheet" href="../cas-market.css" />
 <header>
 	<h1><a href=""><img src="images/title.png" alt="${this.eventName}" /></a></h1>
@@ -7246,6 +7247,58 @@ customElements.define('date-time', class extends lit__WEBPACK_IMPORTED_MODULE_0_
 });
 
 
+/***/ }),
+
+/***/ "./src/event-list.js":
+/*!***************************!*\
+  !*** ./src/event-list.js ***!
+  \***************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lit */ "./node_modules/lit/index.js");
+/* harmony import */ var js_yaml__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! js-yaml */ "./node_modules/js-yaml/dist/js-yaml.mjs");
+
+
+
+customElements.define('event-list', class extends lit__WEBPACK_IMPORTED_MODULE_0__.LitElement {
+	static styles = lit__WEBPACK_IMPORTED_MODULE_0__.css`
+		nav {
+			display: grid;
+			grid-template-columns: auto auto;
+			justify-content: center;
+			gap: 1em;
+		}
+
+		nav a img {
+			width: 20em;
+			border-style: solid;
+		}
+	`;
+
+	static properties = {
+		eventIdNamePairs: { attribute: false },
+	};
+
+	constructor()
+	{
+		super();
+
+		this.eventIdNamePairs = [ ];
+		(async () => {
+			this.eventIdNamePairs = js_yaml__WEBPACK_IMPORTED_MODULE_1__["default"].load(await (await fetch('events.yaml')).text());
+		})();
+	}
+
+	render()
+	{
+		return lit__WEBPACK_IMPORTED_MODULE_0__.html`<nav>${this.eventIdNamePairs.map(({ id, name }) => lit__WEBPACK_IMPORTED_MODULE_0__.html`
+			<a href="./${id}/"><img src="${id}/images/casmarket-${id}-poster-wide.png" alt="${name}" /></a>
+		`)}</nav>`;
+	}
+});
+
+
 /***/ })
 
 /******/ 	});
@@ -7312,8 +7365,10 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _canonicalize_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./canonicalize.js */ "./src/canonicalize.js");
-/* harmony import */ var _cas_market_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cas-market.js */ "./src/cas-market.js");
-/* harmony import */ var _date_time_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./date-time.js */ "./src/date-time.js");
+/* harmony import */ var _event_list_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./event-list.js */ "./src/event-list.js");
+/* harmony import */ var _cas_market_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cas-market.js */ "./src/cas-market.js");
+/* harmony import */ var _date_time_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./date-time.js */ "./src/date-time.js");
+
 
 
 
