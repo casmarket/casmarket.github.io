@@ -5284,6 +5284,34 @@ if (DEV_MODE && globalThis.litElementVersions.length > 1) {
 
 /***/ }),
 
+/***/ "./node_modules/lit-html/development/directives/if-defined.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/lit-html/development/directives/if-defined.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ifDefined": () => (/* binding */ ifDefined)
+/* harmony export */ });
+/* harmony import */ var _lit_html_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../lit-html.js */ "./node_modules/lit-html/development/lit-html.js");
+/**
+ * @license
+ * Copyright 2018 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+/**
+ * For AttributeParts, sets the attribute if the value is defined and removes
+ * the attribute if the value is undefined.
+ *
+ * For other part types, this directive is a no-op.
+ */
+const ifDefined = (value) => value !== null && value !== void 0 ? value : _lit_html_js__WEBPACK_IMPORTED_MODULE_0__.nothing;
+//# sourceMappingURL=if-defined.js.map
+
+/***/ }),
+
 /***/ "./node_modules/lit-html/development/lit-html.js":
 /*!*******************************************************!*\
   !*** ./node_modules/lit-html/development/lit-html.js ***!
@@ -6559,6 +6587,23 @@ if (DEV_MODE && globalThis.litHtmlVersions.length > 1) {
 
 /***/ }),
 
+/***/ "./node_modules/lit/directives/if-defined.js":
+/*!***************************************************!*\
+  !*** ./node_modules/lit/directives/if-defined.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ifDefined": () => (/* reexport safe */ lit_html_directives_if_defined_js__WEBPACK_IMPORTED_MODULE_0__.ifDefined)
+/* harmony export */ });
+/* harmony import */ var lit_html_directives_if_defined_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lit-html/directives/if-defined.js */ "./node_modules/lit-html/development/directives/if-defined.js");
+
+//# sourceMappingURL=if-defined.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/lit/index.js":
 /*!***********************************!*\
   !*** ./node_modules/lit/index.js ***!
@@ -6618,15 +6663,19 @@ if (location.pathname.endsWith('/index.html')) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lit */ "./node_modules/lit/index.js");
-/* harmony import */ var js_yaml__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! js-yaml */ "./node_modules/js-yaml/dist/js-yaml.mjs");
+/* harmony import */ var lit_directives_if_defined_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lit/directives/if-defined.js */ "./node_modules/lit/directives/if-defined.js");
+/* harmony import */ var js_yaml__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js-yaml */ "./node_modules/js-yaml/dist/js-yaml.mjs");
+
 
 
 
 customElements.define('cas-market', class extends lit__WEBPACK_IMPORTED_MODULE_0__.LitElement {
 	static properties = {
-		time: { attribute: false },
+		eventId: { attribute: false },
 		widePosterPath: { attribute: false },
 		posterPaths: { attribute: false },
+		eventIdNamePairs: { attribute: false },
+		eventName: { attribute: false },
 		params: { attribute: false },
 		staff: { attribute: false },
 	};
@@ -6635,29 +6684,60 @@ customElements.define('cas-market', class extends lit__WEBPACK_IMPORTED_MODULE_0
 	{
 		super();
 
-		this.time = Number.parseInt(/\/([0-9]+)\//u.exec(location.pathname)[1]);
+		addEventListener('hashchange', () => {
+			this.jumpToAnchor();
+		});
+
+		this.eventId = /\/([0-9]+)\//u.exec(location.pathname)[1];
 
 		document.body.style.margin = '0';
 		this.style.cssText += `
-			--background: url("${this.time}/images/background.png");
-			--header: url("${this.time}/images/header.png");
-			--heading1: url("${this.time}/images/heading1.png");
-			--heading2: url("${this.time}/images/heading2.png");
-			--heading3: url("${this.time}/images/heading3.png");
+			--background: url("${this.eventId}/images/background.png");
+			--header: url("${this.eventId}/images/header.png");
+			--heading1: url("${this.eventId}/images/heading1.png");
+			--heading2: url("${this.eventId}/images/heading2.png");
+			--heading3: url("${this.eventId}/images/heading3.png");
 		`;
 
-		this.widePosterPath = `images/casmarket-${this.time}-poster-wide.png`;
+		this.widePosterPath = `images/casmarket-${this.eventId}-poster-wide.png`;
 		this.posterPaths = [ this.widePosterPath ];
 
 		this.params = { };
-		(async () => {
-			this.params = js_yaml__WEBPACK_IMPORTED_MODULE_1__["default"].load(await (await fetch('params.yaml')).text());
-			this.staff = js_yaml__WEBPACK_IMPORTED_MODULE_1__["default"].load(await (await fetch('staff.yaml')).text());
-			const posterPath = `images/casmarket-${this.time}-poster.png`;
-			if (await (await fetch(posterPath, { method: 'HEAD' })).ok) {
-				this.posterPaths = [ posterPath, ...this.posterPaths ];
+		[
+			[ 'eventIdNamePairs', '../events.yaml'],
+			[ 'params', 'params.yaml'],
+			[ 'staff', 'staff.yaml'],
+		].forEach(async ([propertyName, filePath]) => {
+			this[propertyName] = js_yaml__WEBPACK_IMPORTED_MODULE_2__["default"].load(await (await fetch(filePath)).text());
+
+			if (propertyName === 'eventIdNamePairs') {
+				this.eventName = this.eventIdNamePairs.find(({ id }) => id === this.eventId).name;
 			}
-		})();
+		});
+
+		const posterPath = `images/casmarket-${this.eventId}-poster.png`;
+		fetch(posterPath, { method: 'HEAD' }).then(response => {
+			if (!response.ok) {
+				return;
+			}
+			this.posterPaths = [ posterPath, ...this.posterPaths ];
+		});
+	}
+
+	firstUpdated()
+	{
+		this.jumpToAnchor();
+	}
+
+	jumpToAnchor()
+	{
+		const anchor = this.shadowRoot.getElementById(location.hash.replace('#', ''));
+		if (!anchor) {
+			return;
+		}
+		setTimeout(() => {
+			anchor.scrollIntoView();
+		});
 	}
 
 	render()
@@ -6666,7 +6746,25 @@ customElements.define('cas-market', class extends lit__WEBPACK_IMPORTED_MODULE_0
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="../cas-market.css" />
 <header>
-	<h1><a href=""><img src="images/title.png" alt="${this.params.title}" /></a></h1>
+	<h1><a href=""><img src="images/title.png" alt="${this.eventName}" /></a></h1>
+	<div class="navigation-header">
+		<div>
+			<nav>
+				<a href="../">キャスポータル</a>
+			</nav>
+			<nav>
+				<a href="#catalogue" @click="${this.jumpToAnchor}">カタログ</a>
+			</nav>
+			<nav class="events">
+				<details>
+					<summary>イベント一覧</summary>
+					<ol>${this.eventIdNamePairs && this.eventIdNamePairs.map(({ id, name }) => lit__WEBPACK_IMPORTED_MODULE_0__.html`
+						<li><a href="../${(0,lit_directives_if_defined_js__WEBPACK_IMPORTED_MODULE_1__.ifDefined)(id !== this.eventId ? id : null)}/">${name}</a></li>
+					`)}</ol>
+				</details>
+			</nav>
+		</div>
+	</div>
 </header>
 
 <main>
@@ -6819,7 +6917,7 @@ customElements.define('cas-market', class extends lit__WEBPACK_IMPORTED_MODULE_0
 	</section>
 
 	<section id="room-managers">
-		<h1>${this.params.title}　ルームマネージャーの皆さん</h1>
+		<h1>${this.eventName}　ルームマネージャーの皆さん</h1>
 		<table>
 			<thead>
 				<tr>
@@ -7061,10 +7159,10 @@ customElements.define('cas-market', class extends lit__WEBPACK_IMPORTED_MODULE_0
 		${this.posterPaths.map(path => lit__WEBPACK_IMPORTED_MODULE_0__.html`<li><a target="_blank" href="${path}"><img src="${path}" /></a></li>`)}
 	</ul>
 	<ul class="logos">${[
-		`images/casmarket-${this.time}-logo-black.png`,
-		`images/casmarket-${this.time}-logo-white.png`,
-		`images/casmarket-${this.time}-logo-black-narrow.png`,
-		`images/casmarket-${this.time}-logo-white-narrow.png`,
+		`images/casmarket-${this.eventId}-logo-black.png`,
+		`images/casmarket-${this.eventId}-logo-white.png`,
+		`images/casmarket-${this.eventId}-logo-black-narrow.png`,
+		`images/casmarket-${this.eventId}-logo-white-narrow.png`,
 	].map(path => lit__WEBPACK_IMPORTED_MODULE_0__.html`<li><a target="_blank" href="${path}"><img src="${path}" /></a></li>`)}</ul>
 
 </section>
