@@ -1,11 +1,14 @@
 import { LitElement, html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import yaml from 'js-yaml';
 
 customElements.define('cas-market', class extends LitElement {
 	static properties = {
-		time: { attribute: false },
+		eventId: { attribute: false },
 		widePosterPath: { attribute: false },
 		posterPaths: { attribute: false },
+		eventIdNamePairs: { attribute: false },
+		eventName: { attribute: false },
 		params: { attribute: false },
 		staff: { attribute: false },
 	};
@@ -14,29 +17,60 @@ customElements.define('cas-market', class extends LitElement {
 	{
 		super();
 
-		this.time = Number.parseInt(/\/([0-9]+)\//u.exec(location.pathname)[1]);
+		addEventListener('hashchange', () => {
+			this.jumpToAnchor();
+		});
+
+		this.eventId = /\/([0-9]+)\//u.exec(location.pathname)[1];
 
 		document.body.style.margin = '0';
 		this.style.cssText += `
-			--background: url("${this.time}/images/background.png");
-			--header: url("${this.time}/images/header.png");
-			--heading1: url("${this.time}/images/heading1.png");
-			--heading2: url("${this.time}/images/heading2.png");
-			--heading3: url("${this.time}/images/heading3.png");
+			--background: url("${this.eventId}/images/background.png");
+			--header: url("${this.eventId}/images/header.png");
+			--heading1: url("${this.eventId}/images/heading1.png");
+			--heading2: url("${this.eventId}/images/heading2.png");
+			--heading3: url("${this.eventId}/images/heading3.png");
 		`;
 
-		this.widePosterPath = `images/casmarket-${this.time}-poster-wide.png`;
+		this.widePosterPath = `images/casmarket-${this.eventId}-poster-wide.png`;
 		this.posterPaths = [ this.widePosterPath ];
 
 		this.params = { };
-		(async () => {
-			this.params = yaml.load(await (await fetch('params.yaml')).text());
-			this.staff = yaml.load(await (await fetch('staff.yaml')).text());
-			const posterPath = `images/casmarket-${this.time}-poster.png`;
-			if ((await fetch(posterPath, { method: 'HEAD' })).ok) {
-				this.posterPaths = [ posterPath, ...this.posterPaths ];
+		[
+			[ 'eventIdNamePairs', '../events.yaml'],
+			[ 'params', 'params.yaml'],
+			[ 'staff', 'staff.yaml'],
+		].forEach(async ([propertyName, filePath]) => {
+			this[propertyName] = yaml.load(await (await fetch(filePath)).text());
+
+			if (propertyName === 'eventIdNamePairs') {
+				this.eventName = this.eventIdNamePairs.find(({ id }) => id === this.eventId).name;
 			}
-		})();
+		});
+
+		const posterPath = `images/casmarket-${this.eventId}-poster.png`;
+		fetch(posterPath, { method: 'HEAD' }).then(response => {
+			if (!response.ok) {
+				return;
+			}
+			this.posterPaths = [ posterPath, ...this.posterPaths ];
+		});
+	}
+
+	firstUpdated()
+	{
+		this.jumpToAnchor();
+	}
+
+	jumpToAnchor()
+	{
+		const anchor = this.shadowRoot.getElementById(location.hash.replace('#', ''));
+		if (!anchor) {
+			return;
+		}
+		setTimeout(() => {
+			anchor.scrollIntoView();
+		});
 	}
 
 	render()
@@ -45,7 +79,25 @@ customElements.define('cas-market', class extends LitElement {
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="../cas-market.css" />
 <header>
-	<h1><a href=""><img src="images/title.png" alt="${this.params.title}" /></a></h1>
+	<h1><a href=""><img src="images/title.png" alt="${this.eventName}" /></a></h1>
+	<div class="navigation-header">
+		<div>
+			<nav>
+				<a href="../">キャスポータル</a>
+			</nav>
+			<nav>
+				<a href="#catalogue" @click="${this.jumpToAnchor}">カタログ</a>
+			</nav>
+			<nav class="events">
+				<details>
+					<summary>イベント一覧</summary>
+					<ol>${this.eventIdNamePairs && this.eventIdNamePairs.map(({ id, name }) => html`
+						<li><a href="../${ifDefined(id !== this.eventId ? id : null)}/">${name}</a></li>
+					`)}</ol>
+				</details>
+			</nav>
+		</div>
+	</div>
 </header>
 
 <main>
@@ -198,7 +250,7 @@ customElements.define('cas-market', class extends LitElement {
 	</section>
 
 	<section id="room-managers">
-		<h1>${this.params.title}　ルームマネージャーの皆さん</h1>
+		<h1>${this.eventName}　ルームマネージャーの皆さん</h1>
 		<table>
 			<thead>
 				<tr>
@@ -440,10 +492,10 @@ customElements.define('cas-market', class extends LitElement {
 		${this.posterPaths.map(path => html`<li><a target="_blank" href="${path}"><img src="${path}" /></a></li>`)}
 	</ul>
 	<ul class="logos">${[
-		`images/casmarket-${this.time}-logo-black.png`,
-		`images/casmarket-${this.time}-logo-white.png`,
-		`images/casmarket-${this.time}-logo-black-narrow.png`,
-		`images/casmarket-${this.time}-logo-white-narrow.png`,
+		`images/casmarket-${this.eventId}-logo-black.png`,
+		`images/casmarket-${this.eventId}-logo-white.png`,
+		`images/casmarket-${this.eventId}-logo-black-narrow.png`,
+		`images/casmarket-${this.eventId}-logo-white-narrow.png`,
 	].map(path => html`<li><a target="_blank" href="${path}"><img src="${path}" /></a></li>`)}</ul>
 
 </section>
