@@ -3,16 +3,16 @@
   "type": "module",
   "dependencies": {
     "js-yaml": "^4.1.0",
-    "lit": "^2.0.0"
+    "lit": "^2.0.0",
+    "webpack": "^5.55.1",
+    "webpack-cli": "^4.8.0"
   },
   "devDependencies": {
     "@esperecyan/eslint-config": "^1.0.1",
     "@web/dev-server": "^0.1.24",
     "@web/dev-server-esbuild": "^0.2.14",
     "eslint": "^8.0.0-rc.0",
-    "eslint-plugin-lit": "^1.5.1",
-    "webpack": "^5.55.1",
-    "webpack-cli": "^4.8.0"
+    "eslint-plugin-lit": "^1.5.1"
   },
   "scripts": {
     "start": "web-dev-server",

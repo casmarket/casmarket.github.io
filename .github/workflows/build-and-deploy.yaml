@@ -12,7 +12,7 @@ jobs:
               with:
                 node-version: '16'
                 cache: 'npm'
-            - run: npm install
+            - run: npm install --production
             - run: npm run build
             - uses: peaceiris/actions-gh-pages@068dc23d9710f1ba62e86896f84735d869951305 # v3.8.0
               with:
