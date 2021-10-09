@@ -6,9 +6,9 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 /** @type {import('webpack').Configuration} */
 export default {
 	mode: 'development',
-	entry: './src/index.js',
+	entry: './docs/scripts/index.js',
 	output: {
-		path: path.resolve(dirname, 'docs'),
+		path: path.resolve(dirname, 'docs/scripts'),
 		filename: 'index.js',
 		scriptType: 'module',
 	},

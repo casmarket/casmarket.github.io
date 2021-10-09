@@ -12,8 +12,6 @@ export default {
 				context.url = '/docs' + context.url;
 				if (context.url.endsWith('/')) {
 					context.url += 'index.html';
-				} else if (context.url.endsWith('.js')) {
-					context.url = context.url.replace(/^\/docs\//u, '/src/');
 				}
 			}
 			return next();
