@@ -2,6 +2,7 @@
 	"recommendations": [
 		"editorconfig.editorconfig",
 		"dbaeumer.vscode-eslint",
-		"runem.lit-plugin"
+		"runem.lit-plugin",
+		"redhat.vscode-yaml"
 	]
 }
