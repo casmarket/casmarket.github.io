@@ -1,0 +1,58 @@
+@namespace url("http://www.w3.org/1999/xhtml");
+
+/*====================================
+	夏キャスマーケットとは?
+*/
+#summary dfn {
+	font-style: unset;
+	font-weight: bold;
+}
+
+#summary dfn::before {
+	content: "『";
+}
+
+#summary dfn::after {
+	content: "』";
+}
+
+/*====================================
+	出展募集要項
+*/
+#exhibit dl dl dt {
+	background: unset;
+}
+
+#exhibit > section > section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#exhibit > section > section > div {
+	display: flex;
+}
+
+@media (max-width: 40em) {
+	#exhibit > section > section > div {
+		display: block;
+	}
+}
+
+#exhibit > section > section section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#exhibit > section > section:nth-of-type(1) section:not(:first-of-type) {
+	margin-left: 1em;
+}
+
+#exhibit > section > section:nth-of-type(2) section:not(:first-of-type) {
+	margin-left: 2em;
+}
+
+#exhibit > section > section section img {
+	height: 10em;
+}

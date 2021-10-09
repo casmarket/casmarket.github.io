@@ -1,0 +1,108 @@
+@namespace url("http://www.w3.org/1999/xhtml");
+
+/*====================================
+	番組表
+*/
+#programs table {
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	--header-color2: #F4CCCC;
+	--gap: 0.2em;
+}
+
+#programs table > * {
+	display: contents;
+}
+
+#programs tr {
+	display: grid;
+	grid-template-columns: min(calc(100vw / 3), 12em) 4em  2fr 3fr;
+	grid-auto-rows: minmax(3em, auto);
+	gap: var(--gap);
+	margin-bottom: var(--gap);
+}
+
+#programs tr > * {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#programs thead tr {
+	grid-template-areas:
+		"thumbnail time title   performers";
+}
+
+#programs thead tr > :nth-child(5) {
+	display: none;
+}
+
+#programs thead th {
+	background: var(--header-color2) !important;
+	font-weight: normal;
+}
+
+#programs tbody tr:first-of-type {
+	display: table-row;
+	color: var(--background);
+	background: #3D85C6;
+}
+
+#programs tbody:first-of-type tr:first-of-type {
+	order: -1;
+}
+
+#programs tbody tr:first-of-type th {
+	font-size: 2em;
+	background: unset;
+}
+
+#programs tbody:nth-of-type(2n) tr:first-of-type  {	
+	background: #CC0000;
+}
+
+#programs tbody tr {
+	grid-template-areas:
+		"thumbnail time title   performers"
+		"thumbnail time summary summary   ";
+}
+
+#programs tbody tr.without-summary {
+	grid-template-areas:
+		"thumbnail time title performers";
+}
+
+#programs tbody tr img {
+	width: 100%;
+}
+
+#programs tr > :nth-child(1) {
+	grid-area: thumbnail;
+	background: var(--header-color);
+}
+
+#programs tr > :nth-child(2) {
+	grid-area: time;
+}
+
+#programs tr > :nth-child(3) {
+	grid-area: title;
+}
+
+#programs tr > :nth-child(4) {
+	grid-area: performers;
+}
+
+#programs tr > :nth-child(5) {
+	grid-area: summary;
+	background: var(--header-color2);
+}
+
+#programs tbody tr.without-summary td:nth-of-type(4) {
+	display: none;
+}
+
+#programs tbody tr.without-summary > * {
+	background: #FCE5CD;
+}
