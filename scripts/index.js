@@ -574,9 +574,9 @@ customElements.define('cas-market', class extends lit__WEBPACK_IMPORTED_MODULE_0
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lit */ "./node_modules/lit/index.js");
+/* harmony import */ var _dates_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dates.js */ "./docs/scripts/dates.js");
 
 
-const LOCALE = 'ja';
 
 customElements.define('date-time', class extends lit__WEBPACK_IMPORTED_MODULE_0__.LitElement {
 	static properties = {
@@ -592,20 +592,54 @@ customElements.define('date-time', class extends lit__WEBPACK_IMPORTED_MODULE_0_
 	render()
 	{
 		const date = new Date(this.dateTime);
-		if (this.ending) {
-			// 1秒前に (dateTimeが翌日の00:00:00なら23:59:59に)
-			date.setSeconds(date.getSeconds() - 1);
-		}
-		const options = { month: 'long', day: 'numeric', weekday: 'short' };
-		if (this.displayYear) {
-			Object.assign(options, { year: 'numeric' });
-		}
-		if (this.displayTime) {
-			Object.assign(options, { hour: '2-digit', minute: '2-digit' });
-		}
-		return lit__WEBPACK_IMPORTED_MODULE_0__.html`<time datetime="${this.dateTime.toISOString()}">${date.toLocaleString(LOCALE, options)}</time>`;
+		return lit__WEBPACK_IMPORTED_MODULE_0__.html`<time datetime="${this.dateTime.toISOString()}">${_dates_js__WEBPACK_IMPORTED_MODULE_1__.toHumanReadable({
+			date,
+			ending: this.ending,
+			displayYear: this.displayYear,
+			displayTime: this.displayTime,
+		})}</time>`;
 	}
 });
+
+
+/***/ }),
+
+/***/ "./docs/scripts/dates.js":
+/*!*******************************!*\
+  !*** ./docs/scripts/dates.js ***!
+  \*******************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "toHumanReadable": () => (/* binding */ toHumanReadable)
+/* harmony export */ });
+const LOCALE = 'ja';
+
+/**
+ * 日時を読みやすい表記で返します。
+ * @param {Object} params
+ * @param {Date} params.date
+ * @param {boolean} params.ending
+ * @param {boolean} params.displayYear
+ * @param {boolean} params.displayTime
+ * @returns {string}
+ */
+function toHumanReadable({ date, ending, displayYear, displayTime })
+{
+	if (ending) {
+		// 1秒前に (dateTimeが翌日の00:00:00なら23:59:59に)
+		date.setSeconds(date.getSeconds() - 1);
+	}
+	const options = { month: 'long', day: 'numeric', weekday: 'short' };
+	if (displayYear) {
+		Object.assign(options, { year: 'numeric' });
+	}
+	if (displayTime) {
+		Object.assign(options, { hour: '2-digit', minute: '2-digit' });
+	}
+	return date.toLocaleString(LOCALE, options);
+}
 
 
 /***/ }),
