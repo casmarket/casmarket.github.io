@@ -1,6 +1,7 @@
 import { LitElement, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import yaml from 'js-yaml';
+import './date-time.js';
 
 customElements.define('cas-market', class extends LitElement {
 	static properties = {
