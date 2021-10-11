@@ -1,14 +1,13 @@
 import { LitElement, html } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import yaml from 'js-yaml';
 import './date-time.js';
+import './navigation-header.js';
 
 customElements.define('cas-market', class extends LitElement {
 	static properties = {
 		eventId: { attribute: false },
 		widePosterPath: { attribute: false },
 		posterPaths: { attribute: false },
-		eventIdNamePairs: { attribute: false },
 		eventName: { attribute: false },
 		params: { attribute: false },
 		staff: { attribute: false },
@@ -42,10 +41,11 @@ customElements.define('cas-market', class extends LitElement {
 			[ 'params', 'params.yaml'],
 			[ 'staff', 'staff.yaml'],
 		].forEach(async ([propertyName, filePath]) => {
-			this[propertyName] = yaml.load(await (await fetch(filePath)).text());
-
+			const value = yaml.load(await (await fetch(filePath)).text());
 			if (propertyName === 'eventIdNamePairs') {
-				this.eventName = this.eventIdNamePairs.find(({ id }) => id === this.eventId).name;
+				this.eventName = value.find(({ id }) => id === this.eventId).name;
+			} else {
+				this[propertyName] = value;
 			}
 		});
 
@@ -82,24 +82,12 @@ customElements.define('cas-market', class extends LitElement {
 <link rel="stylesheet" href="../cas-market.css" />
 <header>
 	<h1><a href=""><img src="images/title.png" alt="${this.eventName}" /></a></h1>
-	<div class="navigation-header">
-		<div>
-			<nav>
-				<a href="../">キャスポータル</a>
-			</nav>
-			<nav>
-				<a href="#catalogue" @click="${this.jumpToAnchor}">カタログ</a>
-			</nav>
-			<nav class="events">
-				<details>
-					<summary>イベント一覧</summary>
-					<ol>${this.eventIdNamePairs && this.eventIdNamePairs.map(({ id, name }) => html`
-						<li><a href="../${ifDefined(id !== this.eventId ? id : null)}/">${name}</a></li>
-					`)}</ol>
-				</details>
-			</nav>
-		</div>
-	</div>
+
+	<navigation-header eventid="${this.eventId}" @click="${function (event) {
+		if (event.target.getAttribute('href')?.startsWith('#')) {
+			this.jumpToAnchor();
+		}
+	}}"></navigation-header>
 </header>
 
 <main>

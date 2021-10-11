@@ -7,6 +7,7 @@ body {
 	--hover: deepskyblue;
 
 	--header-color: #CFE2F3;
+	--heading-color: var(--header-color);
 
 	--width: 51em;
 
