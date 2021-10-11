@@ -24,8 +24,10 @@ if (location.pathname.endsWith('/index.html')) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lit */ "./node_modules/lit/index.js");
-/* harmony import */ var lit_directives_if_defined_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lit/directives/if-defined.js */ "./node_modules/lit/directives/if-defined.js");
-/* harmony import */ var js_yaml__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js-yaml */ "./node_modules/js-yaml/dist/js-yaml.mjs");
+/* harmony import */ var js_yaml__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! js-yaml */ "./node_modules/js-yaml/dist/js-yaml.mjs");
+/* harmony import */ var _date_time_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./date-time.js */ "./docs/scripts/date-time.js");
+/* harmony import */ var _navigation_header_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./navigation-header.js */ "./docs/scripts/navigation-header.js");
+
 
 
 
@@ -35,7 +37,6 @@ customElements.define('cas-market', class extends lit__WEBPACK_IMPORTED_MODULE_0
 		eventId: { attribute: false },
 		widePosterPath: { attribute: false },
 		posterPaths: { attribute: false },
-		eventIdNamePairs: { attribute: false },
 		eventName: { attribute: false },
 		params: { attribute: false },
 		staff: { attribute: false },
@@ -69,10 +70,11 @@ customElements.define('cas-market', class extends lit__WEBPACK_IMPORTED_MODULE_0
 			[ 'params', 'params.yaml'],
 			[ 'staff', 'staff.yaml'],
 		].forEach(async ([propertyName, filePath]) => {
-			this[propertyName] = js_yaml__WEBPACK_IMPORTED_MODULE_2__["default"].load(await (await fetch(filePath)).text());
-
+			const value = js_yaml__WEBPACK_IMPORTED_MODULE_1__["default"].load(await (await fetch(filePath)).text());
 			if (propertyName === 'eventIdNamePairs') {
-				this.eventName = this.eventIdNamePairs.find(({ id }) => id === this.eventId).name;
+				this.eventName = value.find(({ id }) => id === this.eventId).name;
+			} else {
+				this[propertyName] = value;
 			}
 		});
 
@@ -109,24 +111,12 @@ customElements.define('cas-market', class extends lit__WEBPACK_IMPORTED_MODULE_0
 <link rel="stylesheet" href="../cas-market.css" />
 <header>
 	<h1><a href=""><img src="images/title.png" alt="${this.eventName}" /></a></h1>
-	<div class="navigation-header">
-		<div>
-			<nav>
-				<a href="../">キャスポータル</a>
-			</nav>
-			<nav>
-				<a href="#catalogue" @click="${this.jumpToAnchor}">カタログ</a>
-			</nav>
-			<nav class="events">
-				<details>
-					<summary>イベント一覧</summary>
-					<ol>${this.eventIdNamePairs && this.eventIdNamePairs.map(({ id, name }) => lit__WEBPACK_IMPORTED_MODULE_0__.html`
-						<li><a href="../${(0,lit_directives_if_defined_js__WEBPACK_IMPORTED_MODULE_1__.ifDefined)(id !== this.eventId ? id : null)}/">${name}</a></li>
-					`)}</ol>
-				</details>
-			</nav>
-		</div>
-	</div>
+
+	<navigation-header eventid="${this.eventId}" @click="${function (event) {
+		if (event.target.getAttribute('href')?.startsWith('#')) {
+			this.jumpToAnchor();
+		}
+	}}"></navigation-header>
 </header>
 
 <main>
@@ -696,6 +686,119 @@ customElements.define('event-list', class extends lit__WEBPACK_IMPORTED_MODULE_0
 
 /***/ }),
 
+/***/ "./docs/scripts/navigation-header.js":
+/*!*******************************************!*\
+  !*** ./docs/scripts/navigation-header.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lit */ "./node_modules/lit/index.js");
+/* harmony import */ var lit_directives_if_defined_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lit/directives/if-defined.js */ "./node_modules/lit/directives/if-defined.js");
+/* harmony import */ var js_yaml__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js-yaml */ "./node_modules/js-yaml/dist/js-yaml.mjs");
+
+
+
+
+customElements.define('navigation-header', class extends lit__WEBPACK_IMPORTED_MODULE_0__.LitElement {
+	static styles = lit__WEBPACK_IMPORTED_MODULE_0__.css`
+		:host {
+			font-size: 0.8em;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			display: flex;
+			justify-content: center;
+			background: var(--color);
+			color: var(--heading-color);
+		}
+
+		:host > div {
+			display: flex;
+			width: min(var(--width), 100%);
+			justify-content: space-between;
+			position: relative;
+		}
+
+		:host .events summary {
+			list-style: none;
+			cursor: pointer;
+		}
+
+		:host .events summary::after {
+			content: "◂";
+			margin-left: 0.5em;
+		}
+
+		:host .events [open] summary::after {
+			content: "▾";
+		}
+
+		:host .events ol {
+			position: absolute;
+			right: 0;
+			background: var(--color);
+			list-style: none;
+			margin: unset;
+			padding: unset;
+			text-align: left;
+		}
+
+		:host .events li {
+			margin: 1em;
+		}
+
+		:host a {
+			color: inherit;
+			font-weight: inherit;
+		}
+	`;
+
+	static properties = {
+		eventId: { type: String },
+		anchorId: { type: String },
+		anchorLinkText: { type: String },
+		eventIdNamePairs: { attribute: false },
+	};
+
+	constructor()
+	{
+		super();
+
+		this.eventIdNamePairs = [ ];
+		(async () => {
+			this.eventIdNamePairs = js_yaml__WEBPACK_IMPORTED_MODULE_2__["default"].load(await (await fetch('../events.yaml')).text());
+		})();
+
+		this.anchorId = 'catalogue';
+		this.anchorLinkText = 'カタログ';
+	}
+
+	render()
+	{
+		return lit__WEBPACK_IMPORTED_MODULE_0__.html`<div>
+			<nav>
+				<a href="../">キャスポータル</a>
+			</nav>
+			<nav>
+				<a href="#${this.anchorId}">${this.anchorLinkText}</a>
+			</nav>
+			<nav class="events">
+				<details>
+					<summary>イベント一覧</summary>
+					<ol>${this.eventIdNamePairs && this.eventIdNamePairs.map(({ id, name }) => lit__WEBPACK_IMPORTED_MODULE_0__.html`
+						<li><a href="../${(0,lit_directives_if_defined_js__WEBPACK_IMPORTED_MODULE_1__.ifDefined)(id !== this.eventId ? id : null)}/">${name}</a></li>
+					`)}</ol>
+				</details>
+			</nav>
+		</div>`;
+	}
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/@lit/reactive-element/development/css-tag.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@lit/reactive-element/development/css-tag.js ***!
@@ -857,8 +960,8 @@ __webpack_require__.r(__webpack_exports__);
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-var _a, _b, _c, _d;
-var _e;
+var _a, _b, _c;
+var _d;
 /**
  * Use this module if you want to create your own base class extending
  * [[ReactiveElement]].
@@ -869,6 +972,9 @@ var _e;
 const DEV_MODE = true;
 let requestUpdateThenable;
 let issueWarning;
+const polyfillSupport = DEV_MODE
+    ? window.reactiveElementPolyfillSupportDevMode
+    : window.reactiveElementPolyfillSupport;
 if (DEV_MODE) {
     // Ensure warnings are issued only 1x, even if multiple versions of Lit
     // are loaded.
@@ -883,9 +989,7 @@ if (DEV_MODE) {
     };
     issueWarning('dev-mode', `Lit is in dev mode. Not recommended for production!`);
     // Issue polyfill support warning.
-    if (((_b = window.ShadyDOM) === null || _b === void 0 ? void 0 : _b.inUse) &&
-        globalThis[`reactiveElementPolyfillSupport${DEV_MODE ? `DevMode` : ``}`] ===
-            undefined) {
+    if (((_b = window.ShadyDOM) === null || _b === void 0 ? void 0 : _b.inUse) && polyfillSupport === undefined) {
         issueWarning('polyfill-support-missing', `Shadow DOM is being polyfilled via \`ShadyDOM\` but ` +
             `the \`polyfill-support\` module has not been loaded.`);
     }
@@ -1740,11 +1844,11 @@ class ReactiveElement extends HTMLElement {
      */
     firstUpdated(_changedProperties) { }
 }
-_e = finalized;
+_d = finalized;
 /**
  * Marks class as having finished creating properties.
  */
-ReactiveElement[_e] = true;
+ReactiveElement[_d] = true;
 /**
  * Memoized list of all element properties, including any superclass properties.
  * Created lazily on user subclasses when finalizing the class.
@@ -1771,9 +1875,7 @@ ReactiveElement.elementStyles = [];
  */
 ReactiveElement.shadowRootOptions = { mode: 'open' };
 // Apply polyfills if available
-(_c = globalThis[`reactiveElementPolyfillSupport${DEV_MODE ? `DevMode` : ``}`]) === null || _c === void 0 ? void 0 : _c.call(globalThis, {
-    ReactiveElement,
-});
+polyfillSupport === null || polyfillSupport === void 0 ? void 0 : polyfillSupport({ ReactiveElement });
 // Dev mode warnings...
 if (DEV_MODE) {
     // Default warning set.
@@ -1799,8 +1901,7 @@ if (DEV_MODE) {
 }
 // IMPORTANT: do not change the property name or the assignment expression.
 // This line will be used in regexes to search for ReactiveElement usage.
-// TODO(justinfagnani): inject version number at build time
-((_d = globalThis.reactiveElementVersions) !== null && _d !== void 0 ? _d : (globalThis.reactiveElementVersions = [])).push('1.0.0');
+((_c = globalThis.reactiveElementVersions) !== null && _c !== void 0 ? _c : (globalThis.reactiveElementVersions = [])).push('1.0.1');
 if (DEV_MODE && globalThis.reactiveElementVersions.length > 1) {
     issueWarning('multiple-versions', `Multiple versions of Lit loaded. Loading multiple versions ` +
         `is not recommended.`);
@@ -5723,7 +5824,7 @@ __webpack_require__.r(__webpack_exports__);
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-var _a, _b, _c, _d;
+var _a, _b, _c;
 /**
  * The main LitElement module, which defines the [[`LitElement`]] base class and
  * related APIs.
@@ -5911,9 +6012,10 @@ LitElement['_$litElement$'] = true;
 // Install hydration if available
 (_b = globalThis.litElementHydrateSupport) === null || _b === void 0 ? void 0 : _b.call(globalThis, { LitElement });
 // Apply polyfills if available
-(_c = globalThis[`litElementPolyfillSupport${DEV_MODE ? `DevMode` : ``}`]) === null || _c === void 0 ? void 0 : _c.call(globalThis, {
-    LitElement,
-});
+const polyfillSupport = DEV_MODE
+    ? globalThis.litElementPolyfillSupportDevMode
+    : globalThis.litElementPolyfillSupport;
+polyfillSupport === null || polyfillSupport === void 0 ? void 0 : polyfillSupport({ LitElement });
 // DEV mode warnings
 if (DEV_MODE) {
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -5968,8 +6070,7 @@ const _$LE = {
 };
 // IMPORTANT: do not change the property name or the assignment expression.
 // This line will be used in regexes to search for LitElement usage.
-// TODO(justinfagnani): inject version number at build time
-((_d = globalThis.litElementVersions) !== null && _d !== void 0 ? _d : (globalThis.litElementVersions = [])).push('3.0.0');
+((_c = globalThis.litElementVersions) !== null && _c !== void 0 ? _c : (globalThis.litElementVersions = [])).push('3.0.1');
 if (DEV_MODE && globalThis.litElementVersions.length > 1) {
     issueWarning('multiple-versions', `Multiple versions of Lit loaded. Loading multiple versions ` +
         `is not recommended.`);
@@ -6027,7 +6128,7 @@ __webpack_require__.r(__webpack_exports__);
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-var _a, _b, _c, _d, _e;
+var _a, _b, _c, _d;
 const DEV_MODE = true;
 const ENABLE_EXTRA_SECURITY_HOOKS = true;
 const ENABLE_SHADYDOM_NOPATCH = true;
@@ -7268,11 +7369,13 @@ const _$LH = {
     _ElementPart: ElementPart,
 };
 // Apply polyfills if available
-(_d = globalThis[`litHtmlPolyfillSupport${DEV_MODE ? `DevMode` : ``}`]) === null || _d === void 0 ? void 0 : _d.call(globalThis, Template, ChildPart);
+const polyfillSupport = DEV_MODE
+    ? window.litHtmlPolyfillSupportDevMode
+    : window.litHtmlPolyfillSupport;
+polyfillSupport === null || polyfillSupport === void 0 ? void 0 : polyfillSupport(Template, ChildPart);
 // IMPORTANT: do not change the property name or the assignment expression.
 // This line will be used in regexes to search for lit-html usage.
-// TODO(justinfagnani): inject version number at build time
-((_e = globalThis.litHtmlVersions) !== null && _e !== void 0 ? _e : (globalThis.litHtmlVersions = [])).push('2.0.0');
+((_d = globalThis.litHtmlVersions) !== null && _d !== void 0 ? _d : (globalThis.litHtmlVersions = [])).push('2.0.1');
 if (DEV_MODE && globalThis.litHtmlVersions.length > 1) {
     issueWarning('multiple-versions', `Multiple versions of Lit loaded. ` +
         `Loading multiple versions is not recommended.`);
@@ -7401,8 +7504,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _canonicalize_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./canonicalize.js */ "./docs/scripts/canonicalize.js");
 /* harmony import */ var _event_list_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./event-list.js */ "./docs/scripts/event-list.js");
 /* harmony import */ var _cas_market_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cas-market.js */ "./docs/scripts/cas-market.js");
-/* harmony import */ var _date_time_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./date-time.js */ "./docs/scripts/date-time.js");
-
 
 
 

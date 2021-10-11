@@ -108,61 +108,6 @@ section a img {
 }
 
 /*====================================
-	ナビゲーションヘッダー
-*/
-.navigation-header {
-	font-size: 0.8em;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	display: flex;
-	justify-content: center;
-	background: var(--color);
-	color: var(--heading-color);
-}
-
-.navigation-header > div {
-	display: flex;
-	width: min(var(--width), 100%);
-	justify-content: space-between;
-	position: relative;
-}
-
-.navigation-header .events summary {
-	list-style: none;
-	cursor: pointer;
-}
-
-.navigation-header .events summary::after {
-	content: "◂";
-	margin-left: 0.5em;
-}
-
-.navigation-header .events [open] summary::after {
-	content: "▾";
-}
-
-.navigation-header .events ol {
-	position: absolute;
-	right: 0;
-	background: var(--color);
-	list-style: none;
-	margin: unset;
-	padding: unset;
-	text-align: left;
-}
-
-.navigation-header .events li {
-	margin: 1em;
-}
-
-.navigation-header a {
-	color: inherit;
-	font-weight: inherit;
-}
-
-/*====================================
 	セクション
 */
 main > section {
