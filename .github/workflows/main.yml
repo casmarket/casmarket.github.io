@@ -1,0 +1,27 @@
+name: CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - id: auth
+        name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v0.3.1
+        with:
+          create_credentials_file: 'true'
+          workload_identity_provider: projects/552358021023/locations/global/workloadIdentityPools/web-site/attribute.repository/casmarket/casmarket.github.io
+          service_account: web-site@casmarket.iam.gserviceaccount.com
+          access_token_lifetime: 1200s
+          
+      - name: gcloud auth login by workload identity
+        run: 　gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path　}}"
+
