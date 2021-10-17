@@ -2,6 +2,7 @@ import { LitElement, html } from 'lit';
 import yaml from 'js-yaml';
 import './date-time.js';
 import './navigation-header.js';
+import './item-list.js';
 
 customElements.define('cas-market', class extends LitElement {
 	static properties = {
@@ -154,8 +155,11 @@ customElements.define('cas-market', class extends LitElement {
 
 <section id="catalogue">
 	<h1>カタログ</h1>
-	<p>${this.params.cataloguePublicationDate
-		&& html`<date-time datetime="${this.params.cataloguePublicationDate}"></date-time>`} 公開予定！</p>
+	${this.params.cataloguePublicationDate > new Date()?
+		html`<p>${this.params.cataloguePublicationDate
+			&& html`<date-time datetime="${this.params.cataloguePublicationDate}"></date-time>`} 公開予定！</p>` :
+		html`<item-list></item-list>`
+	}
 </section>
 
 <section id="pamphlet">
