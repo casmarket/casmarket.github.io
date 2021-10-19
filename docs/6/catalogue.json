@@ -1,0 +1,18 @@
+[
+	{
+		"id": "1",
+		"classId": "simple",
+		"badge": "silver",
+		"exhibitor": {
+			"name": "出展者名",
+			"twitterURL": "http://twitter.com/{出展者TwitterID}",
+			"tsoURL": "https://seed.online/users/{出展者TSOID}",
+			"icon": "icons/{アイコンファイル名}"
+		},
+		"item": {
+			"title": "作品名",
+			"url": "https://seed.online/products/{作品ID}"
+		},
+		"poster": "posters/{ポスターファイル名}"
+	}
+]
