@@ -21,6 +21,7 @@
   "scripts": {
     "start": "web-dev-server",
     "build": "webpack",
+    "postbuild": "node actions/merge-user-data.js",
     "fetch-catalogue": "node --require dotenv/config actions/fetch-catalogue.js"
   }
 }

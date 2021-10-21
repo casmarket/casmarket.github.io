@@ -34,3 +34,34 @@ export async function getFiles(directoryPath)
 			md5Checksum: await hashMD5(path.resolve(directoryPath, entry.name)),
 		})));
 }
+
+/**
+ * フォルダを統合します。
+ * @param {string} sourceDirectoryPath
+ * @param {string} destinationDirectoryPath
+ * @returns {Promise.<void>}
+ */
+export async function mergeDirectory(sourceDirectoryPath, destinationDirectoryPath)
+{
+	// 統合先のフォルダを作成
+	try {
+		await fs.mkdir(destinationDirectoryPath);
+	} catch (exception) {
+		// すでにフォルダが存在する場合
+	}
+
+	// 統合元のファイル・フォルダ情報を取得
+	for (const sourceEntry of await fs.readdir(sourceDirectoryPath, { withFileTypes: true })) {
+		const sourcePath = path.resolve(sourceDirectoryPath, sourceEntry.name);
+		const destinationPath = path.resolve(destinationDirectoryPath, sourceEntry.name);
+
+		if (sourceEntry.isDirectory()) {
+			// フォルダ
+			await mergeDirectory(sourcePath, destinationPath);
+			continue;
+		}
+
+		// ファイルの移動
+		await fs.rename(sourcePath, destinationPath);
+	}
+}
