@@ -1,0 +1,17 @@
+[
+	{
+		"id": "0",
+		"classId": "simple",
+		"badge": null,
+		"exhibitor": {
+			"name": "テスト",
+			"tsoURL": "https://seedonline.test/users/000000",
+			"twitterURL": "https://twitter.com/esperecyan",
+			"icon": "icons/esperecyan.png"
+		},
+		"item": {
+			"title": "テスト",
+			"url": "https://seedonline.test/products/ea243fa7be7a74cda3dfee2981a5f6111a613473f65ab6fa9e96b3ecaa8584a0"
+		}
+	}
+]
