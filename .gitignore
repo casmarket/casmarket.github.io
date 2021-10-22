@@ -1,1 +1,5 @@
 /node_modules/
+
+# ローカルテスト
+/.env
+/user-data/

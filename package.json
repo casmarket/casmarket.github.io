@@ -2,6 +2,9 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "@googleapis/drive": "^0.3.1",
+    "@googleapis/sheets": "^0.3.0",
+    "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "js-yaml": "^4.1.0",
     "lit": "^2.0.0",
@@ -17,6 +20,7 @@
   },
   "scripts": {
     "start": "web-dev-server",
-    "build": "webpack"
+    "build": "webpack",
+    "fetch-catalogue": "node --require dotenv/config actions/fetch-catalogue.js"
   }
 }

@@ -1,0 +1,41 @@
+name: Googleスプレッドシートからカタログデータを取得
+
+on: workflow_dispatch
+
+jobs:
+    fetch-catalogue:
+        permissions:
+            contents: write
+        runs-on: ubuntu-20.04
+        steps:
+            - name: メインブランチをチェックアウト
+              uses: actions/checkout@v2
+
+            - name: 「user-data」フォルダへ現在のデータを展開
+              uses: actions/checkout@v2
+              with:
+                path: ./user-data
+                ref: user-data
+
+            - name: Node.jsのインストール
+              uses: actions/setup-node@v2
+              with:
+                node-version: '16'
+                cache: npm
+
+            - name: npmパッケージのインストール
+              run: npm install --production
+
+            - name: カタログデータを取得
+              run: npm run fetch-catalogue
+              env:
+                GOOGLE_SPREADSHEET_ID: ${{ secrets.GOOGLE_SPREADSHEET_ID }}
+                GOOGLE_FOLDER_ID: ${{ secrets.GOOGLE_FOLDER_ID }}
+                GOOGLE_SERVICE_ACCOUNT_SECRET_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_SECRET_KEY }}
+
+            - name: カタログデータのコミット
+              uses: stefanzweifel/git-auto-commit-action@abd87b7d94702070bef78dc1d56b6928b8fa9ecc #v4.12.0
+              with:
+                repository: ./user-data
+                branch: user-data
+                commit_message: カタログデータの更新
