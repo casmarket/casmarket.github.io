@@ -2,6 +2,7 @@ on:
     push:
         branches:
           - master
+          - user-data
 
 jobs:
     build-and-deploy:
