@@ -17,13 +17,12 @@ export default {
 			}
 			return next();
 		},
-		async function (context, next) {
+		function (context, next) {
 			const html = pathHTMLPairs[context.url];
-			if (!html) {
-				return next();
+			if (html) {
+				context.response.body = html;
 			}
-			await next();
-			context.response.body = html;
+			return next();
 		},
 		function (context, next) {
 			if (!context.url.includes('_') && !context.url.startsWith('/node_modules/')) {
