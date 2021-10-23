@@ -4,6 +4,8 @@ import './date-time.js';
 import './navigation-header.js';
 import './item-list.js';
 
+const isDevelop = location.hostname === 'localhost';
+
 customElements.define('cas-market', class extends LitElement {
 	static properties = {
 		eventId: { attribute: false },
@@ -156,9 +158,9 @@ customElements.define('cas-market', class extends LitElement {
 <section id="catalogue">
 	<h1>カタログ</h1>
 	${this.params.cataloguePublicationDate
-		&& (this.params.cataloguePublicationDate.getTime() > new Date().getTime()
-			? html`<p><date-time datetime="${this.params.cataloguePublicationDate}"></date-time> 公開予定！</p>`
-			: html`<item-list></item-list>`)
+		&& (this.params.cataloguePublicationDate.getTime() < new Date().getTime() || isDevelop
+			? html`<item-list></item-list>`
+			: html`<p><date-time datetime="${this.params.cataloguePublicationDate}"></date-time> 公開予定！</p>`)
 	}
 </section>
 
