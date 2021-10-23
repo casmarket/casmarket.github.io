@@ -2,6 +2,7 @@ import { LitElement, html } from 'lit';
 import yaml from 'js-yaml';
 import './date-time.js';
 import './navigation-header.js';
+import './item-list.js';
 
 customElements.define('cas-market', class extends LitElement {
 	static properties = {
@@ -154,8 +155,11 @@ customElements.define('cas-market', class extends LitElement {
 
 <section id="catalogue">
 	<h1>カタログ</h1>
-	<p>${this.params.cataloguePublicationDate
-		&& html`<date-time datetime="${this.params.cataloguePublicationDate}"></date-time>`} 公開予定！</p>
+	${this.params.cataloguePublicationDate.getTime() > new Date().getTime()
+		?html`<p>${this.params.cataloguePublicationDate
+			&& html`<date-time datetime="${this.params.cataloguePublicationDate}"></date-time>`} 公開予定！</p>`
+		:html`<item-list></item-list>`
+	}
 </section>
 
 <section id="pamphlet">
@@ -433,7 +437,9 @@ customElements.define('cas-market', class extends LitElement {
 	<h1>広告について</h1>
 	<p>キャスマーケットでは広告を募集します。</p>
 	<p>個人・法人のいずれでも購入できます。</p>
-	<p>Twitterアカウント <a rel="external" target="_blank" href="https://twitter.com/i/user/1277870007758684161">@virtualcast_fes</a> へのダイレクトメッセージ (DM) よりご応募ください。</p>
+	<p>Twitterアカウント
+		<a rel="external" target="_blank" href="https://twitter.com/i/user/1277870007758684161">@virtualcast_fes</a>
+		 へのダイレクトメッセージ (DM) よりご応募ください。</p>
 	<p>広告画像は、カタログ公開時にWebサイトでご紹介し、期間中は会場に設置されます。</p>
 	<section>
 		<h1>広告ルール</h1>
