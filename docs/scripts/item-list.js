@@ -134,7 +134,7 @@ customElements.define('item-list', class extends LitElement {
 					</td>
 					<td class="seed">
 						<img src="../images/theseedonline-logo.png" alt="[theseedonline-logo]" />
-						<a rel="external" target="_blank" href="${participant.item.url}"></a>
+						<a rel="external" target="_blank" href="${participant.exhibitor.tsoURL}"></a>
 					</td>
 				</tr>`)}
 				</tbody>
@@ -167,7 +167,7 @@ customElements.define('item-list', class extends LitElement {
 					</td>
 					<td class="seed">
 						<img src="../images/theseedonline-logo.png" alt="[theseedonline-logo]" />
-						<a rel="external" target="_blank" href="${participant.item.url}"></a>
+						<a rel="external" target="_blank" href="${participant.exhibitor.tsoURL}"></a>
 					</td>
 				</tr>`)}
 				</tbody>
@@ -211,7 +211,7 @@ customElements.define('item-list', class extends LitElement {
 			</td>
 			<td class="seed">
 				<img src="../images/theseedonline-logo.png" alt="[theseedonline-logo]" />
-				<a rel="external" target="_blank" href="${participant.item.url}"></a>
+				<a rel="external" target="_blank" href="${participant.exhibitor.tsoURL}"></a>
 			</td>
 		</tr>`)}
 			</tbody>
