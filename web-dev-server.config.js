@@ -25,7 +25,7 @@ export default {
 			return next();
 		},
 		function (context, next) {
-			if (!context.url.includes('_') && !context.url.startsWith('/node_modules/')) {
+			if (!context.url.startsWith('/__') && !context.url.startsWith('/node_modules/')) {
 				context.url = '/docs' + context.url;
 				if (context.url.endsWith('/')) {
 					context.url += 'index.html';
