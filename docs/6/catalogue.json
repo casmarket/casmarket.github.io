@@ -6,7 +6,7 @@
 		"exhibitor": {
 			"name": "キャスマーケット主催用",
 			"tsoURL": "https://seed.online/users/113542",
-			"twitterURL": "https://twitter.com/virtualcast_fes",
+			"twitterURL": null,
 			"icon": "icons/virtualcast_fes.png"
 		}
 	},
