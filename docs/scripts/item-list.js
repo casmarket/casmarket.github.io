@@ -2,89 +2,101 @@ import { LitElement, html, css } from 'lit';
 
 customElements.define('item-list', class extends LitElement {
 	static styles = css`
-		#frontier #simple  {
-			--work-count: 0;
+		:host {
+			max-width: var(--width);
+			display: grid;
+			--cell-height: 3em;
+			--badge-image-width: calc(var(--cell-height) * 0.8);
+			--exhivitor-link-image-width: calc(var(--cell-height) * 0.6);
+			--exhivitor-link-width: calc(var(--exhivitor-link-image-width) + 1em);
+			grid-template-columns:
+				2em
+				var(--cell-height)
+				calc(var(--badge-image-width) + 1em)
+				minmax(0, 1fr)
+				minmax(0, 1fr)
+				var(--exhivitor-link-width)
+				var(--exhivitor-link-width);
+			--gap: 0.3rem;
+			row-gap: var(--gap);
+			margin-bottom: 1em;
 		}
-		section > section > h1  {
+
+		:host > section,
+		table,
+		tbody,
+		tr {
+			display: contents;
+		}
+
+		h1,
+		[href*="images/map-"] {
+			grid-column: span 7;
+		}
+
+		h1  {
 			text-align: left;
-			position: relative;
-			left: 2em;
+			padding-left: 2em;
 		}
-		section > section > h1 > img {
+
+		h1 img {
 			width: 50%;
 		}
-		table {
-			margin: 0 auto;
+
+		[href*="images/map-"] img {
+			max-width: 100%;
 		}
+
 		thead {
 			display: none;
 		}
-		tbody {
-				--grid-width: 100vw;
-				grid-template-columns: auto;
-			}
 
-		tbody tr {
-			display: grid;
-			--gap: 0.2em;
-			--no-width: 3em;
-			--ratio-name-to-icon: 1.5;
-			--icon-size: min(
-				calc((var(--grid-width) - var(--gap) * 2 - var(--no-width)) / (1 + var(--ratio-name-to-icon))),
-				4.5em
-			);
-			--grid-height: max(calc(var(--icon-size)), 1.5em);
-			grid-template:
-				"id icon name work1 twitter seed" var(--grid-height);
-			gap: var(--gap);
-			margin-bottom: 1em;
-		}
-		tbody tr > * {
+		tr > * {
+			font-weight: normal;
 			background: var(--header-color);
 			display: flex;
 			align-items: center;
 			justify-content: center;
 		}
-		tbody tr a {
+
+		.exhibitor,
+		.item {
+			justify-content: start;
+		}
+
+		:is(.exhibitor, .item) * {
 			max-width: 100%;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
 		}
 
-		.id {
-			grid-area: id;
+		.item {
+			padding-left: 0.5em;
 		}
+
 		.icon {
-			grid-area: icon;
 			background: unset;
 		}
+
 		.icon img {
-			width: 100%;
+			height: var(--cell-height);
 		}
-		.name {
-			grid-area: name;
+
+		.badge * {
+			display: block;
+			height: calc(var(--badge-image-width));
 		}
-		.badge img {
-			height: 1.5em;
-			margin-right: 0.2em;
+
+		.exhivitor-link * {
+			display: block;
+			height: calc(var(--exhivitor-link-image-width));
 		}
-		.twitter {
-			grid-area: twitter;
-			margin-right: 0.2em;
-		}
-		.twitter img {
-			height: 1.5em;
-		}
-		.seed {
-			grid-area: seed;
-			margin-right: 0.2em;
-		}
-		.seed img {
-			height: 1.5em;
-		}
-		.work {
-			grid-area: work;
+
+		.icon,
+		.badge,
+		.item {
+			margin-left: var(--gap);
 		}
 	`;
 
@@ -129,19 +141,22 @@ customElements.define('item-list', class extends LitElement {
 					<td class="badge">
 						${item.badge && html`<img src="../images/${item.badge}.png" alt="${item.badge}" />`}
 					</td>
-					<td class="name">
-						<a rel="external" target="_blank" href="${item.exhibitor.twitterURL}">${item.exhibitor.name}</a>
+					<td class="exhibitor">
+						<span title="${item.exhibitor.name}">${item.exhibitor.name}</span>
 					</td>
 					<td class="item">${ classId === 'simple'
-						? html`<a rel="external" target="_blank" href="${item.item.url}">${item.item.title} </a>`
+						? html`<a rel="external" target="_blank" href="${item.item.url}" title="${item.item.title}">
+							${item.item.title}
+						</a>`
 						: null}</td>
-					<td class="twitter">
-						<a rel="external" target="_blank" href="${item.exhibitor.twitterURL}">
+					<td class="exhivitor-link">
+						<a rel="external" target="_blank" href="${item.exhibitor.twitterURL}" title="Twitter プロフィール">
 							<img src="../images/twitter-logo.png" alt="Twitter" />
 						</a>
 					</td>
-					<td class="seed">
-						<a rel="external" target="_blank" href="${item.exhibitor.tsoURL}">
+					<td class="exhivitor-link">
+						<a rel="external" target="_blank" href="${item.exhibitor.tsoURL}"
+							title="THE SEED ONLINE ユーザーページ">
 							<img src="../images/theseedonline-logo.png" alt="THE SEED ONLINE" />
 						</a>
 					</td>
