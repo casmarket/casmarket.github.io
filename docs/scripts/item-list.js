@@ -129,12 +129,14 @@ customElements.define('item-list', class extends LitElement {
 						${participant.exhibitor.name}</a>
 					</td>
 					<td class="twitter">
-						<img src="../images/twitter-logo.png" alt="[twitter-logo]" />
-						<a rel="external" target="_blank" href="${participant.exhibitor.twitterURL}"></a>
+						<a rel="external" target="_blank" href="${participant.exhibitor.twitterURL}">
+							<img src="../images/twitter-logo.png" alt="Twitter" />
+						</a>
 					</td>
 					<td class="seed">
-						<img src="../images/theseedonline-logo.png" alt="[theseedonline-logo]" />
-						<a rel="external" target="_blank" href="${participant.exhibitor.tsoURL}"></a>
+						<a rel="external" target="_blank" href="${participant.exhibitor.tsoURL}">
+							<img src="../images/theseedonline-logo.png" alt="THE SEED ONLINE" />
+						</a>
 					</td>
 				</tr>`)}
 				</tbody>
@@ -162,12 +164,14 @@ customElements.define('item-list', class extends LitElement {
 						${participant.exhibitor.name}</a>
 					</td>
 					<td class="twitter">
-						<img src="../images/twitter-logo.png" alt="[twitter-logo]" />
-						<a rel="external" target="_blank" href="${participant.exhibitor.twitterURL}"></a>
+						<a rel="external" target="_blank" href="${participant.exhibitor.twitterURL}">
+							<img src="../images/twitter-logo.png" alt="Twitter" />
+						</a>
 					</td>
 					<td class="seed">
-						<img src="../images/theseedonline-logo.png" alt="[theseedonline-logo]" />
-						<a rel="external" target="_blank" href="${participant.exhibitor.tsoURL}"></a>
+						<a rel="external" target="_blank" href="${participant.exhibitor.tsoURL}">
+							<img src="../images/theseedonline-logo.png" alt="THE SEED ONLINE" />
+						</a>
 					</td>
 				</tr>`)}
 				</tbody>
@@ -206,12 +210,14 @@ customElements.define('item-list', class extends LitElement {
 					${participant.item.title} </a>
 			</td>
 			<td class="twitter">
-				<img src="../images/twitter-logo.png" alt="[twitter-logo]" />
-				<a rel="external" target="_blank" href="${participant.exhibitor.twitterURL}"></a>
+				<a rel="external" target="_blank" href="${participant.exhibitor.twitterURL}">
+					<img src="../images/twitter-logo.png" alt="Twitter" />
+				</a>
 			</td>
 			<td class="seed">
-				<img src="../images/theseedonline-logo.png" alt="[theseedonline-logo]" />
-				<a rel="external" target="_blank" href="${participant.exhibitor.tsoURL}"></a>
+				<a rel="external" target="_blank" href="${participant.exhibitor.tsoURL}">
+					<img src="../images/theseedonline-logo.png" alt="THE SEED ONLINE" />
+				</a>
 			</td>
 		</tr>`)}
 			</tbody>
