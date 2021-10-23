@@ -39,3 +39,7 @@ jobs:
                 repository: ./user-data
                 branch: user-data
                 commit_message: カタログデータの更新
+
+    build-and-deploy:
+        needs: fetch-catalogue
+        uses: casmarket/casmarket.github.io/.github/workflows/build-and-deploy.yaml@master

@@ -2,7 +2,7 @@ on:
     push:
         branches:
           - master
-          - user-data
+    workflow_call:
 
 jobs:
     build-and-deploy:
@@ -21,5 +21,5 @@ jobs:
             - run: npm run build
             - uses: peaceiris/actions-gh-pages@068dc23d9710f1ba62e86896f84735d869951305 # v3.8.0
               with:
-                github_token: ${{ secrets.GITHUB_TOKEN }}
+                github_token: ${{ github.token }}
                 publish_dir: docs
