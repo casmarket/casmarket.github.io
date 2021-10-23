@@ -27,10 +27,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var js_yaml__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! js-yaml */ "./node_modules/js-yaml/dist/js-yaml.mjs");
 /* harmony import */ var _date_time_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./date-time.js */ "./docs/scripts/date-time.js");
 /* harmony import */ var _navigation_header_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./navigation-header.js */ "./docs/scripts/navigation-header.js");
+/* harmony import */ var _item_list_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./item-list.js */ "./docs/scripts/item-list.js");
 
 
 
 
+
+
+const isDevelop = location.hostname === 'localhost';
 
 customElements.define('cas-market', class extends lit__WEBPACK_IMPORTED_MODULE_0__.LitElement {
 	static properties = {
@@ -183,8 +187,11 @@ customElements.define('cas-market', class extends lit__WEBPACK_IMPORTED_MODULE_0
 
 <section id="catalogue">
 	<h1>カタログ</h1>
-	<p>${this.params.cataloguePublicationDate
-		&& lit__WEBPACK_IMPORTED_MODULE_0__.html`<date-time datetime="${this.params.cataloguePublicationDate}"></date-time>`} 公開予定！</p>
+	${this.params.cataloguePublicationDate
+		&& (this.params.cataloguePublicationDate.getTime() < new Date().getTime() || isDevelop
+			? lit__WEBPACK_IMPORTED_MODULE_0__.html`<item-list></item-list>`
+			: lit__WEBPACK_IMPORTED_MODULE_0__.html`<p><date-time datetime="${this.params.cataloguePublicationDate}"></date-time> 公開予定！</p>`)
+	}
 </section>
 
 <section id="pamphlet">
@@ -462,7 +469,9 @@ customElements.define('cas-market', class extends lit__WEBPACK_IMPORTED_MODULE_0
 	<h1>広告について</h1>
 	<p>キャスマーケットでは広告を募集します。</p>
 	<p>個人・法人のいずれでも購入できます。</p>
-	<p>Twitterアカウント <a rel="external" target="_blank" href="https://twitter.com/i/user/1277870007758684161">@virtualcast_fes</a> へのダイレクトメッセージ (DM) よりご応募ください。</p>
+	<p>Twitterアカウント
+		<a rel="external" target="_blank" href="https://twitter.com/i/user/1277870007758684161">@virtualcast_fes</a>
+		 へのダイレクトメッセージ (DM) よりご応募ください。</p>
 	<p>広告画像は、カタログ公開時にWebサイトでご紹介し、期間中は会場に設置されます。</p>
 	<section>
 		<h1>広告ルール</h1>
@@ -680,6 +689,185 @@ customElements.define('event-list', class extends lit__WEBPACK_IMPORTED_MODULE_0
 		return lit__WEBPACK_IMPORTED_MODULE_0__.html`<nav>${this.eventIdNamePairs.map(({ id, name }) => lit__WEBPACK_IMPORTED_MODULE_0__.html`
 			<a href="./${id}/"><img src="${id}/images/casmarket-${id}-poster-wide.png" alt="${name}" /></a>
 		`)}</nav>`;
+	}
+});
+
+
+/***/ }),
+
+/***/ "./docs/scripts/item-list.js":
+/*!***********************************!*\
+  !*** ./docs/scripts/item-list.js ***!
+  \***********************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lit */ "./node_modules/lit/index.js");
+
+
+customElements.define('item-list', class extends lit__WEBPACK_IMPORTED_MODULE_0__.LitElement {
+	static styles = lit__WEBPACK_IMPORTED_MODULE_0__.css`
+		:host {
+			max-width: var(--width);
+			display: grid;
+			--cell-height: 3em;
+			--badge-image-width: calc(var(--cell-height) * 0.8);
+			--exhivitor-link-image-width: calc(var(--cell-height) * 0.6);
+			--exhivitor-link-width: calc(var(--exhivitor-link-image-width) + 1em);
+			grid-template-columns:
+				2em
+				var(--cell-height)
+				calc(var(--badge-image-width) + 1em)
+				minmax(0, 1fr)
+				minmax(0, 1fr)
+				var(--exhivitor-link-width)
+				var(--exhivitor-link-width);
+			--gap: 0.3rem;
+			row-gap: var(--gap);
+			margin-bottom: 1em;
+		}
+
+		:host > section,
+		table,
+		tbody,
+		tr {
+			display: contents;
+		}
+
+		h1,
+		[href*="images/map-"] {
+			grid-column: span 7;
+		}
+
+		h1  {
+			text-align: left;
+			padding-left: 2em;
+		}
+
+		h1 img {
+			width: 50%;
+		}
+
+		[href*="images/map-"] img {
+			max-width: 100%;
+		}
+
+		thead {
+			display: none;
+		}
+
+		tr > * {
+			font-weight: normal;
+			background: var(--header-color);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.exhibitor,
+		.item {
+			justify-content: start;
+		}
+
+		:is(.exhibitor, .item) * {
+			max-width: 100%;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.item {
+			padding-left: 0.5em;
+		}
+
+		.icon {
+			background: unset;
+		}
+
+		.icon img {
+			height: var(--cell-height);
+		}
+
+		.badge * {
+			display: block;
+			height: calc(var(--badge-image-width));
+		}
+
+		.exhivitor-link * {
+			display: block;
+			height: calc(var(--exhivitor-link-image-width));
+		}
+
+		.icon,
+		.badge,
+		.item {
+			margin-left: var(--gap);
+		}
+	`;
+
+	static properties = {
+		catalogue: { attribute: false },
+	};
+
+	constructor()
+	{
+		super();
+		this.catalogue = [ ];
+		(async () => {
+			this.catalogue = await (await fetch('catalogue.json')).json();
+		})();
+	}
+
+
+	render()
+	{
+		return [
+			[ 'theme1', 'テーマ会場', '1. 機能' ],
+			[ 'theme2', 'テーマ会場', '2. 機能' ],
+			[ 'simple', 'シンプル会場', null ],
+		].map(([ classId, heading, subHeading ]) => lit__WEBPACK_IMPORTED_MODULE_0__.html`<section>
+			<h1><img src="../images/heading-${classId}.png" alt="${heading} ${subHeading}" /></h1>
+			<a target="_blank" href="images/map-${classId}.png"><img src="images/map-${classId}.png" /></a>
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>アイコン</th>
+						<th>バッヂ</th>
+						<th>出展者</th>
+						<th>作品</th>
+						<th>Twitter</th>
+						<th>THE SEED ONLINE</th>
+					</tr>
+				</thead>
+				<tbody>${this.catalogue.filter(item => item.classId === classId).map(item => lit__WEBPACK_IMPORTED_MODULE_0__.html`<tr>
+					<th class="id">${item.id}</th>
+					<td class="icon"><img src="${item.exhibitor.icon}" /></td>
+					<td class="badge">
+						${item.badge && lit__WEBPACK_IMPORTED_MODULE_0__.html`<img src="../images/${item.badge}.png" alt="${item.badge}" />`}
+					</td>
+					<td class="exhibitor">
+						<span title="${item.exhibitor.name}">${item.exhibitor.name}</span>
+					</td>
+					<td class="item">${ classId === 'simple'
+						? lit__WEBPACK_IMPORTED_MODULE_0__.html`<a rel="external" target="_blank" href="${item.item.url}" title="${item.item.title}">
+							${item.item.title}
+						</a>`
+						: null}</td>
+					<td class="exhivitor-link">
+						<a rel="external" target="_blank" href="${item.exhibitor.twitterURL}" title="Twitter プロフィール">
+							<img src="../images/twitter-logo.png" alt="Twitter" />
+						</a>
+					</td>
+					<td class="exhivitor-link">
+						<a rel="external" target="_blank" href="${item.exhibitor.tsoURL}"
+							title="THE SEED ONLINE ユーザーページ">
+							<img src="../images/theseedonline-logo.png" alt="THE SEED ONLINE" />
+						</a>
+					</td>
+				</tr>`)}</tbody>
+			</table>
+		</section>`);
 	}
 });
 
