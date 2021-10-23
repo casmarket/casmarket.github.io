@@ -149,11 +149,11 @@ customElements.define('item-list', class extends LitElement {
 							${item.item.title}
 						</a>`
 						: null}</td>
-					<td class="exhivitor-link">
+					<td class="exhivitor-link">${item.exhibitor.twitterURL && html`
 						<a rel="external" target="_blank" href="${item.exhibitor.twitterURL}" title="Twitter プロフィール">
 							<img src="../images/twitter-logo.png" alt="Twitter" />
 						</a>
-					</td>
+					`}</td>
 					<td class="exhivitor-link">
 						<a rel="external" target="_blank" href="${item.exhibitor.tsoURL}"
 							title="THE SEED ONLINE ユーザーページ">
