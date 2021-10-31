@@ -13,6 +13,7 @@ customElements.define('cas-market', class extends LitElement {
 		posterPaths: { attribute: false },
 		eventName: { attribute: false },
 		params: { attribute: false },
+		beforeStarting: { attribute: false },
 		staff: { attribute: false },
 	};
 
@@ -49,6 +50,9 @@ customElements.define('cas-market', class extends LitElement {
 				this.eventName = value.find(({ id }) => id === this.eventId).name;
 			} else {
 				this[propertyName] = value;
+				if (propertyName === 'params') {
+					this.beforeStarting = new Date().getTime() < this.params.period.start.getTime();
+				}
 			}
 		});
 
@@ -178,10 +182,12 @@ customElements.define('cas-market', class extends LitElement {
 • 第1章　出展作品紹介　出展者と作品を一挙にご紹介！
 • 第2章　マーケットが出来るまで　ワールド制作の流れやコンセプトといったノウハウを記録！" />
 	<p>
-		キャスマーケットでは開催ごとにスペシャルパンフレットを販売しています。
-		開催当日に販売開始予定です。
+		キャスマーケットでは開催ごとにスペシャルパンフレットを販売しています。${
+		this.beforeStarting ? '\n開催当日に販売開始予定です。' : ''}
 		マーケットの継続のためにご購入お願いします！
 	</p>
+	${!this.beforeStarting && this.params.pamphletURL ? html`<p><a rel="external" target="_blank"
+		href="${this.params.pamphletURL}">${this.params.pamphletURL}</a></p>` : null}
 </section>
 
 <section id="exhibit">
