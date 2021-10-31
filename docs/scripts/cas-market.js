@@ -217,7 +217,7 @@ customElements.define('cas-market', class extends LitElement {
 			</tr>
 			<tr class="theme">
 				<th>
-					<b>ルーム会場</b>
+					<b>テーマ会場</b>
 					<p>「${this.params.themeTitle}」</p>
 					<p>${this.params.themeSummary}</p>
 				</th>
