@@ -247,7 +247,7 @@ customElements.define('cas-market', class extends lit__WEBPACK_IMPORTED_MODULE_0
 			</tr>
 			<tr class="theme">
 				<th>
-					<b>ルーム会場</b>
+					<b>テーマ会場</b>
 					<p>「${this.params.themeTitle}」</p>
 					<p>${this.params.themeSummary}</p>
 				</th>
@@ -822,9 +822,9 @@ customElements.define('item-list', class extends lit__WEBPACK_IMPORTED_MODULE_0_
 	render()
 	{
 		return [
+			[ 'simple', 'シンプル会場', null ],
 			[ 'theme1', 'テーマ会場', '1. 機能' ],
 			[ 'theme2', 'テーマ会場', '2. 機能' ],
-			[ 'simple', 'シンプル会場', null ],
 		].map(([ classId, heading, subHeading ]) => lit__WEBPACK_IMPORTED_MODULE_0__.html`<section>
 			<h1><img src="../images/heading-${classId}.png" alt="${heading} ${subHeading}" /></h1>
 			<a target="_blank" href="images/map-${classId}.png"><img src="images/map-${classId}.png" /></a>

@@ -117,9 +117,9 @@ customElements.define('item-list', class extends LitElement {
 	render()
 	{
 		return [
+			[ 'simple', 'シンプル会場', null ],
 			[ 'theme1', 'テーマ会場', '1. 機能' ],
 			[ 'theme2', 'テーマ会場', '2. 機能' ],
-			[ 'simple', 'シンプル会場', null ],
 		].map(([ classId, heading, subHeading ]) => html`<section>
 			<h1><img src="../images/heading-${classId}.png" alt="${heading} ${subHeading}" /></h1>
 			<a target="_blank" href="images/map-${classId}.png"><img src="images/map-${classId}.png" /></a>
