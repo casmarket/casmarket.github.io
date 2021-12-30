@@ -1,27 +1,20 @@
--
-    id: '6'
-    name: 秋キャスマーケット2021
--
-    id: '5'
-    name: 夏キャスマーケット2021
-    static: true
--
-    id: '4'
-    name: 春キャスマーケット2021
-    static: true
--
-    id: '3'
-    name: 冬キャスマーケット2021
-    static: true
--
-    id: '2'
-    name: 秋キャスマーケット2020
-    static: true
--
-    id: '1-programs'
-    name: 夏キャス12時間配信2020
-    static: true
--
-    id: '1'
-    name: 夏キャスマーケット2020
-    static: true
+- id: '6'
+  name: 秋キャスマーケット2021
+- id: '5'
+  name: 夏キャスマーケット2021
+  static: true
+- id: '4'
+  name: 春キャスマーケット2021
+  static: true
+- id: '3'
+  name: 冬キャスマーケット2021
+  static: true
+- id: '2'
+  name: 秋キャスマーケット2020
+  static: true
+- id: '1-programs'
+  name: 夏キャス12時間配信2020
+  static: true
+- id: '1'
+  name: 夏キャスマーケット2020
+  static: true
