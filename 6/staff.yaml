@@ -1,41 +1,35 @@
--
-    roles:
-        - 主催
-        - ロケーション制作
-    name: ベッラパスタ
-    url: https://twitter.com/i/user/1052812006531579904
-    icon: staff-bellapasta.jpg
--
-    roles:
-        - ルームマネージャー
-    managedRoom: シンプル会場
-    name: わいず
-    url: https://twitter.com/i/user/978956034566836224
-    icon: staff-waizu.png
--
-    roles:
-        - ルームマネージャー
-    managedRoom: テーマ会場 1.「機能」
-    name: にゃふ
-    url: https://twitter.com/i/user/1035743872406544384
-    icon: staff-nyaf.jpg
--
-    roles:
-        - ルームマネージャー
-    managedRoom: テーマ会場 2.「装飾」
-    name: 烏丸ゆん
-    url: https://twitter.com/i/user/985523460033007617
-    icon: staff-yun.jpg
--
-    roles:
-        - Webサイト制作
-        - アドバイザー
-    name: 100の人
-    url: https://twitter.com/i/user/319757037
-    icon: staff-100.png
--
-    roles:
-        - Webサイト制作
-    name: しきはふり
-    url: https://twitter.com/i/user/120339468
-    icon: staff-shikihahuri.png
+- roles:
+    - 主催
+    - ロケーション制作
+  name: ベッラパスタ
+  url: https://twitter.com/i/user/1052812006531579904
+  icon: staff-bellapasta.jpg
+- roles:
+    - ルームマネージャー
+  managedRoom: シンプル会場
+  name: わいず
+  url: https://twitter.com/i/user/978956034566836224
+  icon: staff-waizu.png
+- roles:
+    - ルームマネージャー
+  managedRoom: テーマ会場 1.「機能」
+  name: にゃふ
+  url: https://twitter.com/i/user/1035743872406544384
+  icon: staff-nyaf.jpg
+- roles:
+    - ルームマネージャー
+  managedRoom: テーマ会場 2.「装飾」
+  name: 烏丸ゆん
+  url: https://twitter.com/i/user/985523460033007617
+  icon: staff-yun.jpg
+- roles:
+    - Webサイト制作
+    - アドバイザー
+  name: 100の人
+  url: https://twitter.com/i/user/319757037
+  icon: staff-100.png
+- roles:
+    - Webサイト制作
+  name: しきはふり
+  url: https://twitter.com/i/user/120339468
+  icon: staff-shikihahuri.png
