@@ -426,13 +426,13 @@ customElements.define('cas-market', class extends LitElement {
 			<tr>
 				<th>展示可能数</th>
 				<td>1点</td>
-				<td>6点 (ブースを含む)</td>
+				<td>${this.eventId === '6' ? 6 : 10}点 (ブースを含む)</td>
 				<td>両会場の展示物重複可</td>
 			</tr>
 			<tr>
 				<th>上限データサイズ</th>
 				<td>10MB</td>
-				<td>10MB/1点</td>
+				<td>${this.eventId === '6' ? '10MB/1点' : '100MB (合計)'}</td>
 				<td>「THE SEED ONLINE」上のデータサイズを参照</td>
 			</tr>
 		</tbody>
