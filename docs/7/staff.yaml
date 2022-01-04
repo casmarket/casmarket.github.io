@@ -1,0 +1,23 @@
+- roles:
+    - 主催
+    - ロケーション制作
+  name: ベッラパスタ
+  url: https://twitter.com/i/user/1052812006531579904
+  icon: staff-bellapasta.jpg
+- roles:
+    - ルームマネージャー
+  managedRoom: テーマ会場 1.「機能」
+  name: ユエム
+  url: https://twitter.com/i/user/2236766504
+  icon: staff-JohnnyUM.png
+- roles:
+    - ルームマネージャー
+  managedRoom: テーマ会場 2.「装飾」
+  name: ちょべりば→ぐ＃らいと
+  url: https://twitter.com/i/user/325610658
+  icon: staff-JohnnyUM.png
+- roles:
+    - Webサイト制作
+  name: 100の人
+  url: https://twitter.com/i/user/319757037
+  icon: staff-100.png
