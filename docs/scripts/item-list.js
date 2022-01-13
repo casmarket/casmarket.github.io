@@ -29,18 +29,39 @@ customElements.define('item-list', class extends LitElement {
 			display: contents;
 		}
 
-		h1,
+		hgroup,
 		[href*="images/map-"] {
 			grid-column: span 7;
 		}
 
-		h1  {
+		hgroup {
+			color: white;
+			background: url("../images/heading-catalogue.png") no-repeat center / contain;
+			width: 22.5em;
+			max-width: 90%;
+			height: 4em;
 			text-align: left;
-			padding-left: 2em;
+			margin: 1.2em 2em;
+			position: relative
 		}
 
-		h1 img {
-			width: 50%;
+		hgroup > * {
+			margin: unset;
+		}
+
+		h1 {
+			position: absolute;
+			left: 0.5em;
+			bottom: 0;
+			font-family: serif;
+			font-size: 2em;
+		}
+
+		h2 {
+			position: absolute;
+			right: 0.5em;
+			font-family: sans-serif;
+			font-size: 2.5em;
 		}
 
 		[href*="images/map-"] img {
@@ -121,7 +142,10 @@ customElements.define('item-list', class extends LitElement {
 			[ 'theme1', 'テーマ会場', '1. 機能' ],
 			[ 'theme2', 'テーマ会場', '2. 機能' ],
 		].map(([ classId, heading, subHeading ]) => html`<section>
-			<h1><img src="../images/heading-${classId}.png" alt="${heading} ${subHeading}" /></h1>
+			<hgroup>
+				<h1>${heading}</h1>
+				${subHeading && html`<h2>${subHeading}</h2>`}
+			</hgroup>
 			<a target="_blank" href="images/map-${classId}.png"><img src="images/map-${classId}.png" /></a>
 			<table>
 				<thead>
