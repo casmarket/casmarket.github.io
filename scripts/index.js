@@ -859,56 +859,59 @@ customElements.define('item-list', class extends lit__WEBPACK_IMPORTED_MODULE_0_
 			[ 'theme1', 'テーマ会場', '1. 機能' ],
 			[ 'theme2', 'テーマ会場', '2. 機能' ],
 			this.showPosters && [ 'poster', '広告', null ],
-		].filter(cls => cls).map(([ classId, heading, subHeading ]) => lit__WEBPACK_IMPORTED_MODULE_0__.html`<section>
-			<hgroup>
-				<h1>${heading}</h1>
-				${subHeading && lit__WEBPACK_IMPORTED_MODULE_0__.html`<h2>${subHeading}</h2>`}
-			</hgroup>
-			${classId === 'poster'
-				? lit__WEBPACK_IMPORTED_MODULE_0__.html`<ul>${this.catalogue.filter(item => item.classId === classId).map(item => lit__WEBPACK_IMPORTED_MODULE_0__.html`
-					<li>
-						<a target="_blank" href="${item.poster}"><img src="${item.poster}" /></a>
-					</li>
-				`)}</ul>`
-				: lit__WEBPACK_IMPORTED_MODULE_0__.html`<a target="_blank" href="images/map-${classId}.png"><img src="images/map-${classId}.png" /></a>
-					<table>
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>アイコン</th>
-								<th>バッヂ</th>
-								<th>出展者</th>
-								<th>作品</th>
-								<th>Twitter</th>
-								<th>THE SEED ONLINE</th>
-							</tr>
-						</thead>
-						<tbody>${this.catalogue.filter(item => item.classId === classId).map(item => lit__WEBPACK_IMPORTED_MODULE_0__.html`<tr>
-							<th class="id">${item.id}</th>
-							<td class="icon"><img src="${item.exhibitor.icon}" /></td>
-							<td class="badge">
-								${item.badge && lit__WEBPACK_IMPORTED_MODULE_0__.html`<img src="../images/${item.badge}.png" alt="${item.badge}" />`}
-							</td>
-							<td class="exhibitor">
-								<span title="${item.exhibitor.name}">${item.exhibitor.name}</span>
-							</td>
-							<td class="item">${ classId === 'simple'
-								? lit__WEBPACK_IMPORTED_MODULE_0__.html`<a rel="external" target="_blank" href="${item.item.url}"
-									title="${item.item.title}">${item.item.title}</a>`
-								: null}</td>
-							<td class="exhivitor-link">${item.exhibitor.twitterURL && lit__WEBPACK_IMPORTED_MODULE_0__.html`
-								<a rel="external" target="_blank" href="${item.exhibitor.twitterURL}"
-								title="Twitter プロフィール"><img src="../images/twitter-logo.png" alt="Twitter" /></a>
-							`}</td>
-							<td class="exhivitor-link">
-								<a rel="external" target="_blank" href="${item.exhibitor.tsoURL}"
-									title="THE SEED ONLINE ユーザーページ">
-									<img src="../images/theseedonline-logo.png" alt="THE SEED ONLINE" />
-								</a>
-							</td>
-						</tr>`)}</tbody>
-					</table>`}
-		</section>`);
+		].filter(([ classId ]) => this.catalogue.some(item => item.classId === classId))
+			.map(([ classId, heading, subHeading ]) => lit__WEBPACK_IMPORTED_MODULE_0__.html`<section>
+				<hgroup>
+					<h1>${heading}</h1>
+					${subHeading && lit__WEBPACK_IMPORTED_MODULE_0__.html`<h2>${subHeading}</h2>`}
+				</hgroup>
+				${classId === 'poster'
+					? lit__WEBPACK_IMPORTED_MODULE_0__.html`<ul>${this.catalogue.filter(item => item.classId === classId).map(item => lit__WEBPACK_IMPORTED_MODULE_0__.html`
+						<li>
+							<a target="_blank" href="${item.poster}"><img src="${item.poster}" /></a>
+						</li>
+					`)}</ul>`
+					: lit__WEBPACK_IMPORTED_MODULE_0__.html`<a target="_blank" href="images/map-${classId}.png">
+						<img src="images/map-${classId}.png" />
+					</a>
+						<table>
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>アイコン</th>
+									<th>バッヂ</th>
+									<th>出展者</th>
+									<th>作品</th>
+									<th>Twitter</th>
+									<th>THE SEED ONLINE</th>
+								</tr>
+							</thead>
+							<tbody>${this.catalogue.filter(item => item.classId === classId).map(item => lit__WEBPACK_IMPORTED_MODULE_0__.html`<tr>
+								<th class="id">${item.id}</th>
+								<td class="icon"><img src="${item.exhibitor.icon}" /></td>
+								<td class="badge">
+									${item.badge && lit__WEBPACK_IMPORTED_MODULE_0__.html`<img src="../images/${item.badge}.png" alt="${item.badge}" />`}
+								</td>
+								<td class="exhibitor">
+									<span title="${item.exhibitor.name}">${item.exhibitor.name}</span>
+								</td>
+								<td class="item">${ classId === 'simple'
+									? lit__WEBPACK_IMPORTED_MODULE_0__.html`<a rel="external" target="_blank" href="${item.item.url}"
+										title="${item.item.title}">${item.item.title}</a>`
+									: null}</td>
+								<td class="exhivitor-link">${item.exhibitor.twitterURL && lit__WEBPACK_IMPORTED_MODULE_0__.html`
+									<a rel="external" target="_blank" href="${item.exhibitor.twitterURL}"
+									title="Twitter プロフィール"><img src="../images/twitter-logo.png" alt="Twitter" /></a>
+								`}</td>
+								<td class="exhivitor-link">
+									<a rel="external" target="_blank" href="${item.exhibitor.tsoURL}"
+										title="THE SEED ONLINE ユーザーページ">
+										<img src="../images/theseedonline-logo.png" alt="THE SEED ONLINE" />
+									</a>
+								</td>
+							</tr>`)}</tbody>
+						</table>`}
+			</section>`);
 	}
 });
 
