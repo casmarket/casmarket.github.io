@@ -29,21 +29,45 @@ customElements.define('item-list', class extends LitElement {
 			display: contents;
 		}
 
-		h1,
-		[href*="images/map-"] {
+		hgroup,
+		[href*="images/map-"],
+		ul {
 			grid-column: span 7;
+			list-style: none;
+			padding: unset;
 		}
 
-		h1  {
+		hgroup {
+			color: white;
+			background: url("../images/heading-catalogue.png") no-repeat center / contain;
+			width: 22.5em;
+			max-width: 90%;
+			height: 4em;
 			text-align: left;
-			padding-left: 2em;
+			margin: 1.2em 2em;
+			position: relative
 		}
 
-		h1 img {
-			width: 50%;
+		hgroup > * {
+			margin: unset;
 		}
 
-		[href*="images/map-"] img {
+		h1 {
+			position: absolute;
+			left: 0.5em;
+			bottom: 0;
+			font-family: serif;
+			font-size: 2em;
+		}
+
+		h2 {
+			position: absolute;
+			right: 0.5em;
+			font-family: sans-serif;
+			font-size: 2.5em;
+		}
+
+		:is([href*="images/map-"], [href*="posters/"]) img {
 			max-width: 100%;
 		}
 
@@ -101,6 +125,7 @@ customElements.define('item-list', class extends LitElement {
 	`;
 
 	static properties = {
+		showPosters: { type: Boolean },
 		catalogue: { attribute: false },
 	};
 
@@ -120,48 +145,56 @@ customElements.define('item-list', class extends LitElement {
 			[ 'simple', 'シンプル会場', null ],
 			[ 'theme1', 'テーマ会場', '1. 機能' ],
 			[ 'theme2', 'テーマ会場', '2. 機能' ],
-		].map(([ classId, heading, subHeading ]) => html`<section>
-			<h1><img src="../images/heading-${classId}.png" alt="${heading} ${subHeading}" /></h1>
-			<a target="_blank" href="images/map-${classId}.png"><img src="images/map-${classId}.png" /></a>
-			<table>
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>アイコン</th>
-						<th>バッヂ</th>
-						<th>出展者</th>
-						<th>作品</th>
-						<th>Twitter</th>
-						<th>THE SEED ONLINE</th>
-					</tr>
-				</thead>
-				<tbody>${this.catalogue.filter(item => item.classId === classId).map(item => html`<tr>
-					<th class="id">${item.id}</th>
-					<td class="icon"><img src="${item.exhibitor.icon}" /></td>
-					<td class="badge">
-						${item.badge && html`<img src="../images/${item.badge}.png" alt="${item.badge}" />`}
-					</td>
-					<td class="exhibitor">
-						<span title="${item.exhibitor.name}">${item.exhibitor.name}</span>
-					</td>
-					<td class="item">${ classId === 'simple'
-						? html`<a rel="external" target="_blank" href="${item.item.url}" title="${item.item.title}">
-							${item.item.title}
-						</a>`
-						: null}</td>
-					<td class="exhivitor-link">${item.exhibitor.twitterURL && html`
-						<a rel="external" target="_blank" href="${item.exhibitor.twitterURL}" title="Twitter プロフィール">
-							<img src="../images/twitter-logo.png" alt="Twitter" />
-						</a>
-					`}</td>
-					<td class="exhivitor-link">
-						<a rel="external" target="_blank" href="${item.exhibitor.tsoURL}"
-							title="THE SEED ONLINE ユーザーページ">
-							<img src="../images/theseedonline-logo.png" alt="THE SEED ONLINE" />
-						</a>
-					</td>
-				</tr>`)}</tbody>
-			</table>
+			this.showPosters && [ 'poster', '広告', null ],
+		].filter(cls => cls).map(([ classId, heading, subHeading ]) => html`<section>
+			<hgroup>
+				<h1>${heading}</h1>
+				${subHeading && html`<h2>${subHeading}</h2>`}
+			</hgroup>
+			${classId === 'poster'
+				? html`<ul>${this.catalogue.filter(item => item.classId === classId).map(item => html`
+					<li>
+						<a target="_blank" href="${item.poster}"><img src="${item.poster}" /></a>
+					</li>
+				`)}</ul>`
+				: html`<a target="_blank" href="images/map-${classId}.png"><img src="images/map-${classId}.png" /></a>
+					<table>
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>アイコン</th>
+								<th>バッヂ</th>
+								<th>出展者</th>
+								<th>作品</th>
+								<th>Twitter</th>
+								<th>THE SEED ONLINE</th>
+							</tr>
+						</thead>
+						<tbody>${this.catalogue.filter(item => item.classId === classId).map(item => html`<tr>
+							<th class="id">${item.id}</th>
+							<td class="icon"><img src="${item.exhibitor.icon}" /></td>
+							<td class="badge">
+								${item.badge && html`<img src="../images/${item.badge}.png" alt="${item.badge}" />`}
+							</td>
+							<td class="exhibitor">
+								<span title="${item.exhibitor.name}">${item.exhibitor.name}</span>
+							</td>
+							<td class="item">${ classId === 'simple'
+								? html`<a rel="external" target="_blank" href="${item.item.url}"
+									title="${item.item.title}">${item.item.title}</a>`
+								: null}</td>
+							<td class="exhivitor-link">${item.exhibitor.twitterURL && html`
+								<a rel="external" target="_blank" href="${item.exhibitor.twitterURL}"
+								title="Twitter プロフィール"><img src="../images/twitter-logo.png" alt="Twitter" /></a>
+							`}</td>
+							<td class="exhivitor-link">
+								<a rel="external" target="_blank" href="${item.exhibitor.tsoURL}"
+									title="THE SEED ONLINE ユーザーページ">
+									<img src="../images/theseedonline-logo.png" alt="THE SEED ONLINE" />
+								</a>
+							</td>
+						</tr>`)}</tbody>
+					</table>`}
 		</section>`);
 	}
 });
