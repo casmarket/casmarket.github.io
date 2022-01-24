@@ -146,7 +146,7 @@ customElements.define('item-list', class extends LitElement {
 			[ 'theme1', 'テーマ会場', '1. 機能' ],
 			[ 'theme2', 'テーマ会場', '2. 機能' ],
 			this.showPosters && [ 'poster', '広告', null ],
-		].filter(([ classId ]) => this.catalogue.some(item => item.classId === classId))
+		].filter(classInfo => classInfo && this.catalogue.some(item => item.classId === classInfo[0]))
 			.map(([ classId, heading, subHeading ]) => html`<section>
 				<hgroup>
 					<h1>${heading}</h1>
