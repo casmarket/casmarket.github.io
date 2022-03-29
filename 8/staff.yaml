@@ -1,0 +1,23 @@
+- roles:
+    - 主催
+    - ロケーション制作
+  name: ベッラパスタ
+  url: https://twitter.com/i/user/1052812006531579904
+  icon: staff-bellapasta.jpg
+- roles:
+    - ルームマネージャー
+  managedRoom: テーマ会場 1.「リアル」
+  name: わいず
+  url: https://twitter.com/i/user/2236766504
+  icon: staff-waizu.png
+- roles:
+    - ルームマネージャー
+  managedRoom: テーマ会場 2.「ファンタジー」
+  name: ふーげらー
+  url: https://twitter.com/intent/user?user_id=978956034566836224
+  icon: fugera.jpg
+- roles:
+    - Webサイト雛形制作
+  name: 100の人
+  url: https://twitter.com/i/user/319757037
+  icon: staff-100.png
