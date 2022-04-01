@@ -233,12 +233,12 @@ customElements.define('cas-market', class extends LitElement {
 				<td class="genre">
 					<dl>
 						<div>
-							<dt>機能</dt>
-							<dd>機能を重視したVCI</dd>
+							<dt>リアル</dt>
+							<dd>現実的、実用的なVCI</dd>
 						</div>
 						<div>
-							<dt>装飾</dt>
-							<dd>デザインを重視したVCI</dd>
+							<dt>ファンタジー</dt>
+							<dd>空想的、嗜好的なVCI</dd>
 						</div>
 					</dl>
 				</td>
@@ -408,8 +408,8 @@ customElements.define('cas-market', class extends LitElement {
 					<li>ノージャンル</li>
 				</ol></td>
 				<td class="theme"><ol>
-					<li>機能</li>
-					<li>装飾</li>
+					<li>リアル</li>
+					<li>ファンタジー</li>
 				</ol></td>
 				<td></td>
 			</tr>
