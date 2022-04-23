@@ -856,8 +856,8 @@ customElements.define('item-list', class extends lit__WEBPACK_IMPORTED_MODULE_0_
 	{
 		return [
 			[ 'simple', 'シンプル会場', null ],
-			[ 'theme1', 'テーマ会場', '1. 機能' ],
-			[ 'theme2', 'テーマ会場', '2. 装飾' ],
+			[ 'theme1', 'テーマ会場', '1. リアル' ],
+			[ 'theme2', 'テーマ会場', '2. ファンタジー' ],
 			this.showPosters && [ 'poster', '広告', null ],
 		].filter(classInfo => classInfo && this.catalogue.some(item => item.classId === classInfo[0]))
 			.map(([ classId, heading, subHeading ]) => lit__WEBPACK_IMPORTED_MODULE_0__.html`<section>
