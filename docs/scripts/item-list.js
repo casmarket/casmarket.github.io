@@ -64,7 +64,7 @@ customElements.define('item-list', class extends LitElement {
 			position: absolute;
 			right: 0.5em;
 			font-family: sans-serif;
-			font-size: 2.5em;
+			font-size: 1.5em;
 		}
 
 		:is([href*="images/map-"], [href*="posters/"]) img {
