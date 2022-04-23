@@ -777,7 +777,7 @@ customElements.define('item-list', class extends lit__WEBPACK_IMPORTED_MODULE_0_
 			position: absolute;
 			right: 0.5em;
 			font-family: sans-serif;
-			font-size: 2.5em;
+			font-size: 1.5em;
 		}
 
 		:is([href*="images/map-"], [href*="posters/"]) img {
