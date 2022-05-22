@@ -9,6 +9,10 @@ simpleTitle: 神殿
 simpleSummary: オリンピア内にある、神聖な展示場
 themeTitle: オリンピア
 themeSummary: 古代ギリシャの建築が立ち並ぶ、台地状の都市
+theme1: 機能
+theme1Summary: 機能を重視したVCI
+theme2: 装飾
+theme2Summary: デザインを重視したVCI
 applicationDeadline: 2022-01-22T24:00:00+09:00
 simpleVCIUploadDeadline: 2022-01-22T24:00:00+09:00
 themePreparePeriod:
