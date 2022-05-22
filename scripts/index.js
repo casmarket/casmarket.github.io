@@ -263,12 +263,12 @@ customElements.define('cas-market', class extends lit__WEBPACK_IMPORTED_MODULE_0
 				<td class="genre">
 					<dl>
 						<div>
-							<dt>リアル</dt>
-							<dd>現実的、実用的なVCI</dd>
+							<dt>${this.params.theme1}</dt>
+							<dd>${this.params.theme1Summary}</dd>
 						</div>
 						<div>
-							<dt>ファンタジー</dt>
-							<dd>空想的、嗜好的なVCI</dd>
+							<dt>${this.params.theme2}</dt>
+							<dd>${this.params.theme2Summary}</dd>
 						</div>
 					</dl>
 				</td>
@@ -438,8 +438,8 @@ customElements.define('cas-market', class extends lit__WEBPACK_IMPORTED_MODULE_0
 					<li>ノージャンル</li>
 				</ol></td>
 				<td class="theme"><ol>
-					<li>リアル</li>
-					<li>ファンタジー</li>
+					<li>${this.params.theme1}</li>
+					<li>${this.params.theme2}</li>
 				</ol></td>
 				<td></td>
 			</tr>
