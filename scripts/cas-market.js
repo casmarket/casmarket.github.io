@@ -128,8 +128,8 @@ customElements.define('cas-market', class extends LitElement {
 	<section id="access">
 		<h1 class="level3">楽しみ方</h1>
 		<p>
-			バーチャルキャストは、PCと対応するVR機材があれば無料で遊べるサービスです。
-			キャスマーケットの公式スタジオ、ルームでVCIを実際に試着したり、写真を撮ったり、取り込むことができます！
+			バーチャルキャストは、VR機材があれば無料で遊べるサービスです。
+			キャスマーケットのルームでVCIを実際に試着したり、写真を撮ったり、取り込むことができます！
 		</p>
 		<p>
 			充分にイベントを楽しむには、事前にTwitter連携を済ませたり、
@@ -317,6 +317,7 @@ customElements.define('cas-market', class extends LitElement {
 			<li>カタログで上部に表示、バッジが付きます。</li>
 			<li>なるべく入口近くに展示、キャプションボードの色が変わります。</li>
 			<li>連続出展回数が2回で「銀」、5回で「金」になります。</li>
+			<li>「金」獲得後は、4回出展する度に「金」バッジが増えていきます。</li>
 			<li>金バッジになると、運営情報が分かる専用Discordにご招待にします。</li>
 			<li>出展が途絶えた場合は連続回数も1からになりますのでご了承ください。</li>
 		</ul>
@@ -359,9 +360,8 @@ customElements.define('cas-market', class extends LitElement {
 	<section>
 		<h1>テーマ会場</h1>
 		<ul>
-			<li>ルームそれぞれのルームマネージャーが管理し、打ち合わせることで自由な出展設営を行うことができます。</li>
+			<li>ルームそれぞれのルームマネージャーが管理し、自由な出展設営を行うことができます。</li>
 			<li>ルームリンクは設営に使用するアカウントで公開しているルームに限り、3つまで展示可能です。</li>
-			<li>上限を超えた展示数や合同制作などは、ルームマネージャーに相談の上で設置できる場合があります。</li>
 			<li><a rel="external" target="_blank" href="https://discord.gg/xUXadMJG7z">出展者Discord</a>
 				を通じてルームマネージャーや他出展者との連絡を行います。</li>
 		</ul>
@@ -388,15 +388,15 @@ customElements.define('cas-market', class extends LitElement {
 				<td colspan="2">
 					<div class="theme">
 						<figure class="small">
-							<figcaption>「ブース」①Small</figcaption>
+							<figcaption>「ブース」①S</figcaption>
 							<img src="../images/rules-booth-size-small.png" alt="幅4m×奥行4m×高さ5m" />
 						</figure>
 						<figure class="medium">
-							<figcaption>「ブース」②Medium</figcaption>
+							<figcaption>「ブース」②M</figcaption>
 							<img src="../images/rules-booth-size-medium.png" alt="幅8m×奥行4m×高さ5m" />
 						</figure>
 						<figure class="large">
-							<figcaption>「ブース」③Large</figcaption>
+							<figcaption>「ブース」③L</figcaption>
 							<img src="../images/rules-booth-size-large.png" alt="幅10m×奥行10m×高さ10m" />
 						</figure>
 					</div>
@@ -465,7 +465,7 @@ customElements.define('cas-market', class extends LitElement {
 			<img src="../images/rules-poster-1.png" alt="" />
 			<ul>
 				<li>${this.params.oneSpacePosterPlace}</li>
-				<li>縦2.0m×横1.8mの壁面に配置します。</li>
+				<li>縦2.0m×横1.4mの壁面に配置します。</li>
 				<li>アスペクト比は 1 : √2 (ポスターサイズ) か 9 : 16 です。</li>
 			</ul>
 		</section>
@@ -474,7 +474,7 @@ customElements.define('cas-market', class extends LitElement {
 			<img src="../images/rules-poster-2.png" alt="" />
 			<ul>
 				<li>${this.params.twoSpacesPosterPlace}</li>
-				<li>縦2.0m×横3.6mの壁面に配置します。</li>
+				<li>縦2.0m×横2.8mの壁面に配置します。</li>
 				<li>アスペクト比は √2 : 1 (ポスターサイズ) か 16 : 9 です。</li>
 			</ul>
 		</section>
