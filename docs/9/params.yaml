@@ -1,0 +1,26 @@
+period:
+    start: 2022-08-01T10:00:00+09:00
+    end: 2022-08-07T24:00:00+09:00
+hashTag: '#夏キャス'
+applicationURL: https://connpass.com/event/251597/
+cataloguePublicationDate: 2022-07-23T00:00:00+09:00
+concept: 中世ロマネスク
+simpleTitle: 中庭
+simpleSummary: 城内にある、アーチに面した中庭
+themeTitle: 城
+themeSummary: 中世ヨーロッパの城塞で、内部に様々な建造物が立ち並ぶ
+theme1: 剣《ソード》
+theme1Summary: 武術、武勇、ワイルド
+theme2: 玉《オーブ》
+theme2Summary: 魔法、知性、エレガント
+applicationDeadline: 2022-07-22T24:00:00+09:00
+simpleVCIUploadDeadline: 2022-07-22T24:00:00+09:00
+themePreparePeriod:
+    start: 2022-07-24T00:00:00+09:00
+    end: 2022-07-30T24:00:00+09:00
+maxSimpleCount: 30
+maxThemeCountPerVenue: 9
+maxPosterCount: 15
+oneSpacePosterPlace: 2000円(税込)
+twoSpacesPosterPlace: 3000円(税込)
+pamphletURL: https://metamovr.booth.pm/items/3945701
