@@ -1,128 +1,537 @@
 [
 	{
-		"id": "0",
-		"classId": "theme1",
-		"badge": "gold",
+		"id": "01",
+		"classId": "simple",
+		"badge": "gold2",
 		"exhibitor": {
-			"name": "キャスマーケット主催用",
-			"tsoURL": "https://seed.online/users/113542",
-			"twitterURL": null,
-			"icon": "icons/virtualcast_fes.png"
+			"name": "にゃふ",
+			"tsoURL": "https://seed.online/users/100667",
+			"twitterURL": "https://twitter.com/Nyaf0039V",
+			"icon": "icons/Nyaf0039V.png"
+		},
+		"item": {
+			"title": "万年カレンダー",
+			"url": "https://seed.online/products/f1167aba0f027e36fe663e93ab78f3e07cdc5f6156f363aa75e9d602266720fa"
 		}
 	},
 	{
-		"id": "0",
-		"classId": "theme1",
-		"badge": "silver",
+		"id": "02",
+		"classId": "simple",
+		"badge": "gold2",
 		"exhibitor": {
-			"name": "キャスマーケット主催用",
-			"tsoURL": "https://seed.online/users/113542",
-			"twitterURL": "https://twitter.com/virtualcast_fes",
-			"icon": "icons/virtualcast_fes.png"
+			"name": "烏丸ゆん",
+			"tsoURL": "https://seed.online/users/100025",
+			"twitterURL": "https://twitter.com/karasumayun",
+			"icon": "icons/karasumayun.png"
+		},
+		"item": {
+			"title": "BGM用CD[烏丸音頭]",
+			"url": "https://seedonline.jp/products/34f687be005c67dbea3e77695d1775168c5022d45c72e308c19024150608ef77"
 		}
 	},
 	{
-		"id": "0",
-		"classId": "theme1",
-		"badge": null,
+		"id": "03",
+		"classId": "simple",
+		"badge": "gold2",
 		"exhibitor": {
-			"name": "キャスマーケット主催用",
-			"tsoURL": "https://seed.online/users/113542",
-			"twitterURL": "https://twitter.com/virtualcast_fes",
-			"icon": "icons/virtualcast_fes.png"
+			"name": "HAHURI SHIKI",
+			"tsoURL": "https://seed.online/users/100513",
+			"twitterURL": "https://twitter.com/Ntou4",
+			"icon": "icons/TOKITSUKAZE.png"
+		},
+		"item": {
+			"title": null,
+			"url": "https://seed.online/products/329c4222cfa181e849e532471f7067284825b092feee03bf16aecabc71f2ffb5"
 		}
 	},
 	{
-		"id": "0",
-		"classId": "theme2",
-		"badge": "gold",
-		"exhibitor": {
-			"name": "キャスマーケット主催用",
-			"tsoURL": "https://seed.online/users/113542",
-			"twitterURL": "https://twitter.com/virtualcast_fes",
-			"icon": "icons/virtualcast_fes.png"
-		}
-	},
-	{
-		"id": "0",
-		"classId": "theme2",
-		"badge": "silver",
-		"exhibitor": {
-			"name": "キャスマーケット主催用",
-			"tsoURL": "https://seed.online/users/113542",
-			"twitterURL": "https://twitter.com/virtualcast_fes",
-			"icon": "icons/virtualcast_fes.png"
-		}
-	},
-	{
-		"id": "0",
-		"classId": "theme2",
-		"badge": null,
-		"exhibitor": {
-			"name": "キャスマーケット主催用",
-			"tsoURL": "https://seed.online/users/113542",
-			"twitterURL": "https://twitter.com/virtualcast_fes",
-			"icon": "icons/virtualcast_fes.png"
-		}
-	},
-	{
-		"id": "0",
+		"id": "04",
 		"classId": "simple",
 		"badge": "gold",
 		"exhibitor": {
-			"name": "キャスマーケット主催用　文字数テスト文字数テスト文字数テスト",
-			"tsoURL": "https://seed.online/users/113542",
-			"twitterURL": "https://twitter.com/virtualcast_fes",
-			"icon": "icons/virtualcast_fes.png"
+			"name": "JohnnyUM",
+			"tsoURL": "https://seed.online/users/100756",
+			"twitterURL": "https://twitter.com/johnny_um",
+			"icon": "icons/johnny_um.png"
 		},
 		"item": {
-			"title": "キャスポータル　文字数テスト文字数テスト文字数テスト",
-			"url": "https://seed.online/products/2fc5698185b826b3c43fd371df0aea3b85a348383022fb120386c4010011295c"
+			"title": "カセットコンロ",
+			"url": "https://seed.online/products/21c1f7f9354325b3ff7f4e11ee76dc381931cf496bf600271393c9aa6d3e88d0"
 		}
 	},
 	{
-		"id": "0",
+		"id": "05",
+		"classId": "simple",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "わいず",
+			"tsoURL": "https://seed.online/users/100052",
+			"twitterURL": "https://twitter.com/shige_ys2",
+			"icon": "icons/shige_ys2.png"
+		},
+		"item": {
+			"title": "12cmファン(RGB)",
+			"url": "https://seedonline.jp/products/3fdba389b166f0cfa988be66e92fe9c1b84e0e12c8451f6e64ffc74fe21239d7"
+		}
+	},
+	{
+		"id": "06",
+		"classId": "simple",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "ちょべりば→ぐ＃らいと",
+			"tsoURL": "https://seed.online/users/100051",
+			"twitterURL": "https://twitter.com/lightjug",
+			"icon": "icons/lightjug.png"
+		},
+		"item": {
+			"title": "カスタムビンゴ(lua書き換えで内容変更可能)",
+			"url": "https://seed.online/products/d5b64da88e45eb71be637856765957f538464c23354cd58ab9d6a8114f0b4d9b"
+		}
+	},
+	{
+		"id": "07",
+		"classId": "simple",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "ヤス",
+			"tsoURL": "https://seed.online/users/100874",
+			"twitterURL": "https://twitter.com/PlayerStock0",
+			"icon": "icons/PlayerStock0.png"
+		},
+		"item": {
+			"title": "（約2年の時を経て今更サイズ変更可能になった）ゆめかわジェットブーツ.Ver6",
+			"url": "https://seedonline.jp/products/9e2cd7806bae64d38b6579352199db7aafe0c18eb74ee81c155018118a91acaf"
+		}
+	},
+	{
+		"id": "08",
+		"classId": "simple",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "ベッラパスタ",
+			"tsoURL": "https://seed.online/users/100117",
+			"twitterURL": "https://twitter.com/VR_pasta",
+			"icon": "icons/VR_pasta.png"
+		},
+		"item": {
+			"title": "スツール White【ベッラ家具】",
+			"url": "https://seed.online/products/ff083bd83ea29851a8ea85e6f627642636c04d1a386ad73263a7b7880b7eb699"
+		}
+	},
+	{
+		"id": "09",
+		"classId": "simple",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "sakkinonana",
+			"tsoURL": "https://seed.online/users/103945",
+			"twitterURL": "https://twitter.com/sakkinonana",
+			"icon": "icons/sakkinonana.png"
+		},
+		"item": {
+			"title": "メロン melon",
+			"url": "https://seed.online/products/bcc68436e56c61c21f1b9838a9f0f47b1841d655824fb164e6d0250350289315"
+		}
+	},
+	{
+		"id": "10",
+		"classId": "simple",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "ふーげらー",
+			"tsoURL": "https://seed.online/users/100257",
+			"twitterURL": "https://twitter.com/alakabra",
+			"icon": "icons/alakabra.png"
+		},
+		"item": {
+			"title": "せいかいのおとが鳴るうんち",
+			"url": "https://seed.online/products/f4b91709d9ac123f3b4752da5c6656930779a9c39c7585f26bfe93f85431fa6f"
+		}
+	},
+	{
+		"id": "11",
+		"classId": "simple",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "oze",
+			"tsoURL": "https://seed.online/users/105834",
+			"twitterURL": "https://twitter.com/oze_i",
+			"icon": "icons/oze_i.png"
+		},
+		"item": {
+			"title": "食べれるたい焼き（試作）つぶあん",
+			"url": "https://seed.online/products/6822f276e43f4f30f25f6b35303919b279404ec9a265980614fd12ff583e8199"
+		}
+	},
+	{
+		"id": "12",
+		"classId": "simple",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "Hideki Saito",
+			"tsoURL": "https://seed.online/users/114934",
+			"twitterURL": "https://twitter.com/hideki",
+			"icon": "icons/UnsignedInt.png"
+		},
+		"item": {
+			"title": "ロズヴィータカメラ",
+			"url": "https://seed.online/products/8e2752a070f90bd440aef8a5b82e5b82795e46603b9b8988137332fdd185fbf1"
+		}
+	},
+	{
+		"id": "13",
+		"classId": "simple",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "aisot",
+			"tsoURL": "https://seed.online/users/100135",
+			"twitterURL": "https://twitter.com/aisot",
+			"icon": "icons/aisot.png"
+		},
+		"item": {
+			"title": "パイン・アップル・ラグ(自動ピアノ)",
+			"url": "https://seed.online/products/8a7b7a23741d08c7990bc2a6aa8dc6f95e061f0e53b63f21ecfdccb2358fee9a"
+		}
+	},
+	{
+		"id": "14",
+		"classId": "simple",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "SKA",
+			"tsoURL": "https://seed.online/users/109685",
+			"twitterURL": "https://twitter.com/SK_Animation",
+			"icon": "icons/SKAsWeb.png"
+		},
+		"item": {
+			"title": "Unity茶豆（おつまみ用枝豆）×9個セット ※まだ食べれません",
+			"url": "https://seed.online/products/bc64c9418a00bd9c30e40c61825c23a04219e5699dddc8d971908e65164c9a00"
+		}
+	},
+	{
+		"id": "15",
 		"classId": "simple",
 		"badge": "silver",
 		"exhibitor": {
-			"name": "キャスマーケット主催用",
-			"tsoURL": "https://seed.online/users/113542",
-			"twitterURL": "https://twitter.com/virtualcast_fes",
-			"icon": "icons/virtualcast_fes.png"
+			"name": "櫻井阿弥 (てとら)",
+			"tsoURL": "https://seed.online/users/136665",
+			"twitterURL": "https://twitter.com/Ami_Sakurai_MH",
+			"icon": "icons/Sakurai_Ami.png"
 		},
 		"item": {
-			"title": "キャスポータル",
-			"url": "https://seed.online/products/2fc5698185b826b3c43fd371df0aea3b85a348383022fb120386c4010011295c"
+			"title": "クイズ用マッチ棒",
+			"url": "https://seed.online/products/034d636fa7e0bb345370a77341ba74b2445da023d9e135da8b748d01c6088b8c"
 		}
 	},
 	{
-		"id": "0",
+		"id": "16",
+		"classId": "simple",
+		"badge": "silver",
+		"exhibitor": {
+			"name": "かーばんくる",
+			"tsoURL": "https://seed.online/users/120973",
+			"twitterURL": "https://twitter.com/kakunvr",
+			"icon": "icons/kakunvr.png"
+		},
+		"item": {
+			"title": "【ダンス向け】足元エフェクト（ハート）",
+			"url": "https://seed.online/products/63204c5cfa69d8a9d2c912c37ee4fff86aaf7b5e1d76f54be322fd169fecea17"
+		}
+	},
+	{
+		"id": "17",
+		"classId": "simple",
+		"badge": "silver",
+		"exhibitor": {
+			"name": "messe",
+			"tsoURL": "https://seed.online/users/102902",
+			"twitterURL": "https://twitter.com/MesseMessenger",
+			"icon": "icons/MesseMessenger.png"
+		},
+		"item": {
+			"title": "打ち上げ花火セット",
+			"url": "https://seed.online/products/7f2ea8442769db601a7224f34697de48cc7cd989ba07f33b2bb7ea7eb6de5a8e"
+		}
+	},
+	{
+		"id": "18",
+		"classId": "simple",
+		"badge": "silver",
+		"exhibitor": {
+			"name": "ぬっこ",
+			"tsoURL": "https://seed.online/users/107875",
+			"twitterURL": "https://twitter.com/vcnukko",
+			"icon": "icons/vcnukko.png"
+		},
+		"item": {
+			"title": "ぬっこソード",
+			"url": "https://seed.online/products/148f00e596242b39665ae40f05b1a9045f17ecd827bb9f50c5ab1e909c6d3a77"
+		}
+	},
+	{
+		"id": "19",
 		"classId": "simple",
 		"badge": null,
 		"exhibitor": {
-			"name": "キャスマーケット主催用",
-			"tsoURL": "https://seed.online/users/113542",
-			"twitterURL": "https://twitter.com/virtualcast_fes",
-			"icon": "icons/virtualcast_fes.png"
+			"name": "amanoissui",
+			"tsoURL": "https://seed.online/users/149894",
+			"twitterURL": "https://twitter.com/amanoissui",
+			"icon": "icons/amanoissui.png"
 		},
 		"item": {
-			"title": "キャスポータル",
-			"url": "https://seed.online/products/2fc5698185b826b3c43fd371df0aea3b85a348383022fb120386c4010011295c"
+			"title": "神楽鈴",
+			"url": "https://seed.online/products/caa6342ae91873a74f1865e10861011e231d520c0f663f7778d4f40ac3eb7e0a"
 		}
 	},
 	{
-		"id": "0",
-		"classId": "poster",
-		"poster": "posters/0.png"
+		"id": "20",
+		"classId": "simple",
+		"badge": null,
+		"exhibitor": {
+			"name": "しぐれ",
+			"tsoURL": "https://seed.online/users/100813",
+			"twitterURL": "https://twitter.com/t_marara",
+			"icon": "icons/t_marara.png"
+		},
+		"item": {
+			"title": "肉寿司",
+			"url": "https://seed.online/products/9f2e8d7d987cdbeaf5311b5992494b3d9cffd1256473ca8e069526544ac97ba8"
+		}
 	},
 	{
-		"id": "0",
-		"classId": "poster",
-		"poster": "posters/0.png"
+		"id": "21",
+		"classId": "simple",
+		"badge": null,
+		"exhibitor": {
+			"name": "黒永×もっかん",
+			"tsoURL": "https://seed.online/users/129143",
+			"twitterURL": "https://twitter.com/k_mokkan",
+			"icon": "icons/k_mokkan.png"
+		},
+		"item": {
+			"title": "マカロン",
+			"url": "https://seed.online/products/3d978d403902f90616a119e83e949ea3530ace7ce176337c3d8e010c93384e25"
+		}
 	},
 	{
-		"id": "0",
+		"id": "22",
+		"classId": "simple",
+		"badge": null,
+		"exhibitor": {
+			"name": "天文仮想研究所 VSP",
+			"tsoURL": "https://seed.online/users/136395",
+			"twitterURL": "https://twitter.com/vsp_vrc",
+			"icon": "icons/Virtual_Space_Program.png"
+		},
+		"item": {
+			"title": "天文仮想研究所（VSP）記念バッチver2",
+			"url": "https://seed.online/products/9ded88b1dc86f3d07dfe2a204f6d7d81abdb733ba6bada924521914c45002cc9"
+		}
+	},
+	{
+		"id": "23",
+		"classId": "simple",
+		"badge": null,
+		"exhibitor": {
+			"name": "fairychirno",
+			"tsoURL": "https://seed.online/users/100012",
+			"twitterURL": "https://twitter.com/fairychirno",
+			"icon": "icons/fairychirno.png"
+		},
+		"item": {
+			"title": "【拡張メモリーカード】5inch FD",
+			"url": "https://seed.online/products/d5275f594e3a6566853f7c5effe11935b193953810b1bd4ca376ccc7eb6229b4"
+		}
+	},
+	{
+		"id": "24",
+		"classId": "simple",
+		"badge": null,
+		"exhibitor": {
+			"name": "甘野氷",
+			"tsoURL": "https://seed.online/users/108324",
+			"twitterURL": "https://twitter.com/koori2nd",
+			"icon": "icons/koori2nd.png"
+		},
+		"item": {
+			"title": "チョコパフェ",
+			"url": "https://seed.online/products/1401058c06d758a7c3f49327a00cfe5f0121ea41d9a3d614c8b2a3093fcb94b5"
+		}
+	},
+	{
+		"id": "01",
+		"classId": "theme1",
+		"badge": "gold2",
+		"exhibitor": {
+			"name": "HAHURI SHIKI",
+			"tsoURL": "https://seed.online/users/100513",
+			"twitterURL": "https://twitter.com/Ntou4",
+			"icon": "icons/TOKITSUKAZE.png"
+		}
+	},
+	{
+		"id": "02",
+		"classId": "theme1",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "Hideki Saito",
+			"tsoURL": "https://seed.online/users/114934",
+			"twitterURL": "https://twitter.com/hideki",
+			"icon": "icons/UnsignedInt.png"
+		}
+	},
+	{
+		"id": "03",
+		"classId": "theme1",
+		"badge": "silver",
+		"exhibitor": {
+			"name": "櫻井阿弥 (てとら)",
+			"tsoURL": "https://seed.online/users/136665",
+			"twitterURL": "https://twitter.com/Ami_Sakurai_MH",
+			"icon": "icons/Sakurai_Ami.png"
+		}
+	},
+	{
+		"id": "04",
+		"classId": "theme1",
+		"badge": "silver",
+		"exhibitor": {
+			"name": "ぬっこ",
+			"tsoURL": "https://seed.online/users/107875",
+			"twitterURL": "https://twitter.com/vcnukko",
+			"icon": "icons/vcnukko.png"
+		}
+	},
+	{
+		"id": "05",
+		"classId": "theme1",
+		"badge": "silver",
+		"exhibitor": {
+			"name": "vci_workshop",
+			"tsoURL": "https://seed.online/users/108103",
+			"twitterURL": "https://twitter.com/vci_workshop",
+			"icon": "icons/vci_workshop.png"
+		}
+	},
+	{
+		"id": "06",
+		"classId": "theme1",
+		"badge": null,
+		"exhibitor": {
+			"name": "amanoissui",
+			"tsoURL": "https://seed.online/users/149894",
+			"twitterURL": "https://twitter.com/amanoissui",
+			"icon": "icons/amanoissui.png"
+		}
+	},
+	{
+		"id": "01",
+		"classId": "theme2",
+		"badge": "gold2",
+		"exhibitor": {
+			"name": "にゃふ",
+			"tsoURL": "https://seed.online/users/100667",
+			"twitterURL": "https://twitter.com/Nyaf0039V",
+			"icon": "icons/Nyaf0039V.png"
+		}
+	},
+	{
+		"id": "02",
+		"classId": "theme2",
+		"badge": "gold2",
+		"exhibitor": {
+			"name": "烏丸ゆん",
+			"tsoURL": "https://seed.online/users/100025",
+			"twitterURL": "https://twitter.com/karasumayun",
+			"icon": "icons/karasumayun.png"
+		}
+	},
+	{
+		"id": "03",
+		"classId": "theme2",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "JohnnyUM",
+			"tsoURL": "https://seed.online/users/100756",
+			"twitterURL": "https://twitter.com/johnny_um",
+			"icon": "icons/johnny_um.png"
+		}
+	},
+	{
+		"id": "04",
+		"classId": "theme2",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "わいず",
+			"tsoURL": "https://seed.online/users/100052",
+			"twitterURL": "https://twitter.com/shige_ys2",
+			"icon": "icons/shige_ys2.png"
+		}
+	},
+	{
+		"id": "05",
+		"classId": "theme2",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "ちょべりば→ぐ＃らいと",
+			"tsoURL": "https://seed.online/users/100051",
+			"twitterURL": "https://twitter.com/lightjug",
+			"icon": "icons/lightjug.png"
+		}
+	},
+	{
+		"id": "06",
+		"classId": "theme2",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "ベッラパスタ",
+			"tsoURL": "https://seed.online/users/100117",
+			"twitterURL": "https://twitter.com/VR_pasta",
+			"icon": "icons/VR_pasta.png"
+		}
+	},
+	{
+		"id": "07",
+		"classId": "theme2",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "ふーげらー",
+			"tsoURL": "https://seed.online/users/100257",
+			"twitterURL": "https://twitter.com/alakabra",
+			"icon": "icons/alakabra.png"
+		}
+	},
+	{
+		"id": "08",
+		"classId": "theme2",
+		"badge": null,
+		"exhibitor": {
+			"name": "あいあい翔太",
+			"tsoURL": "https://seed.online/users/100470",
+			"twitterURL": "https://twitter.com/zombiecast2018",
+			"icon": "icons/zombiecast2018.png"
+		}
+	},
+	{
+		"id": "09",
+		"classId": "theme2",
+		"badge": null,
+		"exhibitor": {
+			"name": "天文仮想研究所 VSP",
+			"tsoURL": "https://seed.online/users/136395",
+			"twitterURL": "https://twitter.com/vsp_vrc",
+			"icon": "icons/Virtual_Space_Program.png"
+		}
+	},
+	{
+		"id": "01",
 		"classId": "poster",
-		"poster": "posters/0.png"
+		"poster": "posters/Poster9-kazumi.png"
+	},
+	{
+		"id": "02",
+		"classId": "poster",
+		"poster": "posters/Poster9-kili.png"
 	}
 ]
