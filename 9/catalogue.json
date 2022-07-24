@@ -169,6 +169,21 @@
 		"classId": "simple",
 		"badge": "gold",
 		"exhibitor": {
+			"name": "100の人",
+			"tsoURL": "https://seed.online/users/100241",
+			"twitterURL": "https://twitter.com/esperecyan",
+			"icon": "icons/esperecyan.png"
+		},
+		"item": {
+			"title": "VCI Video Sample",
+			"url": "https://seed.online/products/c866fa87eea3e0f9a015b78f94be020385bc213efddf32331c3c4b46bc0073a5"
+		}
+	},
+	{
+		"id": "13",
+		"classId": "simple",
+		"badge": "gold",
+		"exhibitor": {
 			"name": "Hideki Saito",
 			"tsoURL": "https://seed.online/users/114934",
 			"twitterURL": "https://twitter.com/hideki",
@@ -180,7 +195,7 @@
 		}
 	},
 	{
-		"id": "13",
+		"id": "14",
 		"classId": "simple",
 		"badge": "gold",
 		"exhibitor": {
@@ -195,7 +210,7 @@
 		}
 	},
 	{
-		"id": "14",
+		"id": "15",
 		"classId": "simple",
 		"badge": "gold",
 		"exhibitor": {
@@ -210,7 +225,7 @@
 		}
 	},
 	{
-		"id": "15",
+		"id": "16",
 		"classId": "simple",
 		"badge": "silver",
 		"exhibitor": {
@@ -225,7 +240,7 @@
 		}
 	},
 	{
-		"id": "16",
+		"id": "17",
 		"classId": "simple",
 		"badge": "silver",
 		"exhibitor": {
@@ -240,7 +255,7 @@
 		}
 	},
 	{
-		"id": "17",
+		"id": "18",
 		"classId": "simple",
 		"badge": "silver",
 		"exhibitor": {
@@ -255,7 +270,7 @@
 		}
 	},
 	{
-		"id": "18",
+		"id": "19",
 		"classId": "simple",
 		"badge": "silver",
 		"exhibitor": {
@@ -270,7 +285,7 @@
 		}
 	},
 	{
-		"id": "19",
+		"id": "20",
 		"classId": "simple",
 		"badge": null,
 		"exhibitor": {
@@ -285,7 +300,7 @@
 		}
 	},
 	{
-		"id": "20",
+		"id": "21",
 		"classId": "simple",
 		"badge": null,
 		"exhibitor": {
@@ -300,7 +315,7 @@
 		}
 	},
 	{
-		"id": "21",
+		"id": "22",
 		"classId": "simple",
 		"badge": null,
 		"exhibitor": {
@@ -315,7 +330,7 @@
 		}
 	},
 	{
-		"id": "22",
+		"id": "23",
 		"classId": "simple",
 		"badge": null,
 		"exhibitor": {
@@ -330,7 +345,7 @@
 		}
 	},
 	{
-		"id": "23",
+		"id": "24",
 		"classId": "simple",
 		"badge": null,
 		"exhibitor": {
@@ -345,7 +360,7 @@
 		}
 	},
 	{
-		"id": "24",
+		"id": "25",
 		"classId": "simple",
 		"badge": null,
 		"exhibitor": {
@@ -375,6 +390,17 @@
 		"classId": "theme1",
 		"badge": "gold",
 		"exhibitor": {
+			"name": "100の人",
+			"tsoURL": "https://seed.online/users/100241",
+			"twitterURL": "https://twitter.com/esperecyan",
+			"icon": "icons/esperecyan.png"
+		}
+	},
+	{
+		"id": "03",
+		"classId": "theme1",
+		"badge": "gold",
+		"exhibitor": {
 			"name": "Hideki Saito",
 			"tsoURL": "https://seed.online/users/114934",
 			"twitterURL": "https://twitter.com/hideki",
@@ -382,7 +408,7 @@
 		}
 	},
 	{
-		"id": "03",
+		"id": "04",
 		"classId": "theme1",
 		"badge": "silver",
 		"exhibitor": {
@@ -393,7 +419,7 @@
 		}
 	},
 	{
-		"id": "04",
+		"id": "05",
 		"classId": "theme1",
 		"badge": "silver",
 		"exhibitor": {
@@ -404,7 +430,7 @@
 		}
 	},
 	{
-		"id": "05",
+		"id": "06",
 		"classId": "theme1",
 		"badge": "silver",
 		"exhibitor": {
@@ -415,7 +441,7 @@
 		}
 	},
 	{
-		"id": "06",
+		"id": "07",
 		"classId": "theme1",
 		"badge": null,
 		"exhibitor": {
@@ -530,7 +556,7 @@
 		"poster": "posters/Poster9-kazumi.png"
 	},
 	{
-		"id": "02",
+		"id": "2",
 		"classId": "poster",
 		"poster": "posters/Poster9-kili.png"
 	}
