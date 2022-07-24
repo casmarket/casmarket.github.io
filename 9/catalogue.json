@@ -40,7 +40,7 @@
 			"icon": "icons/TOKITSUKAZE.png"
 		},
 		"item": {
-			"title": null,
+			"title": "剣 Lv.1",
 			"url": "https://seed.online/products/329c4222cfa181e849e532471f7067284825b092feee03bf16aecabc71f2ffb5"
 		}
 	},
@@ -408,7 +408,7 @@
 		"classId": "theme1",
 		"badge": "silver",
 		"exhibitor": {
-			"name": "vci_workshop",
+			"name": "VCI工房",
 			"tsoURL": "https://seed.online/users/108103",
 			"twitterURL": "https://twitter.com/vci_workshop",
 			"icon": "icons/vci_workshop.png"
