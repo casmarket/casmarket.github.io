@@ -111,14 +111,14 @@
 		}
 	},
 	{
-		"id": "0",
+		"id": "1",
 		"classId": "poster",
-		"poster": "posters/0.png"
+		"poster": "icons/Poster9-kazumi.png"
 	},
 	{
-		"id": "0",
+		"id": "2",
 		"classId": "poster",
-		"poster": "posters/0.png"
+		"poster": "icons/Poster9-kili.png"
 	},
 	{
 		"id": "0",
