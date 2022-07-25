@@ -163,7 +163,7 @@ customElements.define('cas-market', class extends LitElement {
 	<h1>カタログ</h1>
 	${this.params.cataloguePublicationDate
 		&& (this.params.cataloguePublicationDate.getTime() < new Date().getTime() || isDevelop
-			? (this.params.period && this.params.cataloguePublicationDate.getTime() < new Date().getTime() || isDevelop
+			? (this.params.cataloguePublicationDate.getTime() < new Date().getTime() || isDevelop
 			? html`<item-list showPosters=""></item-list>`
 			: html`<item-list></item-list>`)
 		: html`<p><date-time datetime="${this.params.cataloguePublicationDate}"></date-time> 公開予定！</p>`)
