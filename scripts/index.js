@@ -193,7 +193,7 @@ customElements.define('cas-market', class extends lit__WEBPACK_IMPORTED_MODULE_0
 	<h1>カタログ</h1>
 	${this.params.cataloguePublicationDate
 		&& (this.params.cataloguePublicationDate.getTime() < new Date().getTime() || isDevelop
-			? (this.params.period && this.params.cataloguePublicationDate.getTime() < new Date().getTime() || isDevelop
+			? (this.params.cataloguePublicationDate.getTime() < new Date().getTime() || isDevelop
 			? lit__WEBPACK_IMPORTED_MODULE_0__.html`<item-list showPosters=""></item-list>`
 			: lit__WEBPACK_IMPORTED_MODULE_0__.html`<item-list></item-list>`)
 		: lit__WEBPACK_IMPORTED_MODULE_0__.html`<p><date-time datetime="${this.params.cataloguePublicationDate}"></date-time> 公開予定！</p>`)
