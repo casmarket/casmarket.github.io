@@ -126,7 +126,6 @@ customElements.define('item-list', class extends LitElement {
 	`;
 
 	static properties = {
-		showPosters: { type: Boolean },
 		catalogue: { attribute: false },
 	};
 
@@ -146,8 +145,8 @@ customElements.define('item-list', class extends LitElement {
 			[ 'simple', 'シンプル会場', null ],
 			[ 'theme1', 'テーマ会場', '1' ],
 			[ 'theme2', 'テーマ会場', '2' ],
-			this.showPosters && [ 'poster', '広告', null ],
-		].filter(classInfo => classInfo && this.catalogue.some(item => item.classId === classInfo[0]))
+			[ 'poster', '広告', null ],
+		].filter(classInfo => this.catalogue.some(item => item.classId === classInfo[0]))
 			.map(([ classId, heading, subHeading ]) => html`<section>
 				<hgroup>
 					<h1>${heading}</h1>
