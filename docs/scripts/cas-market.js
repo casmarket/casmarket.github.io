@@ -86,7 +86,7 @@ customElements.define('cas-market', class extends LitElement {
 		return html`
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="../common.css" />
-<link rel="stylesheet" href="../cas-market.css" />
+<link rel="stylesheet" href="../cas-market.css?20220727" />
 <header>
 	<h1><a href=""><img src="images/title.png" alt="${this.eventName}" /></a></h1>
 
@@ -99,7 +99,7 @@ customElements.define('cas-market', class extends LitElement {
 
 <main>
 <section id="summary">
-	<h1>キャスマーケットとは?</h1>
+	<h2>キャスマーケットとは?</h2>
 	<p>
 		<strong>キャスマーケットは、データ提出が不要なマーケットです！</strong>
 		バーチャルキャストが手掛ける「THE SEED ONLINE」のサービスを用いることで、
@@ -126,7 +126,7 @@ customElements.define('cas-market', class extends LitElement {
 	</p>
 
 	<section id="access">
-		<h1 class="level3">楽しみ方</h1>
+		<h3 class="level4">楽しみ方</h3>
 		<p>
 			バーチャルキャストは、VR機材があれば無料で遊べるサービスです。
 			キャスマーケットのルームでVCIを実際に試着したり、写真を撮ったり、取り込むことができます！
@@ -138,7 +138,7 @@ customElements.define('cas-market', class extends LitElement {
 	</section>
 
 	<section>
-		<h1>開催日時</h1>
+		<h3>開催日時</h3>
 		<p>${this.params.period && html`
 			<date-time datetime=${this.params.period.start.toISOString()} displayYear="" displayTime=""></date-time>
 			以降 〜 <date-time datetime=${this.params.period.end.toISOString()} ending="" displayTime=""></date-time>
@@ -149,6 +149,7 @@ customElements.define('cas-market', class extends LitElement {
 	<img src="${this.widePosterPath}" alt="" />
 
 	<section>
+		<h3 class="hidden">リンク</h3>
 		<p>ハッシュタグ <a rel="external" target="_blank"
 			href="https://twitter.com/hashtag/${this.params.hashTag
 				&& encodeURIComponent(this.params.hashTag.replace('#', ''))}">${this.params.hashTag}</a></p>
@@ -160,7 +161,7 @@ customElements.define('cas-market', class extends LitElement {
 </section>
 
 <section id="catalogue">
-	<h1>カタログ</h1>
+	<h2>カタログ</h2>
 	${this.params.cataloguePublicationDate
 		&& (this.params.cataloguePublicationDate.getTime() < new Date().getTime() || isDevelop
 		? html`<item-list></item-list>`
@@ -169,7 +170,7 @@ customElements.define('cas-market', class extends LitElement {
 </section>
 
 <section id="pamphlet">
-	<h1>スペシャルパンフレット</h1>
+	<h2>スペシャルパンフレット</h2>
     <img src="images/pamphlet.png" alt="次回開催の支援にご協力ください！
 
 キャスマーケットの全てを記録
@@ -191,7 +192,7 @@ customElements.define('cas-market', class extends LitElement {
 </section>
 
 <section id="exhibit">
-	<h1>出展について</h1>
+	<h2>出展について</h2>
 	<p>コンセプト　${this.params.concept}</p>
 	<p>2タイプの会場から選んで出展できます。(両方への出展も可能)</p>
 	<table id="venues">
@@ -246,13 +247,13 @@ customElements.define('cas-market', class extends LitElement {
 	</table>
 
 	<section>
-		<h1>出展申し込みリンク</h1>
+		<h3>出展申し込みリンク</h3>
 		<p><a rel="external" target="_blank"
 			href="${this.params.applicationURL}">${this.params.applicationURL}</a></p>
 	</section>
 
 	<section id="room-managers">
-		<h1>${this.eventName}　ルームマネージャーの皆さん</h1>
+		<h3>${this.eventName}　ルームマネージャーの皆さん</h3>
 		<table>
 			<thead>
 				<tr>
@@ -272,12 +273,13 @@ customElements.define('cas-market', class extends LitElement {
 	</section>
 
 	<section>
+		<h3 class="hidden">Discord</h3>
 		<p>出展者Discordにて、問い合わせを行ったり、他出展者との交流ができます。</p>
 		<p><a rel="external" target="_blank" href="https://discord.gg/xUXadMJG7z">https://discord.gg/xUXadMJG7z</a></p>
 	</section>
 
 	<section>
-		<h1>締め切り</h1>
+		<h3>締め切り</h3>
 		<dl>${this.params.applicationDeadline && html`
 			<dt>出展申し込み</dt>
 			<dd><date-time datetime="${this.params.applicationDeadline.toISOString()}" ending=""></date-time></dd>
@@ -291,16 +293,16 @@ customElements.define('cas-market', class extends LitElement {
 	</section>
 
 	<section id="accepted-count">
-		<h1>募集数</h1>
+		<h3>募集数</h3>
 		<section>
-			<h1>VCI</h1>
+			<h4>VCI</h4>
 			<dl>
 				<dt>シンプル会場</dt><dd>先着${this.params.maxSimpleCount}名</dd>
 				<dt>テーマ会場</dt><dd>各テーマ先着${this.params.maxThemeCountPerVenue}名</dd>
 			</dl>
 		</section>
 		<section>
-			<h1>広告</h1>
+			<h4>広告</h4>
 			<dl>
 				<dt>広告設置</dt><dd>先着${this.params.maxPosterCount}名</dd>
 			</dl>
@@ -308,7 +310,7 @@ customElements.define('cas-market', class extends LitElement {
 	</section>
 
 	<section class="image-list-pairs">
-		<h1>連続出展特典</h1>
+		<h3>連続出展特典</h3>
 		<p>連続でご出展いただいた方には以下の特典を付与いたします！</p>
 		<img src="../images/badges.png" alt="" />
 		<ul>
@@ -323,9 +325,9 @@ customElements.define('cas-market', class extends LitElement {
 </section>
 
 <section id="rules">
-	<h1>出展ルール</h1>
+	<h2>出展ルール</h2>
 	<section class="image-list-pairs">
-		<h1>各会場共通</h1>
+		<h3>各会場共通</h3>
 		<ul class="wide">
 			<li>出展申し込み時に、VCIの投稿・設営に使用するTHE SEED ONLINE IDをご提出いただきます。</li>
 		</ul>
@@ -346,7 +348,7 @@ customElements.define('cas-market', class extends LitElement {
 	</section>
 
 	<section>
-		<h1>シンプル会場</h1>
+		<h3>シンプル会場</h3>
 		<ul>
 			<li>出展申し込み時に投稿した商品の共有URLの形式で提出していただきます。</li>
 			<li>アイテムを0VCCの商品として公開し、提出からマーケット終了まで公開状態を保ってください。</li>
@@ -356,7 +358,7 @@ customElements.define('cas-market', class extends LitElement {
 	</section>
 
 	<section>
-		<h1>テーマ会場</h1>
+		<h3>テーマ会場</h3>
 		<ul>
 			<li>ルームそれぞれのルームマネージャーが管理し、自由な出展設営を行うことができます。</li>
 			<li>ルームリンクは設営に使用するアカウントで公開しているルームに限り、3つまで展示可能です。</li>
@@ -365,6 +367,7 @@ customElements.define('cas-market', class extends LitElement {
 		</ul>
 	</section>
 
+	<h3 class="hidden">共通項目についてのルール</h3>
 	<table class="table">
 		<thead>
 			<tr>
@@ -442,7 +445,7 @@ customElements.define('cas-market', class extends LitElement {
 </section>
 
 <section id="rules-poster">
-	<h1>広告について</h1>
+	<h2>広告について</h2>
 	<p>キャスマーケットでは広告を募集します。</p>
 	<p>個人・法人のいずれでも購入できます。</p>
 	<p>Twitterアカウント
@@ -450,8 +453,9 @@ customElements.define('cas-market', class extends LitElement {
 		 へのダイレクトメッセージ (DM) よりご応募ください。</p>
 	<p>広告画像は、カタログ公開時にWebサイトでご紹介し、期間中は会場に設置されます。</p>
 	<section>
-		<h1>広告ルール</h1>
+		<h3>広告ルール</h3>
 		<section class="image-list-pairs">
+			<h4 class="hidden">共通ルール</h4>
 			<img src="../images/rules-poster-image.png" alt="" />
 			<ul>
 				<li>会場の入り口に設置します。</li>
@@ -459,7 +463,7 @@ customElements.define('cas-market', class extends LitElement {
 			</ul>
 		</section>
 		<section class="image-list-pairs">
-			<h1>1スペース (タテ長)</h1>
+			<h4>1スペース (タテ長)</h4>
 			<img src="../images/rules-poster-1.png" alt="" />
 			<ul>
 				<li>${this.params.oneSpacePosterPlace}</li>
@@ -468,7 +472,7 @@ customElements.define('cas-market', class extends LitElement {
 			</ul>
 		</section>
 		<section class="image-list-pairs">
-			<h1>2スペース (ヨコ長)</h1>
+			<h4>2スペース (ヨコ長)</h4>
 			<img src="../images/rules-poster-2.png" alt="" />
 			<ul>
 				<li>${this.params.twoSpacesPosterPlace}</li>
@@ -480,7 +484,7 @@ customElements.define('cas-market', class extends LitElement {
 </section>
 
 <section id="guidelines">
-	<h1>ガイドライン</h1>
+	<h2>ガイドライン</h2>
 	<p>
 		キャスマーケットの詳細な取り決めをまとめたガイドラインです！
 		イベント全体を通してこちらのガイドラインに従って運営させていただきます。
@@ -490,7 +494,7 @@ customElements.define('cas-market', class extends LitElement {
 </section>
 
 <section id="logo">
-	<h1>ポスター・ロゴ配布</h1>
+	<h2>ポスター・ロゴ配布</h2>
 	<p>本イベントの宣伝・制作物への利用に限りご自由にお使いいただけます。</p>
 	<ul class="posters">
 		${this.posterPaths.map(path => html`<li><a target="_blank" href="${path}"><img src="${path}" /></a></li>`)}
@@ -507,14 +511,14 @@ customElements.define('cas-market', class extends LitElement {
 
 <footer>
 	<section id="contact">
-		<h1>お問い合わせ</h1>
+		<h2>お問い合わせ</h2>
 		<p>Twitterアカウント <a rel="external" target="_blank"
 			href="https://twitter.com/i/user/1277870007758684161">@virtualcast_fes</a>
 			へのダイレクトメッセージ (DM) にてお問い合わせください。</p>
 	</section>
 
 	<section id="staff">
-		<h1>スタッフ</h1>
+		<h2>スタッフ</h2>
 		<address>
 			<table class="table">
 				<thead>

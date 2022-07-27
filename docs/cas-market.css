@@ -72,7 +72,7 @@ section a img {
 	grid-template-columns: 33% 66%;
 }
 
-.image-list-pairs h1,
+.image-list-pairs h3,
 .image-list-pairs p,
 .image-list-pairs .wide {
 	grid-column: span 2;
@@ -121,7 +121,7 @@ main > section:first-of-type {
 	margin-top: 0;
 }
 
-main > section > h1 {
+h2 {
 	font-size: 2.9em;
 	color: var(--heading-color);
 	background: var(--heading1) no-repeat center / contain padding-box;
@@ -135,7 +135,7 @@ main > section > section {
 	margin: 5em 0;
 }
 
-main > section > section > h1 {
+h3 {
 	font-size: 2em;
 	color: var(--heading-color);
 	background: var(--heading2) no-repeat center / contain;
@@ -146,8 +146,12 @@ main > section > section > h1 {
 	margin: auto;
 }
 
-main > section > section > section > h1 {
+h4 {
 	font-size: 1.8em;
+}
+
+.hidden {
+	display: none;
 }
 
 main > section > p {
@@ -162,11 +166,11 @@ main > section > section > section > ul {
 }
 
 /*------------------------------------
-	見出しレベル3
+	見出しレベル4
 */
-.level3,
-main > section > section > section > h1,
-:host > footer h1 {
+.level4,
+h4,
+:host footer h2 {
 	color: inherit;
 	font-size: 1.3em;
 	background: var(--heading3) no-repeat center / contain;
@@ -322,7 +326,7 @@ main > section > section > section > h1,
 	text-align: left;
 }
 
-#room-managers h1 {
+#room-managers h3 {
 	font-size: 1.5em;
 	display: inline-flex;
 	width: unset;

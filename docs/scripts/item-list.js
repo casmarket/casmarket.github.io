@@ -52,7 +52,7 @@ customElements.define('item-list', class extends LitElement {
 			margin: unset;
 		}
 
-		h1 {
+		h3 {
 			position: absolute;
 			left: 0.5em;
 			bottom: 0;
@@ -60,7 +60,7 @@ customElements.define('item-list', class extends LitElement {
 			font-size: 2em;
 		}
 
-		h2 {
+		hgroup p {
 			position: absolute;
 			right: 1.5em;
 			bottom: 0;
@@ -149,8 +149,8 @@ customElements.define('item-list', class extends LitElement {
 		].filter(classInfo => this.catalogue.some(item => item.classId === classInfo[0]))
 			.map(([ classId, heading, subHeading ]) => html`<section>
 				<hgroup>
-					<h1>${heading}</h1>
-					${subHeading && html`<h2>${subHeading}</h2>`}
+					<h3>${heading}</h3>
+					${subHeading && html`<p>${subHeading}</p>`}
 				</hgroup>
 				${classId === 'poster'
 					? html`<ul>${this.catalogue.filter(item => item.classId === classId).map(item => html`

@@ -38,8 +38,7 @@ body > header::before,
 	mask-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) 30%, 70%, rgba(0, 0, 0, 0));
 }
 
-body > header h1,
-:host > header h1 {
+h1 {
 	filter: drop-shadow(0.1em 0.1em 0.05em black);
 	margin: 0;
 	max-width: 20em;
