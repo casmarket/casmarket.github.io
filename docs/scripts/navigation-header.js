@@ -14,6 +14,7 @@ customElements.define('navigation-header', class extends LitElement {
 			justify-content: center;
 			background: var(--color);
 			color: var(--heading-color);
+			z-index: 1;
 		}
 
 		:host > div {
