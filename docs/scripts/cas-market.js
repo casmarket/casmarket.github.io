@@ -382,22 +382,22 @@ customElements.define('cas-market', class extends LitElement {
 				<th>上限サイズ</th>
 				<td>
 					<figure>
-						<figcaption>「商品」</figcaption>
+						<figcaption>Itemサイズ</figcaption>
 						<img src="../images/rules-vci-size.png" alt="幅1m×奥行1m×高さ2m" />
 					</figure>
 				</td>
 				<td colspan="2">
 					<div class="theme">
 						<figure class="small">
-							<figcaption>「ブース」①S</figcaption>
+							<figcaption>Sサイズ</figcaption>
 							<img src="../images/rules-booth-size-small.png" alt="幅4m×奥行4m×高さ5m" />
 						</figure>
 						<figure class="medium">
-							<figcaption>「ブース」②M</figcaption>
+							<figcaption>Mサイズ</figcaption>
 							<img src="../images/rules-booth-size-medium.png" alt="幅8m×奥行4m×高さ5m" />
 						</figure>
 						<figure class="large">
-							<figcaption>「ブース」③L</figcaption>
+							<figcaption>Lサイズ</figcaption>
 							<img src="../images/rules-booth-size-large.png" alt="幅10m×奥行10m×高さ10m" />
 						</figure>
 					</div>
