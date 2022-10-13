@@ -72,7 +72,7 @@ section a img {
 	grid-template-columns: 33% 66%;
 }
 
-.image-list-pairs h3,
+.image-list-pairs h4,
 .image-list-pairs p,
 .image-list-pairs .wide {
 	grid-column: span 2;
