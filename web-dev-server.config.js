@@ -6,7 +6,7 @@ const pathHTMLPairs = await generateEventIndexPathHTMLPairs();
 export default {
 	open: true,
 	watch: true,
-	appIndex: '7/index.html',
+	appIndex: '10/index.html',
 	nodeResolve: true,
 	esbuildTarget: 'auto',
 	port: 55341,
