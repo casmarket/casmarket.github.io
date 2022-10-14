@@ -10,7 +10,9 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
-    build-and-deploy:
+    build:
+        permissions:
+            contents: read
         runs-on: ubuntu-20.04
         steps:
             - uses: actions/checkout@v2
@@ -43,7 +45,23 @@ jobs:
 
             - run: npm ci --production
             - run: npm run build
-            - uses: peaceiris/actions-gh-pages@068dc23d9710f1ba62e86896f84735d869951305 # v3.8.0
+
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v1
               with:
-                github_token: ${{ github.token }}
-                publish_dir: docs
+                path: docs
+
+    deploy:
+        needs: build
+
+        permissions:
+            pages: write
+            id-token: write
+        runs-on: ubuntu-20.04
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+
+        steps:
+            - name: Deploy to GitHub Pages
+              uses: actions/deploy-pages@v1
