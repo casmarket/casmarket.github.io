@@ -4,6 +4,11 @@ on:
           - master
     workflow_call:
 
+# 同じワークフローが進行中の場合、それを取り消す
+concurrency:
+    group: ${{ github.workflow }}
+    cancel-in-progress: true
+
 jobs:
     build-and-deploy:
         runs-on: ubuntu-20.04
