@@ -7,6 +7,7 @@
 	display: block;
 	color: var(--color);
 	background: var(--background);
+	background-size: 100% auto;
 }
 
 a:link {
