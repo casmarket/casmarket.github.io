@@ -11,21 +11,21 @@ jobs:
     fetch-catalogue:
         permissions:
             contents: write
-        runs-on: ubuntu-20.04
+        runs-on: ubuntu-22.04
         steps:
             - name: メインブランチをチェックアウト
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
 
             - name: 「user-data」フォルダへ現在のデータを展開
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
               with:
                 path: ./user-data
                 ref: user-data
 
             - name: Node.jsのインストール
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@v3
               with:
-                node-version: '16'
+                node-version: '18'
 
             # https://docs.github.com/ja/actions/using-workflows/caching-dependencies-to-speed-up-workflows#example-using-the-cache-action
             - name: Cache node modules
@@ -57,7 +57,7 @@ jobs:
                 GOOGLE_SERVICE_ACCOUNT_SECRET_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_SECRET_KEY }}
 
             - name: カタログデータのコミット
-              uses: stefanzweifel/git-auto-commit-action@abd87b7d94702070bef78dc1d56b6928b8fa9ecc #v4.12.0
+              uses: stefanzweifel/git-auto-commit-action@fd157da78fa13d9383e5580d1fd1184d89554b51 #v4.15.1
               with:
                 repository: ./user-data
                 branch: user-data
