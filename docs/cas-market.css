@@ -1,7 +1,8 @@
 /*====================================
 	全体
 */
-:host {
+:host(cas-market),
+.cas-market {
 	--width: 51rem;
 	--heading-color: #FAFAFA;
 	display: block;
@@ -136,17 +137,6 @@ main > section > section {
 	margin: 5em 0;
 }
 
-h3 {
-	font-size: 2em;
-	color: var(--heading-color);
-	background: var(--heading2) no-repeat center / contain;
-	width: 15em;
-	max-width: 90%;
-	height: 3em;
-	line-height: 3em;
-	margin: auto;
-}
-
 h4 {
 	font-size: 1.8em;
 }
@@ -171,7 +161,7 @@ main > section > section > section > ul {
 */
 .level4,
 h4,
-:host footer h2 {
+:host(common-footer) h2 {
 	color: inherit;
 	font-size: 1.3em;
 	background: var(--heading3) no-repeat center / contain;
@@ -436,6 +426,7 @@ h4,
 	justify-content: center;
 	align-items: center;
 	gap: 0.5em;
+	padding: unset;
 }
 
 #logo li {
@@ -445,31 +436,4 @@ h4,
 #logo .logos img {
 	height: 3em;
 	background: gainsboro;
-}
-
-/*====================================
-	スタッフ
-*/
-#staff address {
-	display: flex;
-	justify-content: center;
-	font-style: normal;
-	width: var(--width);
-	max-width: 100%;
-	margin: 0 auto;
-}
-
-#staff thead {
-	display: none;
-}
-
-#staff ul {
-	list-style: none;
-	margin: unset;
-	padding: unset;
-	text-align: center;
-}
-
-#staff img {
-	width: 5em;
 }

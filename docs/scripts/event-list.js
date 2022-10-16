@@ -3,14 +3,19 @@ import yaml from 'js-yaml';
 
 customElements.define('event-list', class extends LitElement {
 	static styles = css`
-		nav {
+		:host {
+			--heading-color: #FAFAFA;
+			--heading2: url("heading2.png");
+		}
+
+		div {
 			display: grid;
 			grid-template-columns: auto auto;
 			justify-content: center;
 			gap: 1em;
 		}
 
-		nav a img {
+		img {
 			width: 20em;
 			border-style: solid;
 		}
@@ -32,8 +37,12 @@ customElements.define('event-list', class extends LitElement {
 
 	render()
 	{
-		return html`<nav>${this.eventIdNamePairs.map(({ id, name }) => html`
-			<a href="./${id}/"><img src="${id}/images/casmarket-${id}-poster-wide.png" alt="${name}" /></a>
-		`)}</nav>`;
+		return html`<link rel="stylesheet" href="common.css" />
+		<nav>${[ '常設', '季節' ].map(heading => html`<h2>${heading}</h2>
+			<div>${this.eventIdNamePairs.filter(({permanent}) => heading === '常設' ? permanent : !permanent)
+				.map(({ id, name }) => html`
+					<a href="./${id}/"><img src="${id}/images/casmarket-${id}-poster-wide.png" alt="${name}" /></a>
+				`)}
+			</div>`)}</nav>`;
 	}
 });

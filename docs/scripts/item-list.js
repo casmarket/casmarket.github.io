@@ -142,16 +142,17 @@ customElements.define('item-list', class extends LitElement {
 	render()
 	{
 		return [
+			[ 'permanent', null, null ],
 			[ 'simple', 'シンプル会場', null ],
 			[ 'theme1', 'テーマ会場', '1' ],
 			[ 'theme2', 'テーマ会場', '2' ],
 			[ 'poster', '広告', null ],
 		].filter(classInfo => this.catalogue.some(item => item.classId === classInfo[0]))
 			.map(([ classId, heading, subHeading ]) => html`<section>
-				<hgroup>
+				${heading && html`<hgroup>
 					<h3>${heading}</h3>
 					${subHeading && html`<p>${subHeading}</p>`}
-				</hgroup>
+				</hgroup>`}
 				${classId === 'poster'
 					? html`<ul>${this.catalogue.filter(item => item.classId === classId).map(item => html`
 						<li>

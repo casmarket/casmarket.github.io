@@ -12,7 +12,7 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 export async function getEventIds()
 {
 	return yaml.load(await fs.readFile(path.resolve(dirname, '../docs/events.yaml'), { encoding: 'utf-8' }))
-		.filter(event => !event.static)
+		.filter(event => !event.static || event.id === '0')
 		.map(event => event.id);
 }
 

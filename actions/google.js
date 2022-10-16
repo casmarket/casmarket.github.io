@@ -155,8 +155,7 @@ export async function fetchCatalogue(auth, eventId)
 			// ポスター
 			item.poster = 'posters/' + nameValuePairs['画像ファイル名'];
 		} else {
-			// シンプル会場・テーマ会場
-			item.badge = nameValuePairs['バッヂ'];
+			// 常設展示会場・シンプル会場・テーマ会場
 			item.exhibitor = {
 				name: nameValuePairs['出展者名'],
 				tsoURL: nameValuePairs['出展者TSO'],
@@ -164,12 +163,17 @@ export async function fetchCatalogue(auth, eventId)
 				icon: 'icons/' + nameValuePairs['画像ファイル名'],
 			};
 
-			if (item.classId === 'simple') {
-				// シンプル会場
-				item.item = {
-					title: nameValuePairs['作品名'],
-					url: nameValuePairs['作品URL'],
-				};
+			if (item.classId !== 'permanent') {
+				// シンプル会場・テーマ会場
+				item.badge = nameValuePairs['バッヂ'];
+
+				if (item.classId === 'simple') {
+					// シンプル会場
+					item.item = {
+						title: nameValuePairs['作品名'],
+						url: nameValuePairs['作品URL'],
+					};
+				}
 			}
 		}
 

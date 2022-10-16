@@ -1,3 +1,7 @@
+- id: '0'
+  name: キャスマーケット
+  static: true
+  permanent: true
 - id: '10'
   name: 秋キャスマーケット2022
 - id: '9'

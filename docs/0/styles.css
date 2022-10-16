@@ -1,0 +1,52 @@
+body {
+	--color: black;
+	--visited: darkblue;
+	--hover: darkgray;
+	--header-color: lightskyblue;
+
+	--background: url("0/images/background.png");
+	--header: url("0/images/header.png");
+	--heading1: url("0/images/heading1.png");
+	--heading2: url("0/images/heading2.png");
+	--heading3: url("0/images/heading3.png");
+
+	margin: unset;
+}
+
+/*====================================
+	出展について
+*/
+#exhibit > :not(h2, p) {
+	border: solid 0.1rem grey;
+	margin: unset;
+}
+
+#exhibit > :not(div) {
+	border-top: unset;
+}
+
+#exhibit dl {
+	display: block;
+}
+
+#exhibit dt {
+	font-weight: unset;
+	background: unset;
+}
+
+#exhibit h3 {
+	color: unset;
+	font-size: unset;
+	background: unset;
+}
+
+/*====================================
+	出展ルール
+*/
+#rules .table .size .theme {
+	grid-template-columns: 0.6fr 1fr;
+}
+
+#rules .size .theme .simple {
+	grid-row: span 2;
+}

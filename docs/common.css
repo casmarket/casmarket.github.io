@@ -44,3 +44,18 @@ h1 {
 	max-width: 20em;
 	flex-shrink: 2;
 }
+
+/*====================================
+	セクション
+*/
+h3,
+:host(event-list) h2 {
+	font-size: 2em;
+	color: var(--heading-color);
+	background: var(--heading2) no-repeat center / contain;
+	width: 15em;
+	max-width: 90%;
+	height: 3em;
+	line-height: 3em;
+	margin: auto;
+}

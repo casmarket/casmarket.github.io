@@ -3,6 +3,7 @@ import yaml from 'js-yaml';
 import './date-time.js';
 import './navigation-header.js';
 import './item-list.js';
+import './common-footer.js';
 
 const isDevelop = location.hostname === 'localhost';
 
@@ -86,7 +87,7 @@ customElements.define('cas-market', class extends LitElement {
 		return html`
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="../common.css" />
-<link rel="stylesheet" href="../cas-market.css?20221013" />
+<link rel="stylesheet" href="../cas-market.css?20221016" />
 <header>
 	<h1><a href=""><img src="images/title.png" alt="${this.eventName}" /></a></h1>
 
@@ -509,35 +510,7 @@ customElements.define('cas-market', class extends LitElement {
 </section>
 </main>
 
-<footer>
-	<section id="contact">
-		<h2>お問い合わせ</h2>
-		<p>Twitterアカウント <a rel="external" target="_blank"
-			href="https://twitter.com/i/user/1277870007758684161">@virtualcast_fes</a>
-			へのダイレクトメッセージ (DM) にてお問い合わせください。</p>
-	</section>
-
-	<section id="staff">
-		<h2>スタッフ</h2>
-		<address>
-			<table class="table">
-				<thead>
-					<tr>
-						<th>アイコン</th>
-						<th>役割</th>
-						<th>名前</th>
-					</tr>
-				</thead>
-				<tbody>${this.staff && this.staff.map(member => html`<tr>
-					<td><img src="images/${member.icon}" /></td>
-					<td><ul>${member.roles.map(role => html`<li>${role}</li>`)}</ul></td>
-					<td><a rel="external" target="_blank" href="${member.url}">${member.name}</a>
-					</td>
-				</tr>`)}</tbody>
-			</table>
-		</address>
-	</section>
-</footer>
+<common-footer .staff=${this.staff}></common-footer>
 		`;
 	}
 });
