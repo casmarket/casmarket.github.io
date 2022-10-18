@@ -309,9 +309,10 @@ customElements.define('cas-market', class extends LitElement {
 			</dl>
 		</section>
 	</section>
-
+	
+	<h3>出展特典</h3>
 	<section class="image-list-pairs">
-		<h3>出展特典</h3>
+		<h4 class="hidden">出展特典について</h4>
 		<p>ご出展いただいた方には以下の特典を付与いたします！</p>
 		<img src="../images/badges.png" alt="" />
 		<ul>
@@ -326,8 +327,9 @@ customElements.define('cas-market', class extends LitElement {
 
 <section id="rules">
 	<h2>出展ルール</h2>
+	<h3>各会場共通</h3>
 	<section class="image-list-pairs">
-		<h3>各会場共通</h3>
+		<h4 class="hidden">各会場共通のルール</h4>
 		<ul class="wide">
 			<li>出展申し込み時に、VCIの投稿・設営に使用するTHE SEED ONLINE IDをご提出いただきます。</li>
 		</ul>
