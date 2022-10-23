@@ -69,7 +69,8 @@ customElements.define('item-list', class extends LitElement {
 		}
 
 		:is([href*="images/map-"], [href*="posters/"]) img {
-			max-width: 100%;
+			width: 100%;
+			max-height: 600px;
 		}
 
 		thead {
