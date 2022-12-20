@@ -317,7 +317,6 @@ customElements.define('cas-market', class extends LitElement {
 		<img src="../images/badges.png" alt="" />
 		<ul>
 			<li>カタログで上部に表示、バッジが付きます。</li>
-			<li>なるべく入口近くに展示、キャプションボードの色が変わります。</li>
 			<li>累計出展回数が2回で「銀」、5回で「金」になります。</li>
 			<li>「金」獲得後は、4回出展する度に「金」バッジが1枚ずつ増えていきます。</li>
 			<li>金バッジになると、金バッジ専用Discordチャンネルにご招待にします。</li>
