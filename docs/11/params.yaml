@@ -1,0 +1,26 @@
+period:
+    start: 2023-02-01T19:00:00+9:00
+    end: 2023-02-10T24:00:00+09:00
+hashTag: '#冬キャス'
+applicationURL: https://connpass.com/event/270179/
+cataloguePublicationDate: 2023-01-23T24:00:00+09:00
+concept: 中世ロマネスク
+simpleTitle: 中庭
+simpleSummary: 城内にある、アーチに面した中庭
+themeTitle: 城
+themeSummary: 中世ヨーロッパの城塞で、内部に様々な建造物が立ち並ぶ
+theme1: 弓《ボウ》
+theme1Summary: 孤高、円弧、射撃
+theme2: 竪琴《ハープ》
+theme2Summary: 協調、平行、演奏
+applicationDeadline: 2023-01-22T24:00:00+09:00
+simpleVCIUploadDeadline: 2023-01-22T24:00:00+09:00
+themePreparePeriod:
+    start: 2023-01-24T00:00:00+09:00
+    end: 2023-01-30T24:00:00+09:00
+maxSimpleCount: 30
+maxThemeCountPerVenue: 9
+maxPosterCount: 10
+oneSpacePosterPlace: 2000円(税込)
+twoSpacesPosterPlace: 3000円(税込)
+pamphletURL: https://metamovr.booth.pm/items/4413487
