@@ -8,13 +8,13 @@
     - ルームマネージャー
   managedRoom: テーマ会場 1.「リアル」
   name: わいず
-  url: https://twitter.com/i/user/2236766504
+  url: https://twitter.com/i/user/978956034566836224
   icon: staff-waizu.png
 - roles:
     - ルームマネージャー
   managedRoom: テーマ会場 2.「ファンタジー」
   name: ふーげらー
-  url: https://twitter.com/intent/user?user_id=978956034566836224
+  url: https://twitter.com/i/user/106103692
   icon: fugera.jpg
 - roles:
     - Webサイト雛形制作
