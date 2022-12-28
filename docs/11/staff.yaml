@@ -17,6 +17,18 @@
   url: https://twitter.com/i/user/1035743872406544384
   icon: staff-nyaf.jpg
 - roles:
+    - ルームマネージャー
+  managedRoom: テーマ会場 1.「弓《ボウ》」
+  name: 櫻井阿弥
+  url: https://twitter.com/i/user/3093542496
+  icon: staff-tetra.jpg
+- roles:
+    - ルームマネージャー
+  managedRoom: テーマ会場 2.「竪琴《ハープ》」
+  name: ふーげらー
+  url: https://twitter.com/i/user/106103692
+  icon: staff-fugera.jpg
+- roles:
     - Webサイト雛形制作
   name: 100の人
   url: https://twitter.com/i/user/319757037
