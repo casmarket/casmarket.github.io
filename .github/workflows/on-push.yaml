@@ -5,7 +5,8 @@ on:
 
 # 同じワークフローが進行中の場合、それを取り消す
 concurrency:
-    group: ${{ github.workflow }}
+    #group: ${{ github.workflow }}
+    group: on-push # 同名のワークフローがタイムアウトを越えてスタックしているため別名を指定
     cancel-in-progress: true
 
 jobs:
