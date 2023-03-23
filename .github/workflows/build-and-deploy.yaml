@@ -1,25 +1,34 @@
 on:
-    push:
-        branches:
-          - master
     workflow_call:
-
-# 同じワークフローが進行中の場合、それを取り消す
-concurrency:
-    group: ${{ github.workflow }}
-    cancel-in-progress: true
 
 jobs:
     build:
+        timeout-minutes: 5
         permissions:
             contents: read
         runs-on: ubuntu-22.04
         steps:
             - uses: actions/checkout@v3
-            - uses: actions/checkout@v3
+
+            # 「user-data」フォルダへ現在のデータを展開
+            - id: download-artifacts-from-fetch-catalogue-build-and-deploy
+              uses: dawidd6/action-download-artifact@5e780fc7bbd0cac69fc73271ed86edf5dcb72d67 #v2.26.0
               with:
                 path: ./user-data
-                ref: user-data
+                workflow: fetch-catalogue-build-and-deploy.yaml
+                name: user-data
+                search_artifacts: true
+                workflow_conclusion: ''
+                if_no_artifact_found: ignore
+            - if: ${{ steps.download-artifacts-from-fetch-catalogue-build-and-deploy.outputs.found_artifact != 'true' }}
+              uses: dawidd6/action-download-artifact@5e780fc7bbd0cac69fc73271ed86edf5dcb72d67 #v2.26.0
+              with:
+                path: ./user-data
+                workflow: on-push.yaml
+                name: user-data
+                search_artifacts: true
+                workflow_conclusion: ''
+
             - uses: actions/setup-node@v3
               with:
                 node-version: '18'
@@ -54,6 +63,7 @@ jobs:
     deploy:
         needs: build
 
+        timeout-minutes: 2
         permissions:
             pages: write
             id-token: write

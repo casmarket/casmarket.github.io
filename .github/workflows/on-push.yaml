@@ -1,0 +1,46 @@
+on:
+    push:
+        branches:
+          - master
+
+# 同じワークフローが進行中の場合、それを取り消す
+concurrency:
+    group: ${{ github.workflow }}
+    cancel-in-progress: true
+
+jobs:
+    check-user-data-exists:
+        permissions:
+            contents: read
+        runs-on: ubuntu-22.04
+        steps:
+            - id: fetch-catalogue-build-and-deploy
+              uses: dawidd6/action-download-artifact@5e780fc7bbd0cac69fc73271ed86edf5dcb72d67 #v2.26.0
+              with:
+                dry_run: true
+                path: ./user-data
+                workflow: fetch-catalogue-build-and-deploy.yaml
+                name: user-data
+                if_no_artifact_found: ignore
+            - id: on-push
+              if: ${{ steps.fetch-catalogue-build-and-deploy.outputs.found_artifact != 'true' }}
+              uses: dawidd6/action-download-artifact@5e780fc7bbd0cac69fc73271ed86edf5dcb72d67 #v2.26.0
+              with:
+                dry_run: true
+                path: ./user-data
+                name: user-data
+                search_artifacts: true
+                if_no_artifact_found: warn
+        outputs:
+            exists: ${{ steps.fetch-catalogue-build-and-deploy.outputs.found_artifact == 'true' || steps.on-push.outputs.found_artifact == 'true' }}
+
+    fetch-catalogue:
+        needs: check-user-data-exists
+        if: ${{ needs.check-user-data-exists.outputs.exists != 'true' }}
+        uses: ./.github/workflows/fetch-catalogue.yaml
+        secrets: inherit
+
+    build-and-deploy:
+        needs: fetch-catalogue
+        if: ${{ !cancelled() && !failure() }}
+        uses: ./.github/workflows/build-and-deploy.yaml

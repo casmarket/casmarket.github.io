@@ -1,14 +1,9 @@
-name: Googleスプレッドシートからカタログデータを取得
-
-on: workflow_dispatch
-
-# 同じワークフローが進行中の場合、それを取り消す
-concurrency:
-    group: ${{ github.workflow }}
-    cancel-in-progress: true
+on:
+    workflow_call:
 
 jobs:
     fetch-catalogue:
+        timeout-minutes: 5
         permissions:
             contents: write
         runs-on: ubuntu-22.04
@@ -16,11 +11,21 @@ jobs:
             - name: メインブランチをチェックアウト
               uses: actions/checkout@v3
 
-            - name: 「user-data」フォルダへ現在のデータを展開
-              uses: actions/checkout@v3
+            # 「user-data」フォルダへ現在のデータを展開
+            - id: download-artifacts-from-fetch-catalogue-build-and-deploy
+              uses: dawidd6/action-download-artifact@5e780fc7bbd0cac69fc73271ed86edf5dcb72d67 #v2.26.0
               with:
                 path: ./user-data
-                ref: user-data
+                workflow: fetch-catalogue-build-and-deploy.yaml
+                name: user-data
+                if_no_artifact_found: ignore
+            - if: ${{ steps.download-artifacts-from-fetch-catalogue-build-and-deploy.outputs.found_artifact != 'true' }}
+              uses: dawidd6/action-download-artifact@5e780fc7bbd0cac69fc73271ed86edf5dcb72d67 #v2.26.0
+              with:
+                path: ./user-data
+                workflow: on-push.yaml
+                name: user-data
+                search_artifacts: true
 
             - name: Node.jsのインストール
               uses: actions/setup-node@v3
@@ -56,13 +61,8 @@ jobs:
                 GOOGLE_FOLDER_ID: ${{ secrets.GOOGLE_FOLDER_ID }}
                 GOOGLE_SERVICE_ACCOUNT_SECRET_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_SECRET_KEY }}
 
-            - name: カタログデータのコミット
-              uses: stefanzweifel/git-auto-commit-action@fd157da78fa13d9383e5580d1fd1184d89554b51 #v4.15.1
+            - name: カタログデータの保持
+              uses: actions/upload-artifact@v3
               with:
-                repository: ./user-data
-                branch: user-data
-                commit_message: カタログデータの更新
-
-    build-and-deploy:
-        needs: fetch-catalogue
-        uses: casmarket/casmarket.github.io/.github/workflows/build-and-deploy.yaml@master
+                path: ./user-data
+                name: user-data
