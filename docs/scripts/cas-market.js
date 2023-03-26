@@ -84,6 +84,8 @@ customElements.define('cas-market', class extends LitElement {
 
 	render()
 	{
+		const boothSizeMedium8m = [ '6', '7', '8', '9', '10', '11' ].includes(this.eventId);
+
 		return html`
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="../common.css" />
@@ -394,7 +396,8 @@ customElements.define('cas-market', class extends LitElement {
 						</figure>
 						<figure class="medium">
 							<figcaption>Mサイズ</figcaption>
-							<img src="../images/rules-booth-size-medium.png" alt="幅8m×奥行4m×高さ5m" />
+							<img src="../images/rules-booth-size-medium${boothSizeMedium8m ? '-width8m' : ''}.png"
+								alt="幅${boothSizeMedium8m ? '8' : '9' }m×奥行4m×高さ5m" />
 						</figure>
 						<figure class="large">
 							<figcaption>Lサイズ</figcaption>
