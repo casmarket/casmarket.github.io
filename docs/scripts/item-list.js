@@ -195,8 +195,8 @@ customElements.define('item-list', class extends LitElement {
 								`}</td>
 								<td class="exhivitor-link">
 									<a rel="external" target="_blank" href="${item.exhibitor.tsoURL}"
-										title="THE SEED ONLINE ユーザーページ">
-										<img src="../images/theseedonline-logo.png" alt="THE SEED ONLINE" />
+										title="VirtualCast ユーザーページ">
+										<img src="../images/virtualcast-logo.png" alt="THE SEED ONLINE" />
 									</a>
 								</td>
 							</tr>`)}</tbody>

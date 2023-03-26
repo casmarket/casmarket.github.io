@@ -80,6 +80,11 @@ section a img {
 	grid-column: span 2;
 }
 
+.image-list-pairs .vertically-long {
+	grid-row: span 2;
+	align-self: center;
+}
+
 .image-list-pairs img:not(.wide) {
 	width: min(100%, 15em);
 }

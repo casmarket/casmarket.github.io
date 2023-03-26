@@ -87,7 +87,7 @@ customElements.define('cas-market', class extends LitElement {
 		return html`
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="../common.css" />
-<link rel="stylesheet" href="../cas-market.css?20221016" />
+<link rel="stylesheet" href="../cas-market.css?20230325" />
 <header>
 	<h1><a href=""><img src="images/title.png" alt="${this.eventName}" /></a></h1>
 
@@ -103,12 +103,12 @@ customElements.define('cas-market', class extends LitElement {
 	<h2>キャスマーケットとは?</h2>
 	<p>
 		<strong>キャスマーケットは、データ提出が不要なマーケットです！</strong>
-		バーチャルキャストが手掛ける「THE SEED ONLINE」のサービスを用いることで、
+		バーチャルキャストのストレージサービスを用いることで、
 		「VRアイテム = VCI」をデータのやり取りなしで利用することができます。
 	</p>
 	<p>
 		<strong>展示されているVCIは、その場で取り込んで即時使用することができます！</strong>
-		THE SEED ONLINEでは、バーチャル空間内でアバター、アイテムを
+		バーチャルキャストでは、バーチャル空間内でアバター、アイテムを
 		無料公開や販売することができる「ユーザストア」の機能があります。
 	</p>
 	<p>
@@ -134,7 +134,7 @@ customElements.define('cas-market', class extends LitElement {
 		</p>
 		<p>
 			充分にイベントを楽しむには、事前にTwitter連携を済ませたり、
-			THE SEED ONLINEのアカウントを作成しておくことをオススメします。
+			バーチャルキャストのアカウントを作成しておくことをオススメします。
 		</p>
 	</section>
 
@@ -309,7 +309,7 @@ customElements.define('cas-market', class extends LitElement {
 			</dl>
 		</section>
 	</section>
-	
+
 	<h3>出展特典</h3>
 	<section class="image-list-pairs">
 		<h4 class="hidden">出展特典について</h4>
@@ -330,16 +330,15 @@ customElements.define('cas-market', class extends LitElement {
 	<section class="image-list-pairs">
 		<h4 class="hidden">各会場共通のルール</h4>
 		<ul class="wide">
-			<li>出展申し込み時に、VCIの投稿・設営に使用するTHE SEED ONLINE IDをご提出いただきます。</li>
+			<li>出展申し込み時に、VCIの投稿・設営に使用するバーチャルキャストIDをご提出いただきます。</li>
 		</ul>
-		<img src="../images/rules-vci-theseedonline-id.png" alt="" class="wide" />
-		<img src="../images/rules-vci-theseedonline.png" alt="" />
+		<img src="../images/rules-vci-virtualcast-id.png" alt="" class="wide" />
+		<img src="../images/rules-component.png" alt="" class="vertically-long" />
 		<ul>
-			<li>VCI形式で「THE SEED ONLINE」にアイテムとしてアップロードしてください。</li>
+			<li>VCI形式で「バーチャルキャスト」にアイテムとしてアップロードしてください。</li>
 			<li>出展者情報は別途キャプションにアイコン・名前を掲載します。
 				「connpass」のアカウント情報を掲載しますので、出展時にプロフィールが正しく設定されているかご確認ください。</li>
 		</ul>
-		<img src="../images/rules-component.png" alt="" />
 		<ul>
 			<li>スクリプト、オーディオ、アニメーション、エフェクトは使用可能です。ただし、<ul>
 				<li>他の展示物の迷惑にならない程度に調節する</li>
@@ -437,7 +436,7 @@ customElements.define('cas-market', class extends LitElement {
 				<th>上限データサイズ</th>
 				<td>10MB</td>
 				<td>${this.eventId === '6' ? '10MB/1点' : '100MB (合計)'}</td>
-				<td>「THE SEED ONLINE」上のデータサイズを参照</td>
+				<td>「バーチャルキャスト」上のデータサイズを参照</td>
 			</tr>
 		</tbody>
 	</table>
