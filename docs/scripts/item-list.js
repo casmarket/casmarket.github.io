@@ -173,7 +173,7 @@ customElements.define('item-list', class extends LitElement {
 									<th>出展者</th>
 									<th>作品</th>
 									<th>Twitter</th>
-									<th>THE SEED ONLINE</th>
+									<th>VirtualCast</th>
 								</tr>
 							</thead>
 							<tbody>${this.catalogue.filter(item => item.classId === classId).map(item => html`<tr>
@@ -196,7 +196,7 @@ customElements.define('item-list', class extends LitElement {
 								<td class="exhivitor-link">
 									<a rel="external" target="_blank" href="${item.exhibitor.tsoURL}"
 										title="VirtualCast ユーザーページ">
-										<img src="../images/virtualcast-logo.png" alt="THE SEED ONLINE" />
+										<img src="../images/virtualcast-logo.png" alt="VirtualCast" />
 									</a>
 								</td>
 							</tr>`)}</tbody>
