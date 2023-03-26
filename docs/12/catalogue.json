@@ -111,18 +111,18 @@
 		}
 	},
 	{
-		"id": "1",
+		"id": "0",
 		"classId": "poster",
-		"poster": "posters/Poster9-kazumi.png"
-	},
-	{
-		"id": "2",
-		"classId": "poster",
-		"poster": "posters/Poster9-kili.png"
+		"poster": "../../0/images/casmarket-0-poster.png"
 	},
 	{
 		"id": "0",
 		"classId": "poster",
-		"poster": "posters/0.png"
+		"poster": "../../0/images/casmarket-0-poster-wide.png"
+	},
+	{
+		"id": "0",
+		"classId": "poster",
+		"poster": "../../0/images/casmarket-0-poster.png"
 	}
 ]
