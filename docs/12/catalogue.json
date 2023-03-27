@@ -113,16 +113,25 @@
 	{
 		"id": "0",
 		"classId": "poster",
-		"poster": "../../0/images/casmarket-0-poster.png"
+		"poster": "../../0/images/casmarket-0-poster.png",
+		"space": "1"
 	},
 	{
 		"id": "0",
 		"classId": "poster",
-		"poster": "../../0/images/casmarket-0-poster-wide.png"
+		"poster": "../../0/images/casmarket-0-poster-wide.png",
+		"space": "2"
 	},
 	{
 		"id": "0",
 		"classId": "poster",
-		"poster": "../../0/images/casmarket-0-poster.png"
+		"poster": "../../0/images/casmarket-0-poster.png",
+		"space": "1"
+	},
+	{
+		"id": "0",
+		"classId": "poster",
+		"poster": "../../../logo.png",
+		"space": "1"
 	}
 ]

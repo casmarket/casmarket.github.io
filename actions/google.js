@@ -154,6 +154,7 @@ export async function fetchCatalogue(auth, eventId)
 		if (item.classId === 'poster') {
 			// ポスター
 			item.poster = 'posters/' + nameValuePairs['画像ファイル名'];
+			item.space = nameValuePairs['ポスターのスペース数'];
 		} else {
 			// 常設展示会場・シンプル会場・テーマ会場
 			item.exhibitor = {

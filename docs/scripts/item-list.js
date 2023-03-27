@@ -68,9 +68,8 @@ customElements.define('item-list', class extends LitElement {
 			font-size: 2.5em;
 		}
 
-		:is([href*="images/map-"], [href*="posters/"]) img {
-			height: 100%;
-			max-height: 500px;
+		:is([href*="images/map-"], .posters) img {
+			max-height: min(500px, 100%);
 			max-width: 100%;
 		}
 
@@ -125,6 +124,24 @@ customElements.define('item-list', class extends LitElement {
 		.item {
 			margin-left: var(--gap);
 		}
+
+		.posters {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			--poster-height: calc(var(--width) / (16 / 9));
+			grid-auto-rows: min(var(--poster-height), min-content);
+			grid-auto-flow: dense;
+			gap: 0.4rem;
+			align-items: center;
+		}
+
+		.space2 {
+			grid-column: span 2;
+		}
+		
+		.posters img {
+			max-height: var(--poster-height);
+		}
 	`;
 
 	static properties = {
@@ -156,11 +173,13 @@ customElements.define('item-list', class extends LitElement {
 					${subHeading && html`<p>${subHeading}</p>`}
 				</hgroup>`}
 				${classId === 'poster'
-					? html`<ul>${this.catalogue.filter(item => item.classId === classId).map(item => html`
-						<li>
+					? html`<ul class="posters">
+						${this.catalogue.filter(item => item.classId === classId).map(item => html`
+							<li class="space${item.space}">
 							<a target="_blank" href="${item.poster}"><img src="${item.poster}" /></a>
-						</li>
-					`)}</ul>`
+							</li>
+						`)}
+					</ul>`
 					: html`<a target="_blank" href="images/map-${classId}.png">
 						<img src="images/map-${classId}.png" />
 					</a>
