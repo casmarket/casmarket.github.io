@@ -17,6 +17,18 @@
   url: https://twitter.com/i/user/1035743872406544384
   icon: staff-nyaf.jpg
 - roles:
+    - ルームマネージャー
+  managedRoom: テーマ会場 1.「指輪《リング》」
+  name: 烏丸ゆん
+  url: https://twitter.com/i/user/985523460033007617
+  icon: staff-yun.jpg
+- roles:
+    - ルームマネージャー
+  managedRoom: テーマ会場 2.「魔導書《グリモワール》」
+  name: しきはふり
+  url: https://twitter.com/i/user/120339468
+  icon: staff-shikihahuri.png
+- roles:
     - Webサイト雛形制作
   name: 100の人
   url: https://twitter.com/i/user/319757037
