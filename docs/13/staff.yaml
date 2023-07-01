@@ -16,6 +16,7 @@
   name: にゃふ
   url: https://twitter.com/i/user/1035743872406544384
   icon: staff-nyaf.jpg
+  - roles:
       - ルームマネージャー
   managedRoom: テーマ会場 1.「昼」
   name: ふーげらー
