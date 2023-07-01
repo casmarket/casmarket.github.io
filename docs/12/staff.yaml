@@ -18,16 +18,16 @@
   icon: staff-nyaf.jpg
 - roles:
     - ルームマネージャー
-  managedRoom: テーマ会場 1.「指輪《リング》」
-  name: 烏丸ゆん
-  url: https://twitter.com/i/user/985523460033007617
-  icon: staff-yun.jpg
+  managedRoom: テーマ会場 1.「昼」
+  name: ふーげらー
+  url: https://twitter.com/i/user/2236766504
+  icon: staff-fugera.jpg
 - roles:
     - ルームマネージャー
-  managedRoom: テーマ会場 2.「魔導書《グリモワール》」
-  name: しきはふり
-  url: https://twitter.com/i/user/120339468
-  icon: staff-shikihahuri.png
+  managedRoom: テーマ会場 2.「夜」
+  name: ユエム
+  url: https://twitter.com/i/user/106103692
+  icon: staff-JohnnyUM.jpg
 - roles:
     - Webサイト雛形制作
   name: 100の人
