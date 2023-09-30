@@ -1,0 +1,26 @@
+period:
+    start: 2023-11-01T19:00:00+9:00
+    end: 2023-11-10T24:00:00+09:00
+hashTag: '#秋キャス'
+applicationURL: https://connpass.com/event/296958/
+cataloguePublicationDate: 2023-10-23T12:00:00+09:00
+concept: 中世ロマネスク
+simpleTitle: 御殿
+simpleSummary: 中町通りの先にある、大きな温泉宿
+themeTitle: 中町通り
+themeSummary: 近代の日本の街並みで、奥ゆかしさとモダンさを兼ね備える
+theme1: 「昼」
+theme1Summary: 屋外・日中
+theme2: 「夜」
+theme2Summary: 屋外・日没後
+applicationDeadline: 2023-10-20T24:00:00+09:00
+simpleVCIUploadDeadline: 2023-10-20T24:00:00+09:00
+themePreparePeriod:
+    start: 2023-10-23T00:00:00+09:00
+    end: 2023-10-29T24:00:00+09:00
+maxSimpleCount: 30
+maxThemeCountPerVenue: 10
+maxPosterCount: 10
+oneSpacePosterPlace: 2000円(税込)
+twoSpacesPosterPlace: 3000円(税込)
+pamphletURL: https://metamovr.booth.pm/items/5106199
