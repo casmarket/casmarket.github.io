@@ -346,6 +346,8 @@ customElements.define('cas-market', class extends LitElement {
 				<li>他の展示物の迷惑にならない程度に調節する</li>
 				<li>動作時の描画範囲を含めて、規定サイズをオーバーしない</li>
 			</ul>ことが条件となります。</li>
+   			<li>楽曲の利用に関して、出展管理をする上で権利がクリアになっているかのチェックが難しくなるので、JASRACやNexToneに登録されている音源であっても、版権曲やカラオケ音源を使用したVCIは展示しないでください。
+</li>
 		</ul>
 	</section>
 
