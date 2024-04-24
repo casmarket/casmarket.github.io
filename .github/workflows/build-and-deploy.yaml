@@ -8,11 +8,11 @@ jobs:
             contents: read
         runs-on: ubuntu-22.04
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
 
             # 「user-data」フォルダへ現在のデータを展開
             - id: download-artifacts-from-fetch-catalogue-build-and-deploy
-              uses: dawidd6/action-download-artifact@5e780fc7bbd0cac69fc73271ed86edf5dcb72d67 #v2.26.0
+              uses: dawidd6/action-download-artifact@09f2f74827fd3a8607589e5ad7f9398816f540fe #v3.1.4
               with:
                 path: ./user-data
                 workflow: fetch-catalogue-build-and-deploy.yaml
@@ -21,7 +21,7 @@ jobs:
                 workflow_conclusion: ''
                 if_no_artifact_found: ignore
             - if: ${{ steps.download-artifacts-from-fetch-catalogue-build-and-deploy.outputs.found_artifact != 'true' }}
-              uses: dawidd6/action-download-artifact@5e780fc7bbd0cac69fc73271ed86edf5dcb72d67 #v2.26.0
+              uses: dawidd6/action-download-artifact@09f2f74827fd3a8607589e5ad7f9398816f540fe #v3.1.4
               with:
                 path: ./user-data
                 workflow: on-push.yaml
@@ -31,12 +31,12 @@ jobs:
 
             - uses: actions/setup-node@v3
               with:
-                node-version: '18'
+                node-version: '20'
 
             # https://docs.github.com/ja/actions/using-workflows/caching-dependencies-to-speed-up-workflows#example-using-the-cache-action
             - name: Cache node modules
               id: cache-npm
-              uses: actions/cache@v3
+              uses: actions/cache@v4
               env:
                 cache-name: cache-node-modules
               with:
@@ -56,7 +56,7 @@ jobs:
             - run: npm run build
 
             - name: Upload artifact
-              uses: actions/upload-pages-artifact@v1
+              uses: actions/upload-pages-artifact@v3
               with:
                 path: docs
 
@@ -74,4 +74,4 @@ jobs:
 
         steps:
             - name: Deploy to GitHub Pages
-              uses: actions/deploy-pages@v1
+              uses: actions/deploy-pages@v4

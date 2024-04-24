@@ -16,7 +16,7 @@ jobs:
         runs-on: ubuntu-22.04
         steps:
             - id: fetch-catalogue-build-and-deploy
-              uses: dawidd6/action-download-artifact@5e780fc7bbd0cac69fc73271ed86edf5dcb72d67 #v2.26.0
+              uses: dawidd6/action-download-artifact@09f2f74827fd3a8607589e5ad7f9398816f540fe #v3.1.4
               with:
                 dry_run: true
                 path: ./user-data
@@ -25,7 +25,7 @@ jobs:
                 if_no_artifact_found: ignore
             - id: on-push
               if: ${{ steps.fetch-catalogue-build-and-deploy.outputs.found_artifact != 'true' }}
-              uses: dawidd6/action-download-artifact@5e780fc7bbd0cac69fc73271ed86edf5dcb72d67 #v2.26.0
+              uses: dawidd6/action-download-artifact@09f2f74827fd3a8607589e5ad7f9398816f540fe #v3.1.4
               with:
                 dry_run: true
                 path: ./user-data
