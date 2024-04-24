@@ -26,6 +26,7 @@ jobs:
                 workflow: on-push.yaml
                 name: user-data
                 search_artifacts: true
+                if_no_artifact_found: warn
 
             - name: Node.jsのインストール
               uses: actions/setup-node@v3
