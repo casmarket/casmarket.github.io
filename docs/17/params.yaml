@@ -1,0 +1,26 @@
+period:
+    start: 2024-08-01T19:00:00+9:00
+    end: 2024-08-10T24:00:00+09:00
+hashTag: '#夏キャス'
+applicationURL: https://connpass.com/event/323182/
+cataloguePublicationDate: 2024-07-23T00:00:00+09:00
+concept: 大正モダニズム
+simpleTitle: 神殿
+simpleSummary: オリンピア内にある、神聖な展示場
+themeTitle: オリンピア
+themeSummary: 古代ギリシャの建築が立ち並ぶ、台地状の都市
+theme1: 昼
+theme1Summary: 屋外・日中
+theme2: 夜
+theme2Summary: 屋外・日没後
+applicationDeadline: 2024-07-20T24:00:00+09:00
+simpleVCIUploadDeadline: 2024-07-20T24:00:00+09:00
+themePreparePeriod:
+    start: 2024-07-23T00:00:00+09:00
+    end: 2024-07-29T24:00:00+09:00
+maxSimpleCount: 30
+maxThemeCountPerVenue: 10
+maxPosterCount: 8
+oneSpacePosterPlace: 2000円(税込)
+twoSpacesPosterPlace: 3000円(税込)
+pamphletURL: https://metamovr.booth.pm/items/5849064

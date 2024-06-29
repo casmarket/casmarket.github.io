@@ -1,0 +1,35 @@
+- roles:
+    - 主催
+    - ロケーション制作
+  name: ベッラパスタ
+  url: https://twitter.com/i/user/1052812006531579904
+  icon: staff-bellapasta.jpg
+- roles:
+    - ルーム統括
+    - 季節担当
+  name: わいず
+  url: https://twitter.com/i/user/978956034566836224
+  icon: staff-waizu.png
+- roles:
+    - ルーム統括
+    - 常設担当
+  name: にゃふ
+  url: https://twitter.com/i/user/1035743872406544384
+  icon: staff-nyaf.png
+- roles:
+    - ルームマネージャー
+  managedRoom: テーマ会場 1.「昼」
+  name: 烏丸ゆん
+  url: https://twitter.com/i/user/985523460033007617
+  icon: staff-yun.png
+- roles:
+    - ルームマネージャー
+  managedRoom: テーマ会場 2.「夜」
+  name: ユエム
+  url: https://twitter.com/i/user/2236766504
+  icon: staff-JohnnyUM.jpg
+- roles:
+    - Webサイト雛形制作
+  name: 100の人
+  url: https://twitter.com/i/user/319757037
+  icon: staff-100.png
