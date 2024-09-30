@@ -2,6 +2,8 @@
   name: キャスマーケット
   static: true
   permanent: true
+- id: '18'
+  name: 秋キャスマーケット2024
 - id: '17'
   name: 夏キャスマーケット2024
 - id: '16'
