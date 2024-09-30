@@ -1,0 +1,137 @@
+[
+	{
+		"id": "0",
+		"classId": "theme1",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "キャスマーケット主催用",
+			"tsoURL": "https://virtualcast.jp/users/113542",
+			"twitterURL": null,
+			"icon": "icons/virtualcast_fes.png"
+		}
+	},
+	{
+		"id": "0",
+		"classId": "theme1",
+		"badge": "silver",
+		"exhibitor": {
+			"name": "キャスマーケット主催用",
+			"tsoURL": "https://virtualcast.jp/users/113542",
+			"twitterURL": "https://twitter.com/virtualcast_fes",
+			"icon": "icons/virtualcast_fes.png"
+		}
+	},
+	{
+		"id": "0",
+		"classId": "theme1",
+		"badge": null,
+		"exhibitor": {
+			"name": "キャスマーケット主催用",
+			"tsoURL": "https://virtualcast.jp/users/113542",
+			"twitterURL": "https://twitter.com/virtualcast_fes",
+			"icon": "icons/virtualcast_fes.png"
+		}
+	},
+	{
+		"id": "0",
+		"classId": "theme2",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "キャスマーケット主催用",
+			"tsoURL": "https://virtualcast.jp/users/113542",
+			"twitterURL": "https://twitter.com/virtualcast_fes",
+			"icon": "icons/virtualcast_fes.png"
+		}
+	},
+	{
+		"id": "0",
+		"classId": "theme2",
+		"badge": "silver",
+		"exhibitor": {
+			"name": "キャスマーケット主催用",
+			"tsoURL": "https://virtualcast.jp/users/113542",
+			"twitterURL": "https://twitter.com/virtualcast_fes",
+			"icon": "icons/virtualcast_fes.png"
+		}
+	},
+	{
+		"id": "0",
+		"classId": "theme2",
+		"badge": null,
+		"exhibitor": {
+			"name": "キャスマーケット主催用",
+			"tsoURL": "https://virtualcast.jp/users/113542",
+			"twitterURL": "https://twitter.com/virtualcast_fes",
+			"icon": "icons/virtualcast_fes.png"
+		}
+	},
+	{
+		"id": "0",
+		"classId": "simple",
+		"badge": "gold",
+		"exhibitor": {
+			"name": "キャスマーケット主催用　文字数テスト文字数テスト文字数テスト",
+			"tsoURL": "https://virtualcast.jp/users/113542",
+			"twitterURL": "https://twitter.com/virtualcast_fes",
+			"icon": "icons/virtualcast_fes.png"
+		},
+		"item": {
+			"title": "キャスポータル　文字数テスト文字数テスト文字数テスト",
+			"url": "https://virtualcast.jp/products/2fc5698185b826b3c43fd371df0aea3b85a348383022fb120386c4010011295c"
+		}
+	},
+	{
+		"id": "0",
+		"classId": "simple",
+		"badge": "silver",
+		"exhibitor": {
+			"name": "キャスマーケット主催用",
+			"tsoURL": "https://virtualcast.jp/users/113542",
+			"twitterURL": "https://twitter.com/virtualcast_fes",
+			"icon": "icons/virtualcast_fes.png"
+		},
+		"item": {
+			"title": "キャスポータル",
+			"url": "https://virtualcast.jp/products/2fc5698185b826b3c43fd371df0aea3b85a348383022fb120386c4010011295c"
+		}
+	},
+	{
+		"id": "0",
+		"classId": "simple",
+		"badge": null,
+		"exhibitor": {
+			"name": "キャスマーケット主催用",
+			"tsoURL": "https://virtualcast.jp/users/113542",
+			"twitterURL": "https://twitter.com/virtualcast_fes",
+			"icon": "icons/virtualcast_fes.png"
+		},
+		"item": {
+			"title": "キャスポータル",
+			"url": "https://virtualcast.jp/products/2fc5698185b826b3c43fd371df0aea3b85a348383022fb120386c4010011295c"
+		}
+	},
+	{
+		"id": "0",
+		"classId": "poster",
+		"poster": "../../0/images/casmarket-0-poster.png",
+		"space": "1"
+	},
+	{
+		"id": "0",
+		"classId": "poster",
+		"poster": "../../0/images/casmarket-0-poster-wide.png",
+		"space": "2"
+	},
+	{
+		"id": "0",
+		"classId": "poster",
+		"poster": "../../0/images/casmarket-0-poster.png",
+		"space": "1"
+	},
+	{
+		"id": "0",
+		"classId": "poster",
+		"poster": "../../../logo.png",
+		"space": "1"
+	}
+]
