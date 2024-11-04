@@ -3,7 +3,7 @@ on:
 
 jobs:
     fetch-catalogue:
-        timeout-minutes: 10
+        timeout-minutes: 20
         permissions:
             contents: write
         runs-on: ubuntu-22.04
