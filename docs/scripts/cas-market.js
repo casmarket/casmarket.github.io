@@ -242,10 +242,12 @@ customElements.define('cas-market', class extends LitElement {
 							<dt>${this.params.theme2}</dt>
 							<dd>${this.params.theme2Summary}</dd>
 						</div>
-						<div>
-							<dt>${this.params.theme3}</dt>
-							<dd>${this.params.theme3Summary}</dd>
-						</div>
+						${ this.params.theme3 ? 
+						    <div>`
+						            <dt>${this.params.theme3}</dt>
+						            <dd>${this.params.theme3Summary}</dd>
+						         </div>`
+						    : null }
 					</dl>
 				</td>
 				<td>開催前1週間で、ルームマネージャーの管理のもと、自由にVCIを設営します。</td>
@@ -420,7 +422,12 @@ customElements.define('cas-market', class extends LitElement {
 				<td class="theme"><ol>
 					<li>${this.params.theme1}</li>
 					<li>${this.params.theme2}</li>
-	 				<li>${this.params.theme3}</li>
+					 ${ this.params.theme3 ? 
+				    `<div>
+		 				<li>${this.params.theme3}</li>
+				         </div>` 
+				    : null }
+
 				</ol></td>
 				<td></td>
 			</tr>
