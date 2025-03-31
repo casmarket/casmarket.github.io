@@ -1,0 +1,6 @@
+:host {
+	--color: black;
+	--visited: darkblue;
+	--hover: darkgray;
+	--header-color: lightskyblue;
+}
