@@ -165,7 +165,7 @@ customElements.define('item-list', class extends LitElement {
 			[ 'simple', 'シンプル会場', null ],
 			[ 'theme1', 'テーマ会場', '1' ],
 			[ 'theme2', 'テーマ会場', '2' ],
-			[ 'theme3', 'テーマ会場', '3' ],
+			[ 'theme3', 'テーマ会場', '3' ], 
 			[ 'poster', '広告', null ],
 		].filter(classInfo => this.catalogue.some(item => item.classId === classInfo[0]))
 			.map(([ classId, heading, subHeading ]) => html`<section>
