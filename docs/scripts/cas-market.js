@@ -243,7 +243,7 @@ customElements.define('cas-market', class extends LitElement {
 							<dd>${this.params.theme2Summary}</dd>
 						</div>
 						${ this.params.theme3 ? 
-						    <div>`
+						    `<div>
 						            <dt>${this.params.theme3}</dt>
 						            <dd>${this.params.theme3Summary}</dd>
 						         </div>`
