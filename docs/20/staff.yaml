@@ -19,9 +19,9 @@
 - roles:
     - ルームマネージャー
   managedRoom: テーマ会場 1.「昼」
-  name: ユエム
-  url: https://twitter.com/i/user/2236766504
-  icon: staff-JohnnyUM.jpg
+  name: ふーげらー
+  url: https://twitter.com/i/user/106103692
+  icon: staff-fugera.jpg
 - roles:
     - ルームマネージャー
   managedRoom: テーマ会場 2.「夜」
@@ -31,9 +31,9 @@
 - roles:
     - ルームマネージャー
   managedRoom: 特別テーマ会場
-  name: ふーげらー
-  url: https://twitter.com/i/user/106103692
-  icon: staff-fugera.jpg
+  name: ユエム
+  url: https://twitter.com/i/user/2236766504
+  icon: staff-JohnnyUM.jpg
 - roles:
     - Webサイト雛形制作
   name: 100の人
