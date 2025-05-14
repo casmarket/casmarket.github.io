@@ -284,7 +284,7 @@ customElements.define('cas-market', class extends LitElement {
 	<section>
 		<h3 class="hidden">Discord</h3>
 		<p>出展者Discordにて、問い合わせを行ったり、他出展者との交流ができます。</p>
-		<p><a rel="external" target="_blank" href="https://discord.gg/xUXadMJG7z">https://discord.gg/xUXadMJG7z</a></p>
+  		<p>出展期間外のため、招待URLは非公開にしています。</p>
 	</section>
 
 	<section>
